@@ -14,7 +14,13 @@ from typing import Generator
 
 import requests
 
-from config import WORKDAY_COMPANIES, KEYWORDS
+from config import (
+    WORKDAY_COMPANIES,
+    KEYWORDS,
+    ENTRY_LEVEL_TITLE_KEYWORDS,
+    EXCLUDE_TITLE_KEYWORDS,
+    EXCLUDE_RETAIL_KEYWORDS,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -38,13 +44,32 @@ def _build_workday_url(company: dict) -> str:
     )
 
 
-def _keyword_matches(job: dict) -> bool:
-    """Return True if no keyword filter set, or if title/location matches any keyword."""
-    if not KEYWORDS:
-        return True
+def _passes_filters(job: dict) -> bool:
+    """
+    Return True only if the job passes all three filters:
+      1. Title contains an entry-level/internship keyword
+      2. Title does NOT contain a seniority keyword (senior, manager, etc.)
+      3. Title does NOT contain a retail/store keyword
+    """
     title = (job.get("title") or "").lower()
-    location = (job.get("location") or "").lower()
-    return any(kw.lower() in title or kw.lower() in location for kw in KEYWORDS)
+
+    # Must match at least one entry-level keyword
+    if not any(kw in title for kw in ENTRY_LEVEL_TITLE_KEYWORDS):
+        return False
+
+    # Must not match any seniority exclusion
+    if any(kw in title for kw in EXCLUDE_TITLE_KEYWORDS):
+        return False
+
+    # Must not match any retail/store exclusion
+    if any(kw in title for kw in EXCLUDE_RETAIL_KEYWORDS):
+        return False
+
+    # Optional: extra keyword filter from env var
+    if KEYWORDS:
+        return any(kw.lower() in title for kw in KEYWORDS)
+
+    return True
 
 
 def scrape_workday_company(company: dict, offset: int = 0, limit: int = 20) -> list[dict]:
@@ -96,7 +121,7 @@ def scrape_workday_company(company: dict, offset: int = 0, limit: int = 20) -> l
             "source": "workday_scrape",
             "posted_on": rj.get("postedOn", ""),
         }
-        if _keyword_matches(normalized):
+        if _passes_filters(normalized):
             jobs.append(normalized)
 
     return jobs
