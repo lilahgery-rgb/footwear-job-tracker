@@ -1,13 +1,16 @@
 name: Footwear Job Tracker
 
 on:
-  # Run every day at 8 AM and 5 PM UTC (adjust to your timezone)
   schedule:
     - cron: "0 8 * * *"   # 8 AM UTC daily
     - cron: "0 17 * * *"  # 5 PM UTC daily
-
-  # Allow manual triggering from the GitHub UI
   workflow_dispatch:
+
+# Needed to push dashboard to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   track-jobs:
@@ -17,8 +20,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Cache the SQLite database between runs so deduplication persists.
-      # Without this, you'd get re-notified about the same jobs after each run.
       - name: Restore job database cache
         uses: actions/cache@v4
         with:
@@ -26,6 +27,15 @@ jobs:
           key: jobs-db-${{ runner.os }}
           restore-keys: |
             jobs-db-
+
+      # Restore the full jobs log so the dashboard keeps growing over time
+      - name: Restore jobs log cache
+        uses: actions/cache@v4
+        with:
+          path: all_jobs.json
+          key: jobs-log-${{ runner.os }}
+          restore-keys: |
+            jobs-log-
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,13 +49,28 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           JSEARCH_API_KEY: ${{ secrets.JSEARCH_API_KEY }}
-          # Optional: filter to specific roles, e.g. "product manager,design"
           JOB_KEYWORDS: ${{ secrets.JOB_KEYWORDS }}
         run: python main.py
 
-      # Save the updated database back to cache
+      # Save updated caches
       - name: Save job database cache
         uses: actions/cache@v4
         with:
           path: jobs_seen.db
           key: jobs-db-${{ runner.os }}
+
+      - name: Save jobs log cache
+        uses: actions/cache@v4
+        with:
+          path: all_jobs.json
+          key: jobs-log-${{ runner.os }}
+
+      # Deploy dashboard.html to GitHub Pages
+      - name: Deploy dashboard to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          include_files: dashboard.html
+          destination_dir: .
