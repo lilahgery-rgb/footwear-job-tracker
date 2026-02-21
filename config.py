@@ -17,6 +17,10 @@ JSEARCH_API_KEY = os.environ.get("JSEARCH_API_KEY", "")
 # Only notify for jobs posted within this many days
 MAX_AGE_DAYS = 1
 
+# Optional extra keyword filter (set via JOB_KEYWORDS environment variable)
+# Leave empty to get all entry-level jobs. Example: "marketing,design,finance"
+KEYWORDS = os.environ.get("JOB_KEYWORDS", "").split(",") if os.environ.get("JOB_KEYWORDS") else []
+
 # ── Entry-Level Title Keywords ────────────────────────────────────────────────
 # A job MUST contain at least one of these in its title to be included.
 # This ensures we only surface early career / internship roles.
