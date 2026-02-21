@@ -16,13 +16,18 @@ Optional:
                           e.g. "product manager,marketing,design"
 """
 
+import json
 import logging
 import sys
+from pathlib import Path
 
 from db import init_db, is_new_job, mark_job_seen
 from scraper import scrape_all_companies
 from api_fetcher import fetch_all_api_jobs
 from notifier import send_jobs_to_slack, send_heartbeat
+from generate_dashboard import load_jobs, generate
+
+JOBS_LOG = Path(__file__).parent / "all_jobs.json"
 
 # ── Logging setup ──────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -32,6 +37,20 @@ logging.basicConfig(
     handlers=[logging.StreamHandler(sys.stdout)],
 )
 logger = logging.getLogger(__name__)
+
+
+def log_jobs_to_file(new_jobs: list[dict]):
+    """Append new jobs to the persistent JSON log and regenerate the dashboard."""
+    existing = load_jobs()
+    existing_ids = {j["id"] for j in existing}
+    to_add = [j for j in new_jobs if j["id"] not in existing_ids]
+    if to_add:
+        updated = existing + to_add
+        with open(JOBS_LOG, "w") as f:
+            json.dump(updated, f, indent=2, default=str)
+        logger.info("Logged %d new job(s) to all_jobs.json", len(to_add))
+    generate(load_jobs())
+    logger.info("Dashboard regenerated.")
 
 
 def run():
@@ -63,8 +82,12 @@ def run():
             mark_job_seen(job)
             logger.info("  NEW  [%s] %s @ %s", job["source"], job["title"], job["company"])
 
-    # ── 3. Send Slack notifications ────────────────────────────────────────────
-    logger.info("Phase 3: Sending notifications…")
+    # ── 3. Log to file + regenerate dashboard ──────────────────────────────────
+    logger.info("Phase 3: Updating job log and dashboard…")
+    log_jobs_to_file(new_jobs)
+
+    # ── 4. Send Slack notifications ────────────────────────────────────────────
+    logger.info("Phase 4: Sending notifications…")
     logger.info("Found %d new job(s) out of %d checked.", len(new_jobs), total_checked)
 
     if new_jobs:
