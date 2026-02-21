@@ -14,7 +14,15 @@ from typing import Generator
 
 import requests
 
-from config import JSEARCH_API_KEY, JSEARCH_QUERIES, MAX_AGE_DAYS, KEYWORDS
+from config import (
+    JSEARCH_API_KEY,
+    JSEARCH_QUERIES,
+    MAX_AGE_DAYS,
+    KEYWORDS,
+    ENTRY_LEVEL_TITLE_KEYWORDS,
+    EXCLUDE_TITLE_KEYWORDS,
+    EXCLUDE_RETAIL_KEYWORDS,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -37,13 +45,25 @@ def _is_recent(date_posted: str | None) -> bool:
         return True
 
 
-def _keyword_matches(job: dict) -> bool:
-    """Return True if no keyword filter is set, or if job matches."""
-    if not KEYWORDS:
-        return True
+def _passes_filters(job: dict) -> bool:
+    """
+    Return True only if the job passes all three filters:
+      1. Title contains an entry-level/internship keyword
+      2. Title does NOT contain a seniority keyword
+      3. Title does NOT contain a retail/store keyword
+    """
     title = (job.get("job_title") or "").lower()
-    description = (job.get("job_description") or "").lower()
-    return any(kw.lower() in title or kw.lower() in description for kw in KEYWORDS)
+
+    if not any(kw in title for kw in ENTRY_LEVEL_TITLE_KEYWORDS):
+        return False
+    if any(kw in title for kw in EXCLUDE_TITLE_KEYWORDS):
+        return False
+    if any(kw in title for kw in EXCLUDE_RETAIL_KEYWORDS):
+        return False
+    if KEYWORDS:
+        return any(kw.lower() in title for kw in KEYWORDS)
+
+    return True
 
 
 def fetch_jsearch_query(query: str, num_pages: int = 1) -> list[dict]:
@@ -82,7 +102,7 @@ def fetch_jsearch_query(query: str, num_pages: int = 1) -> list[dict]:
         for rj in raw_jobs:
             if not _is_recent(rj.get("job_posted_at_datetime_utc")):
                 continue
-            if not _keyword_matches(rj):
+            if not _passes_filters(rj):
                 continue
 
             normalized = {
