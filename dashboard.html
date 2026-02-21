@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footwear & Sports Job Tracker</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; color: #1d1d1f; }
+
+  header {
+    background: #1d1d1f;
+    color: white;
+    padding: 32px 40px;
+  }
+  header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  header p { margin-top: 6px; color: #a1a1a6; font-size: 14px; }
+
+  .stats {
+    display: flex;
+    gap: 16px;
+    padding: 24px 40px;
+    background: white;
+    border-bottom: 1px solid #e5e5e7;
+    flex-wrap: wrap;
+  }
+  .stat {
+    background: #f5f5f7;
+    border-radius: 10px;
+    padding: 14px 22px;
+    min-width: 140px;
+  }
+  .stat-value { font-size: 26px; font-weight: 700; color: #1d1d1f; }
+  .stat-label { font-size: 12px; color: #6e6e73; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .controls {
+    padding: 20px 40px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #e5e5e7;
+  }
+  input, select {
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    outline: none;
+    background: #f5f5f7;
+    color: #1d1d1f;
+  }
+  input { width: 260px; }
+  input:focus, select:focus { border-color: #0071e3; background: white; }
+  .result-count { margin-left: auto; font-size: 13px; color: #6e6e73; }
+
+  .table-wrap { padding: 24px 40px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  th { background: #f5f5f7; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #6e6e73; padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e5e7; }
+  td { padding: 13px 16px; font-size: 14px; border-bottom: 1px solid #f0f0f2; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+  td a { color: #0071e3; text-decoration: none; font-weight: 500; }
+  td a:hover { text-decoration: underline; }
+
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-api { background: #e8f4fd; color: #0071e3; }
+  .badge-workday { background: #e9fbe9; color: #1a7f37; }
+
+  .empty { text-align: center; padding: 60px; color: #6e6e73; }
+
+  footer { text-align: center; padding: 24px; font-size: 12px; color: #a1a1a6; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>👟 Footwear & Sports Job Tracker</h1>
+  <p>Entry-level & internship roles • Updated February 21, 2026 at 05:21 AM UTC</p>
+</header>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value">9</div>
+    <div class="stat-label">Total Jobs</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">8</div>
+    <div class="stat-label">Companies</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" id="filtered-count">9</div>
+    <div class="stat-label">Showing</div>
+  </div>
+</div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Search by title, company, location…" oninput="filterTable()">
+  <select id="company-filter" onchange="filterTable()">
+    <option value="">All Companies</option>
+    <option value="Coca Cola">Coca Cola</option><option value="Coca-Cola Consolidated">Coca-Cola Consolidated</option><option value="Deckers Brands">Deckers Brands</option><option value="Delta Air Lines">Delta Air Lines</option><option value="Mars">Mars</option><option value="NBC Universal">NBC Universal</option><option value="The Clorox Company">The Clorox Company</option><option value="United Airlines">United Airlines</option>
+  </select>
+  <select id="source-filter" onchange="filterTable()">
+    <option value="">All Sources</option>
+    <option value="Career Page">Career Page</option>
+    <option value="Job Board">Job Board</option>
+  </select>
+</div>
+
+<div class="table-wrap">
+  <table id="jobs-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Posted</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+      
+        <tr>
+            <td><a href="https://us.trabajo.org/job-2611-b38c131a109150acea826f95ae529a7a?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">R&D Intern</a></td>
+            <td>The Clorox Company</td>
+            <td>Willowbrook, Illinois, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://us.bebee.com/job/efe76ce1625ddfc91226e9f7d131c769?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Summer 2026  Wrigley Supply Chain Internship Hackettstown, NJ</a></td>
+            <td>Mars</td>
+            <td>Hackettstown, New Jersey, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.linkedin.com/jobs/view/intern-applied-learning-program-laboratory-science-intern-at-coca-cola-consolidated-4375820574?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Intern Applied Learning Program - Laboratory Science Intern</a></td>
+            <td>Coca-Cola Consolidated</td>
+            <td>Charlotte, North Carolina, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://employeverse.emplevista.com/joblistings/pd6ivbc8iu51-4fb898-ff4339b17b0968fceda64d972e?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Entry-Level Facilities Technician</a></td>
+            <td>Coca Cola</td>
+            <td>Waterloo, Wisconsin, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.linkedin.com/jobs/view/graduate-intern-optimization-summer-2026-at-delta-air-lines-4304828976?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Graduate Intern - Optimization (Summer 2026)</a></td>
+            <td>Delta Air Lines</td>
+            <td>Atlanta, Georgia, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://careers.united.com/us/en/job/OPB00000750/Intern-Network-Operations-Station-Operations-Summer-2026?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Intern - Network Operations/Station Operations (Summer 2026)</a></td>
+            <td>United Airlines</td>
+            <td>Arlington Heights, Illinois, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://www.snagajob.com/jobs/1219320971?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">NBC10 Telemundo62 Brand & Strategic Marketing Intern, Philadelphia - Summer 2026 - Full-time</a></td>
+            <td>NBC Universal</td>
+            <td>Philadelphia, Pennsylvania, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://deckers.wd5.myworkdayjobs.com/en-US/deckers/job/Portland-Oregon/Product-Testing-Analyst-II---HOKA_19251" target="_blank" rel="noopener">Product Testing Analyst II - HOKA</a></td>
+            <td>Deckers Brands</td>
+            <td>Portland, Oregon</td>
+            <td>Posted Yes</td>
+            <td><span class="badge badge-workday">Career Page</span></td>
+        </tr>
+        <tr>
+            <td><a href="https://deckers.wd5.myworkdayjobs.com/en-US/deckers/job/Portland-Oregon/Associate--Global-Merchandising--Hoka-Performance-Footwear_20036" target="_blank" rel="noopener">Associate, Global Merchandising- Hoka Performance Footwear</a></td>
+            <td>Deckers Brands</td>
+            <td>Portland, Oregon</td>
+            <td>Posted Yes</td>
+            <td><span class="badge badge-workday">Career Page</span></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>Auto-generated by Footwear Job Tracker • Filters: Entry-level & Internships only • No retail/store roles</footer>
+
+<script>
+  function filterTable() {
+    const search = document.getElementById('search').value.toLowerCase();
+    const company = document.getElementById('company-filter').value.toLowerCase();
+    const source = document.getElementById('source-filter').value.toLowerCase();
+    const rows = document.querySelectorAll('#table-body tr');
+    let visible = 0;
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      const matchSearch = !search || text.includes(search);
+      const matchCompany = !company || text.includes(company);
+      const matchSource = !source || text.includes(source);
+      const show = matchSearch && matchCompany && matchSource;
+      row.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('filtered-count').textContent = visible;
+  }
+</script>
+
+</body>
+</html>
