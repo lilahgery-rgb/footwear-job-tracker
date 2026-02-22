@@ -6,7 +6,6 @@ on:
     - cron: "0 17 * * *"  # 5 PM UTC daily
   workflow_dispatch:
 
-# Needed to push dashboard to GitHub Pages
 permissions:
   contents: write
   pages: write
@@ -28,7 +27,6 @@ jobs:
           restore-keys: |
             jobs-db-
 
-      # Restore the full jobs log so the dashboard keeps growing over time
       - name: Restore jobs log cache
         uses: actions/cache@v4
         with:
@@ -45,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Check for expired job listings
+        run: python check_expired.py
+
       - name: Run job tracker
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -52,7 +53,6 @@ jobs:
           JOB_KEYWORDS: ${{ secrets.JOB_KEYWORDS }}
         run: python main.py
 
-      # Save updated caches
       - name: Save job database cache
         uses: actions/cache@v4
         with:
@@ -65,7 +65,6 @@ jobs:
           path: all_jobs.json
           key: jobs-log-${{ runner.os }}
 
-      # Deploy dashboard.html to GitHub Pages
       - name: Deploy dashboard to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
