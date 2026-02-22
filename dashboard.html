@@ -53,7 +53,18 @@
   }
   input { width: 260px; }
   input:focus, select:focus { border-color: #0071e3; background: white; }
-  .result-count { margin-left: auto; font-size: 13px; color: #6e6e73; }
+
+  .toggle-applied {
+    margin-left: auto;
+    background: none;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #6e6e73;
+  }
+  .toggle-applied:hover { border-color: #0071e3; color: #0071e3; }
 
   .table-wrap { padding: 24px 40px; overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
@@ -68,8 +79,24 @@
   .badge-api { background: #e8f4fd; color: #0071e3; }
   .badge-workday { background: #e9fbe9; color: #1a7f37; }
 
-  .empty { text-align: center; padding: 60px; color: #6e6e73; }
+  .apply-btn {
+    background: none;
+    border: 1px solid #d2d2d7;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #6e6e73;
+    white-space: nowrap;
+  }
+  .apply-btn:hover { background: #e9fbe9; border-color: #1a7f37; color: #1a7f37; }
 
+  tr.applied-row { opacity: 0.4; }
+  tr.applied-row .apply-btn { background: #e9fbe9; border-color: #1a7f37; color: #1a7f37; }
+  tr.applied-row { display: none; }
+  body.show-applied tr.applied-row { display: table-row; }
+
+  .empty { text-align: center; padding: 60px; color: #6e6e73; }
   footer { text-align: center; padding: 24px; font-size: 12px; color: #a1a1a6; }
 </style>
 </head>
@@ -77,7 +104,7 @@
 
 <header>
   <h1>👟 Footwear & Sports Job Tracker</h1>
-  <p>Entry-level & internship roles • Updated February 22, 2026 at 08:08 PM UTC</p>
+  <p>Entry-level & internship roles • Updated February 22, 2026 at 09:39 PM UTC</p>
 </header>
 
 <div class="stats">
@@ -93,6 +120,10 @@
     <div class="stat-value" id="filtered-count">9</div>
     <div class="stat-label">Showing</div>
   </div>
+  <div class="stat">
+    <div class="stat-value" id="applied-count">0</div>
+    <div class="stat-label">Applied</div>
+  </div>
 </div>
 
 <div class="controls">
@@ -106,6 +137,7 @@
     <option value="Career Page">Career Page</option>
     <option value="Job Board">Job Board</option>
   </select>
+  <button class="toggle-applied" onclick="toggleApplied()" id="toggle-btn">👁 Show Applied</button>
 </div>
 
 <div class="table-wrap">
@@ -117,97 +149,189 @@
         <th>Location</th>
         <th>Posted</th>
         <th>Source</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody id="table-body">
       
-        <tr>
+        <tr data-id="jsearch--WDhd20_1PJpPkhxAAAAAA==">
             <td><a href="https://us.trabajo.org/job-2611-b38c131a109150acea826f95ae529a7a?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">R&D Intern</a></td>
             <td>The Clorox Company</td>
             <td>Willowbrook, Illinois, US</td>
             <td>2026-02-20</td>
             <td><span class="badge badge-api">Job Board</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('jsearch--WDhd20_1PJpPkhxAAAAAA==', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="jsearch-HdCQm0-OsWm3fgABAAAAAA==">
             <td><a href="https://us.bebee.com/job/efe76ce1625ddfc91226e9f7d131c769?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Summer 2026  Wrigley Supply Chain Internship Hackettstown, NJ</a></td>
             <td>Mars</td>
             <td>Hackettstown, New Jersey, US</td>
             <td>2026-02-21</td>
             <td><span class="badge badge-api">Job Board</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('jsearch-HdCQm0-OsWm3fgABAAAAAA==', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="jsearch-UGLVmZkFO8yR0s1nAAAAAA==">
             <td><a href="https://www.linkedin.com/jobs/view/intern-applied-learning-program-laboratory-science-intern-at-coca-cola-consolidated-4375820574?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Intern Applied Learning Program - Laboratory Science Intern</a></td>
             <td>Coca-Cola Consolidated</td>
             <td>Charlotte, North Carolina, US</td>
             <td>2026-02-20</td>
             <td><span class="badge badge-api">Job Board</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('jsearch-UGLVmZkFO8yR0s1nAAAAAA==', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="jsearch-XiyxPd3vNw_qmhHDAAAAAA==">
             <td><a href="https://employeverse.emplevista.com/joblistings/pd6ivbc8iu51-4fb898-ff4339b17b0968fceda64d972e?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Entry-Level Facilities Technician</a></td>
             <td>Coca Cola</td>
             <td>Waterloo, Wisconsin, US</td>
             <td>2026-02-20</td>
             <td><span class="badge badge-api">Job Board</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('jsearch-XiyxPd3vNw_qmhHDAAAAAA==', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="jsearch-eqNivkK2cR8KmAymAAAAAA==">
             <td><a href="https://www.linkedin.com/jobs/view/graduate-intern-optimization-summer-2026-at-delta-air-lines-4304828976?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Graduate Intern - Optimization (Summer 2026)</a></td>
             <td>Delta Air Lines</td>
             <td>Atlanta, Georgia, US</td>
             <td>2026-02-20</td>
             <td><span class="badge badge-api">Job Board</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('jsearch-eqNivkK2cR8KmAymAAAAAA==', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="jsearch-5M_RlBXWbGl64LURAAAAAA==">
             <td><a href="https://careers.united.com/us/en/job/OPB00000750/Intern-Network-Operations-Station-Operations-Summer-2026?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Intern - Network Operations/Station Operations (Summer 2026)</a></td>
             <td>United Airlines</td>
             <td>Arlington Heights, Illinois, US</td>
             <td>2026-02-21</td>
             <td><span class="badge badge-api">Job Board</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('jsearch-5M_RlBXWbGl64LURAAAAAA==', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="jsearch-tK_IcOaMUDLP4GpBAAAAAA==">
             <td><a href="https://www.snagajob.com/jobs/1219320971?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">NBC10 Telemundo62 Brand & Strategic Marketing Intern, Philadelphia - Summer 2026 - Full-time</a></td>
             <td>NBC Universal</td>
             <td>Philadelphia, Pennsylvania, US</td>
             <td>2026-02-20</td>
             <td><span class="badge badge-api">Job Board</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('jsearch-tK_IcOaMUDLP4GpBAAAAAA==', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="workday-deckers-/job/Portland-Oregon/Product-Testing-Analyst-II---HOKA_19251">
             <td><a href="https://deckers.wd5.myworkdayjobs.com/en-US/deckers/job/Portland-Oregon/Product-Testing-Analyst-II---HOKA_19251" target="_blank" rel="noopener">Product Testing Analyst II - HOKA</a></td>
             <td>Deckers Brands</td>
             <td>Portland, Oregon</td>
             <td>Posted Yes</td>
             <td><span class="badge badge-workday">Career Page</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('workday-deckers-/job/Portland-Oregon/Product-Testing-Analyst-II---HOKA_19251', this)">✓ Applied</button>
+            </td>
         </tr>
-        <tr>
+        <tr data-id="workday-deckers-/job/Portland-Oregon/Associate--Global-Merchandising--Hoka-Performance-Footwear_20036">
             <td><a href="https://deckers.wd5.myworkdayjobs.com/en-US/deckers/job/Portland-Oregon/Associate--Global-Merchandising--Hoka-Performance-Footwear_20036" target="_blank" rel="noopener">Associate, Global Merchandising- Hoka Performance Footwear</a></td>
             <td>Deckers Brands</td>
             <td>Portland, Oregon</td>
             <td>Posted Yes</td>
             <td><span class="badge badge-workday">Career Page</span></td>
+            <td>
+                <button class="apply-btn" onclick="markApplied('workday-deckers-/job/Portland-Oregon/Associate--Global-Merchandising--Hoka-Performance-Footwear_20036', this)">✓ Applied</button>
+            </td>
         </tr>
     </tbody>
   </table>
 </div>
 
-<footer>Auto-generated by Footwear Job Tracker • Filters: Entry-level & Internships only • No retail/store roles</footer>
+<footer>Auto-generated by Footwear Job Tracker • Entry-level & Internships only • No retail/store roles</footer>
 
 <script>
+  // Load applied jobs from browser storage
+  function getApplied() {
+    try { return JSON.parse(localStorage.getItem('appliedJobs') || '[]'); }
+    catch { return []; }
+  }
+
+  function saveApplied(ids) {
+    localStorage.setItem('appliedJobs', JSON.stringify(ids));
+  }
+
+  function markApplied(jobId, btn) {
+    const applied = getApplied();
+    const row = btn.closest('tr');
+
+    if (applied.includes(jobId)) {
+      // Un-apply
+      const updated = applied.filter(id => id !== jobId);
+      saveApplied(updated);
+      row.classList.remove('applied-row');
+      btn.textContent = '✓ Applied';
+    } else {
+      // Mark applied
+      applied.push(jobId);
+      saveApplied(applied);
+      row.classList.add('applied-row');
+      btn.textContent = '✓ Applied';
+    }
+    updateCounts();
+  }
+
+  function toggleApplied() {
+    document.body.classList.toggle('show-applied');
+    const btn = document.getElementById('toggle-btn');
+    const showing = document.body.classList.contains('show-applied');
+    btn.textContent = showing ? '🙈 Hide Applied' : '👁 Show Applied';
+    updateCounts();
+  }
+
+  function updateCounts() {
+    const applied = getApplied();
+    document.getElementById('applied-count').textContent = applied.length;
+
+    const rows = document.querySelectorAll('#table-body tr');
+    let visible = 0;
+    rows.forEach(row => {
+      if (row.style.display !== 'none' && !row.classList.contains('applied-row')) visible++;
+      // Also count if show-applied is on
+      if (document.body.classList.contains('show-applied') && row.style.display !== 'none') visible++;
+    });
+    document.getElementById('filtered-count').textContent =
+      document.querySelectorAll('#table-body tr:not([style*="none"])').length;
+  }
+
   function filterTable() {
     const search = document.getElementById('search').value.toLowerCase();
     const company = document.getElementById('company-filter').value.toLowerCase();
     const source = document.getElementById('source-filter').value.toLowerCase();
     const rows = document.querySelectorAll('#table-body tr');
-    let visible = 0;
     rows.forEach(row => {
       const text = row.textContent.toLowerCase();
       const matchSearch = !search || text.includes(search);
       const matchCompany = !company || text.includes(company);
       const matchSource = !source || text.includes(source);
-      const show = matchSearch && matchCompany && matchSource;
-      row.style.display = show ? '' : 'none';
-      if (show) visible++;
+      row.style.display = (matchSearch && matchCompany && matchSource) ? '' : 'none';
     });
-    document.getElementById('filtered-count').textContent = visible;
+    updateCounts();
   }
+
+  // On page load: restore applied state
+  window.addEventListener('DOMContentLoaded', () => {
+    const applied = getApplied();
+    applied.forEach(id => {
+      const row = document.querySelector(`tr[data-id="${id}"]`);
+      if (row) {
+        row.classList.add('applied-row');
+        const btn = row.querySelector('.apply-btn');
+        if (btn) btn.textContent = '✓ Applied';
+      }
+    });
+    updateCounts();
+  });
 </script>
 
 </body>
