@@ -127,7 +127,7 @@ def scrape_workday_company(company: dict, offset: int = 0, limit: int = 20) -> l
     return jobs
 
 
-def scrape_all_companies(max_per_company: int = 50) -> Generator[dict, None, None]:
+def scrape_all_companies(max_per_company: int = 200) -> Generator[dict, None, None]:
     """
     Scrape all configured Workday companies and yield normalized job dicts.
     Paginates up to max_per_company results per company.
