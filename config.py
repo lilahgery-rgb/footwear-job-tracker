@@ -15,7 +15,7 @@ JSEARCH_API_KEY = os.environ.get("JSEARCH_API_KEY", "")
 
 # ── Job filtering ─────────────────────────────────────────────────────────────
 # Only notify for jobs posted within this many days
-MAX_AGE_DAYS = 1
+MAX_AGE_DAYS = 30
 
 # Optional extra keyword filter (set via JOB_KEYWORDS environment variable)
 # Leave empty to get all entry-level jobs. Example: "marketing,design,finance"
