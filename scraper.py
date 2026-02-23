@@ -1,31 +1,29 @@
 """
-scraper.py — Career page scraper using correct Workday URLs + direct site scrapers.
+scraper.py — TeamWork Online scraper for sports industry jobs.
 
-Key fixes:
-- Workday career site name is "External" not the company name
-- Nike, Adidas, PepsiCo use custom career sites — scraped directly
-- JSearch used as fallback for companies where both methods fail
+Workday API is blocked so all company scraping is handled by JSearch
+in api_fetcher.py. This module scrapes TeamWork Online which is the
+dedicated job board for sports business roles — leagues, teams, agencies.
+It's free, no API key needed, and covers roles that don't show on LinkedIn.
 """
 
 import logging
 from typing import Generator
+
 import requests
 from bs4 import BeautifulSoup
 
 from config import (
-    WORKDAY_COMPANIES,
-    JSEARCH_API_KEY,
     ENTRY_LEVEL_TITLE_KEYWORDS,
     EXCLUDE_TITLE_KEYWORDS,
     EXCLUDE_RETAIL_KEYWORDS,
     KEYWORDS,
+    WORKDAY_COMPANIES,
 )
 
 logger = logging.getLogger(__name__)
 
 HEADERS = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -47,169 +45,86 @@ def _passes_filters(title: str) -> bool:
     return True
 
 
-# ── Workday scraper (fixed URL format) ────────────────────────────────────────
-
-def scrape_workday(company: dict, offset: int = 0, limit: int = 20) -> list[dict]:
+def scrape_teamwork_online(max_pages: int = 5) -> list[dict]:
     """
-    Scrape a Workday career site using the correct URL format.
-    The career_site field defaults to "External" which is the most common name.
-    """
-    subdomain = company["subdomain"]
-    tenant = company["tenant"]
-    career_site = company.get("career_site", "External")
-
-    url = f"https://{subdomain}.myworkdayjobs.com/wday/cxs/{tenant}/{career_site}/jobs"
-    payload = {"appliedFacets": {}, "limit": limit, "offset": offset, "searchText": ""}
-
-    try:
-        resp = requests.post(url, json=payload, headers=HEADERS, timeout=15)
-        logger.info("    %s → HTTP %s (%s)", company["name"], resp.status_code, career_site)
-        if resp.status_code in (404, 422):
-            return []
-        resp.raise_for_status()
-        data = resp.json()
-    except requests.RequestException as exc:
-        logger.warning("    FAILED %s: %s", company["name"], exc)
-        return []
-
-    raw_jobs = data.get("jobPostings", [])
-    logger.info("    %s → %d jobs returned", company["name"], len(raw_jobs))
-
-    jobs = []
-    for rj in raw_jobs:
-        external_path = rj.get("externalPath", "")
-        title = rj.get("title", "Unknown Title")
-        if not _passes_filters(title):
-            continue
-        apply_url = f"https://{subdomain}.myworkdayjobs.com/en-US/{career_site}{external_path}"
-        jobs.append({
-            "id": f"workday-{tenant}-{external_path}",
-            "title": title,
-            "company": company["name"],
-            "location": rj.get("locationsText", "") or "",
-            "url": apply_url,
-            "source": "workday_scrape",
-            "posted_on": rj.get("postedOn", ""),
-        })
-    return jobs
-
-
-# ── Nike direct scraper ────────────────────────────────────────────────────────
-
-def scrape_nike() -> list[dict]:
-    """
-    Scrape Nike's career site directly filtering for Corporate + Internship roles.
-    Nike uses a custom career site at careers.nike.com, not directly Workday.
+    Scrape TeamWork Online for entry-level sports business jobs.
+    Covers leagues, teams, agencies, and sports media companies.
+    URL: https://www.teamworkonline.com/jobs-in-sports
     """
     jobs = []
-    # Nike has a category filter: cf_job_category=Corporate and a type filter for Internships
-    for page in range(1, 6):  # Up to 5 pages
-        url = f"https://careers.nike.com/api/jobs?filter[cf_job_category][0]=Corporate&page={page}&count=20"
+    seen_ids = set()
+
+    for page in range(1, max_pages + 1):
+        url = f"https://www.teamworkonline.com/jobs-in-sports?page={page}"
         try:
-            resp = requests.get(url, headers={
-                "User-Agent": HEADERS["User-Agent"],
-                "Accept": "application/json",
-            }, timeout=15)
-            if resp.status_code != 200:
-                # Try without the API path
-                break
-            data = resp.json()
-            raw = data.get("jobs", data.get("data", []))
-            if not raw:
-                break
-            for rj in raw:
-                title = rj.get("title", rj.get("job_title", ""))
-                if not _passes_filters(title):
-                    continue
-                job_id = rj.get("id", rj.get("job_id", ""))
-                jobs.append({
-                    "id": f"nike-{job_id}",
-                    "title": title,
-                    "company": "Nike",
-                    "location": rj.get("location", rj.get("primary_location", "")),
-                    "url": f"https://careers.nike.com/{rj.get('slug', job_id)}/job/{job_id}",
-                    "source": "direct_scrape",
-                    "posted_on": rj.get("posted_date", ""),
-                })
-        except Exception as exc:
-            logger.warning("Nike scraper failed (page %d): %s", page, exc)
+            resp = requests.get(url, headers=HEADERS, timeout=15)
+            resp.raise_for_status()
+        except requests.RequestException as exc:
+            logger.warning("TeamWork Online page %d failed: %s", page, exc)
             break
 
-    logger.info("    Nike direct → %d jobs found", len(jobs))
+        soup = BeautifulSoup(resp.text, "html.parser")
+
+        # TeamWork Online job cards
+        job_cards = soup.find_all("li", class_=lambda c: c and "job" in c.lower())
+        if not job_cards:
+            # Try alternate selectors
+            job_cards = soup.find_all("div", class_=lambda c: c and "job-listing" in str(c).lower())
+        if not job_cards:
+            job_cards = soup.select("article") or soup.select(".job-post")
+
+        if not job_cards:
+            logger.info("TeamWork Online page %d — no job cards found, stopping", page)
+            break
+
+        for card in job_cards:
+            # Extract title
+            title_el = card.find(["h2", "h3", "h4", "a"])
+            if not title_el:
+                continue
+            title = title_el.get_text(strip=True)
+            if not title or not _passes_filters(title):
+                continue
+
+            # Extract link
+            link_el = card.find("a", href=True)
+            job_url = ""
+            if link_el:
+                href = link_el["href"]
+                job_url = href if href.startswith("http") else f"https://www.teamworkonline.com{href}"
+
+            # Extract company
+            company_el = card.find(class_=lambda c: c and "company" in str(c).lower())
+            company = company_el.get_text(strip=True) if company_el else "Sports Organization"
+
+            # Extract location
+            loc_el = card.find(class_=lambda c: c and "location" in str(c).lower())
+            location = loc_el.get_text(strip=True) if loc_el else ""
+
+            job_id = f"teamwork-{hash(job_url)}"
+            if job_id in seen_ids:
+                continue
+            seen_ids.add(job_id)
+
+            jobs.append({
+                "id": job_id,
+                "title": title,
+                "company": company,
+                "location": location,
+                "url": job_url,
+                "source": "teamwork_online",
+                "posted_on": "",
+            })
+
+    logger.info("TeamWork Online → %d jobs found", len(jobs))
     return jobs
 
-
-# ── Adidas direct scraper ──────────────────────────────────────────────────────
-
-def scrape_adidas() -> list[dict]:
-    """Scrape Adidas career site at jobs.adidas-group.com."""
-    jobs = []
-    url = "https://jobs.adidas-group.com/api/jobs?type=intern&type=entry-level&count=50"
-    try:
-        resp = requests.get(url, headers={
-            "User-Agent": HEADERS["User-Agent"],
-            "Accept": "application/json",
-        }, timeout=15)
-        if resp.status_code == 200:
-            data = resp.json()
-            for rj in data.get("jobs", []):
-                title = rj.get("title", "")
-                if not _passes_filters(title):
-                    continue
-                jobs.append({
-                    "id": f"adidas-{rj.get('id', '')}",
-                    "title": title,
-                    "company": "Adidas",
-                    "location": rj.get("location", ""),
-                    "url": f"https://jobs.adidas-group.com{rj.get('url', '')}",
-                    "source": "direct_scrape",
-                    "posted_on": rj.get("datePosted", ""),
-                })
-    except Exception as exc:
-        logger.warning("Adidas direct scraper failed: %s", exc)
-
-    logger.info("    Adidas direct → %d jobs found", len(jobs))
-    return jobs
-
-
-# ── Main orchestrator ─────────────────────────────────────────────────────────
 
 def scrape_all_companies(max_per_company: int = 200) -> Generator[dict, None, None]:
     """
-    Try to scrape each company using the best available method:
-    1. Direct career page scraper (for Nike, Adidas which have custom sites)
-    2. Workday API with correct "External" career site name
+    Scrape TeamWork Online for sports industry jobs.
+    All other companies are handled by JSearch in api_fetcher.py.
     """
-
-    # Direct scrapers for companies with custom career sites
-    logger.info("Scraping Nike (direct)…")
-    for job in scrape_nike():
+    logger.info("Scraping TeamWork Online (sports industry jobs)…")
+    for job in scrape_teamwork_online():
         yield job
-
-    logger.info("Scraping Adidas (direct)…")
-    for job in scrape_adidas():
-        yield job
-
-    # Workday scraper for all other companies
-    # Skip Nike and Adidas since we scraped them directly above
-    skip_direct = {"Nike", "Converse", "Adidas", "Reebok"}
-
-    for company in WORKDAY_COMPANIES:
-        if company["name"] in skip_direct:
-            continue
-
-        logger.info("Scraping %s (Workday)…", company["name"])
-        fetched = 0
-        offset = 0
-        limit = 20
-
-        while fetched < max_per_company:
-            batch = scrape_workday(company, offset=offset, limit=limit)
-            if not batch:
-                break
-            for job in batch:
-                yield job
-            fetched += len(batch)
-            if len(batch) < limit:
-                break
-            offset += limit

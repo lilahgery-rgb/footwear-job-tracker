@@ -8,140 +8,119 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; color: #1d1d1f; }
 
-  header {
-    background: #1d1d1f;
-    color: white;
-    padding: 32px 40px;
-  }
-  header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
-  header p { margin-top: 6px; color: #a1a1a6; font-size: 14px; }
+  header { background: #1d1d1f; color: white; padding: 28px 40px; }
+  header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+  header p { margin-top: 6px; color: #a1a1a6; font-size: 13px; }
 
   .stats {
-    display: flex;
-    gap: 16px;
-    padding: 24px 40px;
-    background: white;
-    border-bottom: 1px solid #e5e5e7;
-    flex-wrap: wrap;
+    display: flex; gap: 14px; padding: 20px 40px;
+    background: white; border-bottom: 1px solid #e5e5e7; flex-wrap: wrap;
   }
-  .stat {
-    background: #f5f5f7;
-    border-radius: 10px;
-    padding: 14px 22px;
-    min-width: 140px;
-  }
-  .stat-value { font-size: 26px; font-weight: 700; color: #1d1d1f; }
-  .stat-label { font-size: 12px; color: #6e6e73; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat { background: #f5f5f7; border-radius: 10px; padding: 12px 20px; min-width: 120px; }
+  .stat-value { font-size: 24px; font-weight: 700; }
+  .stat-label { font-size: 11px; color: #6e6e73; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
 
   .controls {
-    padding: 20px 40px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    align-items: center;
-    background: white;
-    border-bottom: 1px solid #e5e5e7;
+    padding: 16px 40px; display: flex; gap: 10px; flex-wrap: wrap;
+    align-items: center; background: white; border-bottom: 1px solid #e5e5e7;
   }
   input, select {
-    border: 1px solid #d2d2d7;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 14px;
-    outline: none;
-    background: #f5f5f7;
-    color: #1d1d1f;
+    border: 1px solid #d2d2d7; border-radius: 8px; padding: 7px 12px;
+    font-size: 14px; outline: none; background: #f5f5f7; color: #1d1d1f;
   }
-  input { width: 260px; }
+  input { width: 240px; }
   input:focus, select:focus { border-color: #0071e3; background: white; }
 
-  .toggle-applied {
-    margin-left: auto;
-    background: none;
-    border: 1px solid #d2d2d7;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 13px;
-    cursor: pointer;
-    color: #6e6e73;
+  .toggle-btn {
+    background: none; border: 1px solid #d2d2d7; border-radius: 8px;
+    padding: 7px 12px; font-size: 13px; cursor: pointer; color: #6e6e73; white-space: nowrap;
   }
-  .toggle-applied:hover { border-color: #0071e3; color: #0071e3; }
+  .toggle-btn:hover { border-color: #0071e3; color: #0071e3; }
+  .toggle-btn.active { background: #f0f7ff; border-color: #0071e3; color: #0071e3; }
 
-  .table-wrap { padding: 24px 40px; overflow-x: auto; }
+  .table-wrap { padding: 20px 40px; overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-  th { background: #f5f5f7; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #6e6e73; padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e5e7; }
-  td { padding: 13px 16px; font-size: 14px; border-bottom: 1px solid #f0f0f2; vertical-align: middle; }
+  th { background: #f5f5f7; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #6e6e73; padding: 11px 14px; text-align: left; border-bottom: 1px solid #e5e5e7; }
+  td { padding: 12px 14px; font-size: 14px; border-bottom: 1px solid #f0f0f2; vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #fafafa; }
   td a { color: #0071e3; text-decoration: none; font-weight: 500; }
   td a:hover { text-decoration: underline; }
 
-  .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-  .badge-api { background: #e8f4fd; color: #0071e3; }
-  .badge-workday { background: #e9fbe9; color: #1a7f37; }
+  .action-cell { display: flex; gap: 6px; align-items: center; }
 
-  .apply-btn {
-    background: none;
-    border: 1px solid #d2d2d7;
-    border-radius: 6px;
-    padding: 5px 10px;
-    font-size: 12px;
-    cursor: pointer;
-    color: #6e6e73;
-    white-space: nowrap;
+  .apply-btn, .dismiss-btn {
+    border: 1px solid #d2d2d7; border-radius: 6px;
+    padding: 4px 9px; font-size: 11px; cursor: pointer;
+    background: none; white-space: nowrap; color: #6e6e73;
+    transition: all 0.15s;
   }
   .apply-btn:hover { background: #e9fbe9; border-color: #1a7f37; color: #1a7f37; }
+  .dismiss-btn:hover { background: #fef0f0; border-color: #d93025; color: #d93025; }
 
-  tr.applied-row { opacity: 0.4; }
+  /* Applied state — dim and hide */
+  tr.applied-row { opacity: 0.4; display: none; }
   tr.applied-row .apply-btn { background: #e9fbe9; border-color: #1a7f37; color: #1a7f37; }
-  tr.applied-row { display: none; }
   body.show-applied tr.applied-row { display: table-row; }
 
+  /* Dismissed state — completely gone unless shown */
+  tr.dismissed-row { display: none; }
+  body.show-dismissed tr.dismissed-row { display: table-row; opacity: 0.3; }
+  tr.dismissed-row .dismiss-btn { background: #fef0f0; border-color: #d93025; color: #d93025; }
+
+  .badge { display: inline-block; padding: 3px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-api { background: #e8f4fd; color: #0071e3; }
+  .badge-workday { background: #e9fbe9; color: #1a7f37; }
+  .badge-teamwork { background: #f3eafd; color: #7c3aed; }
+
   .empty { text-align: center; padding: 60px; color: #6e6e73; }
-  footer { text-align: center; padding: 24px; font-size: 12px; color: #a1a1a6; }
+  footer { text-align: center; padding: 20px; font-size: 12px; color: #a1a1a6; }
 </style>
 </head>
 <body>
 
 <header>
   <h1>👟 Footwear & Sports Job Tracker</h1>
-  <p>Entry-level & internship roles • Updated February 23, 2026 at 10:37 AM UTC</p>
+  <p>Entry-level corporate roles • Updated February 23, 2026 at 05:51 PM UTC</p>
 </header>
 
 <div class="stats">
   <div class="stat">
-    <div class="stat-value">2</div>
-    <div class="stat-label">Total Jobs</div>
+    <div class="stat-value">199</div>
+    <div class="stat-label">Total Found</div>
   </div>
   <div class="stat">
-    <div class="stat-value">1</div>
-    <div class="stat-label">Companies</div>
-  </div>
-  <div class="stat">
-    <div class="stat-value" id="filtered-count">2</div>
+    <div class="stat-value" id="visible-count">199</div>
     <div class="stat-label">Showing</div>
   </div>
   <div class="stat">
     <div class="stat-value" id="applied-count">0</div>
     <div class="stat-label">Applied</div>
   </div>
+  <div class="stat">
+    <div class="stat-value" id="dismissed-count">0</div>
+    <div class="stat-label">Dismissed</div>
+  </div>
 </div>
 
 <div class="controls">
-  <input type="text" id="search" placeholder="Search by title, company, location…" oninput="filterTable()">
+  <input type="text" id="search" placeholder="Search title, company, location…" oninput="filterTable()">
   <select id="company-filter" onchange="filterTable()">
     <option value="">All Companies</option>
-    <option value="Deckers Brands">Deckers Brands</option>
+    <option value="Adidas America, Inc.">Adidas America, Inc.</option><option value="Agoda">Agoda</option><option value="Allied Global Marketing">Allied Global Marketing</option><option value="Alo Yoga">Alo Yoga</option><option value="Amazon Advertising LLC">Amazon Advertising LLC</option><option value="Aquent">Aquent</option><option value="Arc'teryx Equipment">Arc'teryx Equipment</option><option value="BBI Law Group">BBI Law Group</option><option value="Banfield Pet Hospital">Banfield Pet Hospital</option><option value="Bauer Hockey/ Cascade Maverik Lacrosse">Bauer Hockey/ Cascade Maverik Lacrosse</option><option value="Blinds To Go">Blinds To Go</option><option value="Bloomberg Philanthropies">Bloomberg Philanthropies</option><option value="BoF Careers">BoF Careers</option><option value="Bright Horizons Children's Centers">Bright Horizons Children's Centers</option><option value="Bright Horizons Family Solutions">Bright Horizons Family Solutions</option><option value="CBL Legal Talent">CBL Legal Talent</option><option value="CONAGRA">CONAGRA</option><option value="Callaway">Callaway</option><option value="Callaway Golf">Callaway Golf</option><option value="Church & Dwight">Church & Dwight</option><option value="Clorox">Clorox</option><option value="Coca Cola Careers">Coca Cola Careers</option><option value="Coca-Cola Bottlers' Sales & Services Company, LLC">Coca-Cola Bottlers' Sales & Services Company, LLC</option><option value="Coca-Cola Bottling Company High Country">Coca-Cola Bottling Company High Country</option><option value="Conagra Brands">Conagra Brands</option><option value="Crocs">Crocs</option><option value="Crocs Inc (Enterprise)">Crocs Inc (Enterprise)</option><option value="DICK'S Sporting Goods">DICK'S Sporting Goods</option><option value="DR PEPPER">DR PEPPER</option><option value="DRB Homes">DRB Homes</option><option value="Deckers Brands">Deckers Brands</option><option value="Dentsu Aegis Network">Dentsu Aegis Network</option><option value="Designer Brands">Designer Brands</option><option value="Dick's Sporting Goods">Dick's Sporting Goods</option><option value="Dunham's Sports">Dunham's Sports</option><option value="EDI Specialists, Inc.">EDI Specialists, Inc.</option><option value="Edgewell Personal Care">Edgewell Personal Care</option><option value="Entrupy">Entrupy</option><option value="FanDuel">FanDuel</option><option value="Far Post Media">Far Post Media</option><option value="First Citizens Bank">First Citizens Bank</option><option value="Florida Panthers">Florida Panthers</option><option value="Foot Locker">Foot Locker</option><option value="Fox Corporation">Fox Corporation</option><option value="Fox Sports">Fox Sports</option><option value="Free People">Free People</option><option value="G-III Apparel Group">G-III Apparel Group</option><option value="GARMIN">GARMIN</option><option value="Garmin">Garmin</option><option value="Garmin International, Inc.">Garmin International, Inc.</option><option value="Garmin Ltd">Garmin Ltd</option><option value="Garmin Ltd.">Garmin Ltd.</option><option value="General Mills">General Mills</option><option value="Georgia State University">Georgia State University</option><option value="Google">Google</option><option value="Harvey Nash">Harvey Nash</option><option value="HigherEdJobs">HigherEdJobs</option><option value="Hoka">Hoka</option><option value="Indeed">Indeed</option><option value="Initio Capital">Initio Capital</option><option value="Jobgether">Jobgether</option><option value="Keurig Dr Pepper">Keurig Dr Pepper</option><option value="Kraft Heinz">Kraft Heinz</option><option value="Kraft-Heinz">Kraft-Heinz</option><option value="Lenovo">Lenovo</option><option value="Lidl">Lidl</option><option value="Louis Vuitton">Louis Vuitton</option><option value="Louisiana Tech University">Louisiana Tech University</option><option value="Lululemon athletica">Lululemon athletica</option><option value="MLB & Associates">MLB & Associates</option><option value="Macy's Jobs">Macy's Jobs</option><option value="Major League Baseball">Major League Baseball</option><option value="Mars">Mars</option><option value="Mars, Inc.">Mars, Inc.</option><option value="Miami Marlins">Miami Marlins</option><option value="Middleburg Communities">Middleburg Communities</option><option value="Momento">Momento</option><option value="Morgan Stanley">Morgan Stanley</option><option value="NASCAR">NASCAR</option><option value="NBCUniversal">NBCUniversal</option><option value="NIKE">NIKE</option><option value="Nascar">Nascar</option><option value="Nestle International">Nestle International</option><option value="Nestle Operational Services Worldwide SA">Nestle Operational Services Worldwide SA</option><option value="Nestlé">Nestlé</option><option value="Nike">Nike</option><option value="Northwell Health">Northwell Health</option><option value="PGBPGNGLOBAL">PGBPGNGLOBAL</option><option value="PUMA">PUMA</option><option value="PUMA Gruppe">PUMA Gruppe</option><option value="Peloton">Peloton</option><option value="PepsiCo">PepsiCo</option><option value="Piping Rock Health Products">Piping Rock Health Products</option><option value="Precise Systems, Inc.">Precise Systems, Inc.</option><option value="Pro Shop">Pro Shop</option><option value="Procter & Gamble">Procter & Gamble</option><option value="Procter & Gamble Contractor">Procter & Gamble Contractor</option><option value="Proctor & Gamble">Proctor & Gamble</option><option value="REI">REI</option><option value="REI (Recreational Equipment Inc.)">REI (Recreational Equipment Inc.)</option><option value="Rooted Broth">Rooted Broth</option><option value="SAKS FIFTH AVENUE">SAKS FIFTH AVENUE</option><option value="Skechers">Skechers</option><option value="Skechers USA Inc.">Skechers USA Inc.</option><option value="Skechers USA, Inc.">Skechers USA, Inc.</option><option value="Sports Business Ventures LLC">Sports Business Ventures LLC</option><option value="Stateside Brands">Stateside Brands</option><option value="Stefanini Group">Stefanini Group</option><option value="Steve Madden">Steve Madden</option><option value="Swire Coca-Cola, USA">Swire Coca-Cola, USA</option><option value="TaylorMade Golf Co.">TaylorMade Golf Co.</option><option value="TaylorMade Golf Company">TaylorMade Golf Company</option><option value="The Clorox Company">The Clorox Company</option><option value="The North Face, a VF Company">The North Face, a VF Company</option><option value="The University of Mississippi">The University of Mississippi</option><option value="Troy University">Troy University</option><option value="Tweezerman International, LLC">Tweezerman International, LLC</option><option value="USP / United States Pharmacopeia">USP / United States Pharmacopeia</option><option value="Under Armour">Under Armour</option><option value="Unilever">Unilever</option><option value="Unilever Brazil">Unilever Brazil</option><option value="United Airlines">United Airlines</option><option value="United Airlines, Inc.">United Airlines, Inc.</option><option value="University of Mississippi">University of Mississippi</option><option value="University of South Carolina">University of South Carolina</option><option value="University of Texas at San Antonio">University of Texas at San Antonio</option><option value="VirtualVocations">VirtualVocations</option><option value="WHOOP">WHOOP</option><option value="WhatJobs Direct">WhatJobs Direct</option><option value="Will Leather Goods">Will Leather Goods</option><option value="Wilson Sporting Goods Co.">Wilson Sporting Goods Co.</option><option value="bjkitchenfloor">bjkitchenfloor</option><option value="unlock MLS and Austin Board of Realtors">unlock MLS and Austin Board of Realtors</option>
   </select>
   <select id="source-filter" onchange="filterTable()">
     <option value="">All Sources</option>
-    <option value="Career Page">Career Page</option>
     <option value="Job Board">Job Board</option>
+    <option value="Career Page">Career Page</option>
+    <option value="TeamWork Online">TeamWork Online</option>
   </select>
-  <button class="toggle-applied" onclick="toggleApplied()" id="toggle-btn">👁 Show Applied</button>
+  <button class="toggle-btn" id="toggle-applied-btn" onclick="toggleApplied()">👁 Show Applied</button>
+  <button class="toggle-btn" id="toggle-dismissed-btn" onclick="toggleDismissed()">👁 Show Dismissed</button>
 </div>
 
 <div class="table-wrap">
-  <table id="jobs-table">
+  <table>
     <thead>
       <tr>
         <th>Title</th>
@@ -149,120 +128,2308 @@
         <th>Location</th>
         <th>Posted</th>
         <th>Source</th>
-        <th>Status</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody id="table-body">
       
-        <tr data-id="workday-deckers-/job/Portland-Oregon/Product-Testing-Analyst-II---HOKA_19251">
-            <td><a href="https://deckers.wd5.myworkdayjobs.com/en-US/deckers/job/Portland-Oregon/Product-Testing-Analyst-II---HOKA_19251" target="_blank" rel="noopener">Product Testing Analyst II - HOKA</a></td>
-            <td>Deckers Brands</td>
-            <td>Portland, Oregon</td>
-            <td>Posted 3 D</td>
-            <td><span class="badge badge-workday">Career Page</span></td>
-            <td>
-                <button class="apply-btn" onclick="markApplied('workday-deckers-/job/Portland-Oregon/Product-Testing-Analyst-II---HOKA_19251', this)">✓ Applied</button>
+        <tr data-id="jsearch-5-Wm8qLK76nrBGUrAAAAAA==">
+            <td><a href="https://www.glassdoor.com/job-listing/market-research-analyst-bj-kitchen-floor-JV_IC1152672_KO0,23_KE24,40.htm?jl=1007078668454&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Market Research Analyst</a></td>
+            <td>bjkitchenfloor</td>
+            <td>Philadelphia, Pennsylvania, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5-Wm8qLK76nrBGUrAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5-Wm8qLK76nrBGUrAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="workday-deckers-/job/Portland-Oregon/Associate--Global-Merchandising--Hoka-Performance-Footwear_20036">
-            <td><a href="https://deckers.wd5.myworkdayjobs.com/en-US/deckers/job/Portland-Oregon/Associate--Global-Merchandising--Hoka-Performance-Footwear_20036" target="_blank" rel="noopener">Associate, Global Merchandising- Hoka Performance Footwear</a></td>
+        <tr data-id="jsearch-kRmQfnkZyzzJkyeXAAAAAA==">
+            <td><a href="https://lensa.com/job-v1/drb-homes/rockville-md/marketing-analyst/2a21a6136b51125a796f17bc92af0919?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Strategic Marketing Analyst (Homebuilding)</a></td>
+            <td>DRB Homes</td>
+            <td>Rockville, Maryland, US</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-kRmQfnkZyzzJkyeXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-kRmQfnkZyzzJkyeXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-lcNCSk1KEvnJEGWvAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=6a969296c9d080cc&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Market Research Analyst</a></td>
+            <td>Initio Capital</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-05</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-lcNCSk1KEvnJEGWvAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-lcNCSk1KEvnJEGWvAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cmMdSYc-kIrfVvmxAAAAAA==">
+            <td><a href="https://us.bebee.com/job/e05fdb8c94c4733770d6503fb189dfac?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Labor Market Research Analyst</a></td>
+            <td>Indeed</td>
+            <td>Annapolis, Maryland, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cmMdSYc-kIrfVvmxAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cmMdSYc-kIrfVvmxAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ePoIormpa7OMJhjMAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/market-analyst-at-middleburg-communities-4357710321?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Market Analyst</a></td>
+            <td>Middleburg Communities</td>
+            <td>Vienna, Virginia, US</td>
+            <td>2026-02-02</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ePoIormpa7OMJhjMAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ePoIormpa7OMJhjMAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-6Zi3JOy5DckXb_LeAAAAAA==">
+            <td><a href="https://careercenter.rxinsider.com/jobs/229981166-research-analyst-sustainable-manufacturing-market-analysis?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Research Analyst, Sustainable Manufacturing & Market Analysis</a></td>
+            <td>USP / United States Pharmacopeia</td>
+            <td>Rockville, Maryland, US</td>
+            <td>2026-01-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-6Zi3JOy5DckXb_LeAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-6Zi3JOy5DckXb_LeAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FGrgKZ2dK97fYWuCAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=9ae9c379faae&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Market Research Analyst</a></td>
+            <td>VirtualVocations</td>
+            <td>Darnestown, Maryland, US</td>
+            <td>2026-02-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FGrgKZ2dK97fYWuCAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FGrgKZ2dK97fYWuCAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-MnoYe3T84MzqOFUlAAAAAA==">
+            <td><a href="https://us.jobrapido.com/jobpreview/2629007715195682816?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Market Research Analyst (Multiple Positions)</a></td>
+            <td>BBI Law Group</td>
+            <td>Herndon, Virginia, US</td>
+            <td>2026-02-15</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-MnoYe3T84MzqOFUlAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-MnoYe3T84MzqOFUlAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-F1lYvXb5KeDtmHoCAAAAAA==">
+            <td><a href="https://us.bebee.com/job/adfbbb8e5952412f039c730300f8dd9e?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Data & Marketing Insights Analyst</a></td>
+            <td>Far Post Media</td>
+            <td>Alexandria, Virginia, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-F1lYvXb5KeDtmHoCAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-F1lYvXb5KeDtmHoCAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5VGf6EjwxKwODnoTAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/First-Citizens-Bank/Job/Research-Analyst-II-Market-Insights-(Hybrid)/-in-Arlington,VA?jid=f7a2d04743e2263c&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Research Analyst II Market Insights (Hybrid)</a></td>
+            <td>First Citizens Bank</td>
+            <td>Arlington, Virginia, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5VGf6EjwxKwODnoTAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5VGf6EjwxKwODnoTAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-da7Lw9h_SeRz7lZwAAAAAA==">
+            <td><a href="https://lateralconseil.com/work/job/free-people-global-customer-insights-analyst-at-free-people-philadelphia-pa-NmtzVTdBZE40V2QyU0J0eWZpMDZDRVF2?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Free People Global Customer Insights Analyst at Free People Philadelphia, PA</a></td>
+            <td>Free People</td>
+            <td>Philadelphia, Pennsylvania, US</td>
+            <td>2026-01-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-da7Lw9h_SeRz7lZwAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-da7Lw9h_SeRz7lZwAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-1NFTuCn8v4OXTiorAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Google/Job/Business-and-Product-Insights-Analyst/-in-New-York,NY?jid=c014417987b81f4c&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Business and Product Insights Analyst</a></td>
+            <td>Google</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-1NFTuCn8v4OXTiorAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-1NFTuCn8v4OXTiorAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-4N5zMh6q-39m4xg_AAAAAA==">
+            <td><a href="https://www.talent.com/view?id=564733489661018535&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Customer Insights Analyst</a></td>
+            <td>VirtualVocations</td>
+            <td>Arlington, Virginia, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-4N5zMh6q-39m4xg_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-4N5zMh6q-39m4xg_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-fBTlhK44uwcVkVQAAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=7c54c9ff1413d298" target="_blank" rel="noopener">Merchandising Analyst</a></td>
+            <td>Lidl</td>
+            <td>Arlington, Virginia, US</td>
+            <td>2026-02-12</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-fBTlhK44uwcVkVQAAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-fBTlhK44uwcVkVQAAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-eVf9JzNgwGI6dgfwAAAAAA==">
+            <td><a href="https://us.bebee.com/job/8d4599df3df9076a4efb754812d25ab0" target="_blank" rel="noopener">Data Operations Analyst for Marketing</a></td>
+            <td>Jobgether</td>
+            <td>Shenandoah Junction, West Virginia, US</td>
+            <td>2026-01-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-eVf9JzNgwGI6dgfwAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-eVf9JzNgwGI6dgfwAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-BuVwLTYOmYyJ0ipyAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/business-development-analyst-at-cbl-legal-talent-4374166239" target="_blank" rel="noopener">Business Development Analyst</a></td>
+            <td>CBL Legal Talent</td>
+            <td>Hackensack, New Jersey, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-BuVwLTYOmYyJ0ipyAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-BuVwLTYOmYyJ0ipyAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-r6KB5a9EwZvFciByAAAAAA==">
+            <td><a href="https://us.bebee.com/job/26c03e17f55b9431ac9563bd76188abd" target="_blank" rel="noopener">Data Operations Analyst for Marketing</a></td>
+            <td>Jobgether</td>
+            <td>Shenandoah Junction, West Virginia, US</td>
+            <td>2026-01-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-r6KB5a9EwZvFciByAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-r6KB5a9EwZvFciByAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-l9ZA99eUKMJgGhKhAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/digital-marketing-analyst-at-blinds-to-go-4349105726" target="_blank" rel="noopener">Digital Marketing Analyst</a></td>
+            <td>Blinds To Go</td>
+            <td>Paramus, New Jersey, US</td>
+            <td>2026-02-06</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-l9ZA99eUKMJgGhKhAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-l9ZA99eUKMJgGhKhAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-h7WzqSbJ-ZYw8p9eAAAAAA==">
+            <td><a href="https://us.trabajo.org/job-2611-a72bd5375a684615fa526f29d7eee798" target="_blank" rel="noopener">Trade Marketing Analyst</a></td>
+            <td>Piping Rock Health Products</td>
+            <td>Bohemia, New York, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-h7WzqSbJ-ZYw8p9eAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-h7WzqSbJ-ZYw8p9eAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-E-sx9tRywxUugJFzAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Stefanini-Group/Job/Digital-Marketing-Analyst/-in-Newark,NJ?jid=2177878b6f552522" target="_blank" rel="noopener">Digital Marketing Analyst</a></td>
+            <td>Stefanini Group</td>
+            <td>Newark, New Jersey, US</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-E-sx9tRywxUugJFzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-E-sx9tRywxUugJFzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-h17KmSdb4ySMJtSfAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/marketing-analyst-marketing-analytics-bangkok-based-relocation-provided-at-agoda-4299775125" target="_blank" rel="noopener">Marketing Analyst (Marketing Analytics, Bangkok Based, Relocation provided)</a></td>
+            <td>Agoda</td>
+            <td>Philadelphia, Pennsylvania, US</td>
+            <td>2026-02-08</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-h17KmSdb4ySMJtSfAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-h17KmSdb4ySMJtSfAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-R-oTj7ujXsydl2tQAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/sales-category-analyst-at-tweezerman-international-llc-4323606069" target="_blank" rel="noopener">SALES & CATEGORY ANALYST</a></td>
+            <td>Tweezerman International, LLC</td>
+            <td>Port Washington, New York, US</td>
+            <td>2026-02-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-R-oTj7ujXsydl2tQAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-R-oTj7ujXsydl2tQAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-jCOkT1sIc4Qdk6OeAAAAAA==">
+            <td><a href="https://career.io/job/associate-category-management-analyst-temp-flexstaff-north-new-hyde-park-northwell-health-1fc1f23453c5c0c210e645ff5457da24" target="_blank" rel="noopener">Associate Category Management Analyst</a></td>
+            <td>Northwell Health</td>
+            <td>North New Hyde Park, New York, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-jCOkT1sIc4Qdk6OeAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-jCOkT1sIc4Qdk6OeAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5lph5p2jQDlVIXXrAAAAAA==">
+            <td><a href="https://careers.harveynashusa.com/jobsearch/job-details/category-analyst-7891-1/" target="_blank" rel="noopener">Category Analyst</a></td>
+            <td>Harvey Nash</td>
+            <td>Matawan, New Jersey, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5lph5p2jQDlVIXXrAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5lph5p2jQDlVIXXrAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-GtHrV9cuHDdDd4GqAAAAAA==">
+            <td><a href="https://entryleveljobs.me/job-opening/87289-category-analyst-2026-at-stateside-brands" target="_blank" rel="noopener">Category Analyst- 2026</a></td>
+            <td>Stateside Brands</td>
+            <td>Pennsylvania, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-GtHrV9cuHDdDd4GqAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-GtHrV9cuHDdDd4GqAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FmKa-8l2tF1Zk6Y0AAAAAA==">
+            <td><a href="https://www.monster.com/job-openings/category-analyst-morganville-nj--85814d87-fb3f-4095-918e-77fc8390031f?mstr_dist=true" target="_blank" rel="noopener">Category Analyst</a></td>
+            <td>EDI Specialists, Inc.</td>
+            <td>New Jersey, US</td>
+            <td>2026-01-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FmKa-8l2tF1Zk6Y0AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FmKa-8l2tF1Zk6Y0AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-PSiLORxiJVxKDXmJAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Bloomberg-Philanthropies/Job/Social-Media-Associate/-in-New-York,NY?jid=c4bb54b70ce1dc07" target="_blank" rel="noopener">Social Media Associate</a></td>
+            <td>Bloomberg Philanthropies</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-01</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-PSiLORxiJVxKDXmJAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-PSiLORxiJVxKDXmJAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-lOIq7FkvB4WgVsQEAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=a244a8005b7e&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Product Marketing Analyst</a></td>
+            <td>VirtualVocations</td>
+            <td>Darnestown, Maryland, US</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-lOIq7FkvB4WgVsQEAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-lOIq7FkvB4WgVsQEAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-tUMVYClD2b9GPLdeAAAAAA==">
+            <td><a href="https://jobright.ai/jobs/info/6961ab8de7ed9a5731ba8060" target="_blank" rel="noopener">IT Product Analyst</a></td>
+            <td>Lenovo</td>
+            <td>North Carolina, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-tUMVYClD2b9GPLdeAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-tUMVYClD2b9GPLdeAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ifCirMkdN1t7D-zUAAAAAA==">
+            <td><a href="https://jobright.ai/jobs/info/698aa7ab4db8972cec0003b6" target="_blank" rel="noopener">Configuration Management Analyst, Junior</a></td>
+            <td>Precise Systems, Inc.</td>
+            <td>Patuxent, Maryland, US</td>
+            <td>2026-02-05</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ifCirMkdN1t7D-zUAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ifCirMkdN1t7D-zUAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch--WQp1-k2R0WSx7-wAAAAAA==">
+            <td><a href="https://us.trabajo.org/job-2283-836ba392da92c5d90b6608ca24343214?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Brand & Operations Associate — Hybrid (CPG Startup)</a></td>
+            <td>Rooted Broth</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch--WQp1-k2R0WSx7-wAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch--WQp1-k2R0WSx7-wAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-STPZnPDwtkJGLbIgAAAAAA==">
+            <td><a href="https://builtin.com/job/sponsorship-analyst/8269915" target="_blank" rel="noopener">Sponsorship Analyst</a></td>
+            <td>Allied Global Marketing</td>
+            <td>—</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-STPZnPDwtkJGLbIgAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-STPZnPDwtkJGLbIgAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-6aYdvHR7yIKi22nvAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Dentsu-Aegis-Network/Job/Associate,-Dentsu-Sports-Analytics/-in-New-York,NY?jid=f2179b8358182921&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Associate, Dentsu Sports Analytics</a></td>
+            <td>Dentsu Aegis Network</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-13</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-6aYdvHR7yIKi22nvAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-6aYdvHR7yIKi22nvAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-00rIzXZvfr-iSdicAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/project-analyst-infor-nexus-support-g-iii-apparel-group-at-g-iii-apparel-group-4370547516" target="_blank" rel="noopener">Project Analyst - Infor Nexus Support | G-III Apparel Group</a></td>
+            <td>G-III Apparel Group</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-00rIzXZvfr-iSdicAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-00rIzXZvfr-iSdicAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-OBytzEdjySrw5P_VAAAAAA==">
+            <td><a href="https://colorados.be/wp-job/job/live-sports-business-analyst-live-sports-at-amazon-advertising-llc-new-york-ny-bzYxQ1RmV2Z6ZE5FcytycTdyY0pJY0VVTUE9PQ==" target="_blank" rel="noopener">Live Sports, Business Analyst , Live Sports at Amazon Advertising LLC New York, NY</a></td>
+            <td>Amazon Advertising LLC</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-13</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-OBytzEdjySrw5P_VAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-OBytzEdjySrw5P_VAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-55q5ns42JZsAkH4nAAAAAA==">
+            <td><a href="https://aecliving.com/jobs/job/merchandising-business-analyst-going-going-gone-at-dicks-sporting-goods-coraopolis-pa-VytFWEIwOGJGaGtQMkdSaXBiTHZsWmFUOHc9PQ==" target="_blank" rel="noopener">Merchandising Business Analyst - Going, Going, Gone! at Dick's Sporting Goods Coraopolis, PA</a></td>
+            <td>Dick's Sporting Goods</td>
+            <td>Coraopolis, Pennsylvania, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-55q5ns42JZsAkH4nAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-55q5ns42JZsAkH4nAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-k9E1HzpWfR33NHOrAAAAAA==">
+            <td><a href="https://us.bebee.com/job/b36ccd916f615f29102028b64831fff7" target="_blank" rel="noopener">Strategic Market Analyst: Sports</a></td>
+            <td>FanDuel</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-k9E1HzpWfR33NHOrAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-k9E1HzpWfR33NHOrAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-W8zWPJC_90jFQ3D_AAAAAA==">
+            <td><a href="https://www.dataanalyst.com/job/data-analyst-people-analytics-5b8bd" target="_blank" rel="noopener">Data Analyst, People Analytics</a></td>
+            <td>FanDuel</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-W8zWPJC_90jFQ3D_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-W8zWPJC_90jFQ3D_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-xaTFglRiGHMZkIPCAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/analyst-floor-planning-at-dick-s-sporting-goods-4357576914" target="_blank" rel="noopener">Analyst - Floor Planning</a></td>
+            <td>DICK'S Sporting Goods</td>
+            <td>Coraopolis, Pennsylvania, US</td>
+            <td>2026-02-02</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-xaTFglRiGHMZkIPCAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-xaTFglRiGHMZkIPCAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5MZN4CndlW3yBfYzAAAAAA==">
+            <td><a href="https://www.whatjobs.com/jobs/business-analyst?id=2431910516" target="_blank" rel="noopener">Remote Performance Analyst - Athletic Development</a></td>
+            <td>WhatJobs Direct</td>
+            <td>Baltimore, Maryland, US</td>
+            <td>2026-02-01</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5MZN4CndlW3yBfYzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5MZN4CndlW3yBfYzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-A00IpjXQMGI6ZRjPAAAAAA==">
+            <td><a href="https://nextlistapply.com/viewjob/1aeeqsveey0a-4a304f2-ca056b95f994d-d9223-08180d0" target="_blank" rel="noopener">Merchandise Associate</a></td>
+            <td>Dunham's Sports</td>
+            <td>Millersburg, Pennsylvania, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-A00IpjXQMGI6ZRjPAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-A00IpjXQMGI6ZRjPAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-SBXVeViTmmyLqPk7AAAAAA==">
+            <td><a href="https://us.bebee.com/job/de91a6ca4961d85bfdbbf26300a0b985?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Knowledge Analyst II, Luxury footwear</a></td>
+            <td>Entrupy</td>
+            <td>Los Angeles, California, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-SBXVeViTmmyLqPk7AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-SBXVeViTmmyLqPk7AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-S5z4mIxUMwbfBnlwAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Designer-Brands/Job/Allocation-Analyst-HYBRID/-in-Columbus,OH?jid=dd6451bafee876e5&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Allocation Analyst-HYBRID</a></td>
+            <td>Designer Brands</td>
+            <td>Columbus, Ohio, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-S5z4mIxUMwbfBnlwAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-S5z4mIxUMwbfBnlwAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-T6HIIrkF0s083U8FAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/knowledge-analyst-ii-luxury-footwear-at-entrupy-4376382387?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Knowledge Analyst II, Luxury footwear</a></td>
+            <td>Entrupy</td>
+            <td>Omaha, Nebraska, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-T6HIIrkF0s083U8FAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-T6HIIrkF0s083U8FAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-dc8RuDAA-J5EqIx5AAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/knowledge-analyst-ii-luxury-footwear-at-entrupy-4376387086?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Knowledge Analyst II, Luxury footwear</a></td>
+            <td>Entrupy</td>
+            <td>San Diego, California, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-dc8RuDAA-J5EqIx5AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-dc8RuDAA-J5EqIx5AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-CepFIkYKCthQ39dXAAAAAA==">
+            <td><a href="https://aquent.com/find-work/207891?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Product Sourcing Analyst for Apparel and Footwear</a></td>
+            <td>Aquent</td>
+            <td>Beaverton, Oregon, US</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-CepFIkYKCthQ39dXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-CepFIkYKCthQ39dXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-oUn0mYwU_xZU9Yn5AAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/knowledge-analyst-ii-luxury-footwear-at-entrupy-4376367941?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Knowledge Analyst II, Luxury footwear</a></td>
+            <td>Entrupy</td>
+            <td>Baltimore, Maryland, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-oUn0mYwU_xZU9Yn5AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-oUn0mYwU_xZU9Yn5AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-LKSg2sXJxlZeVPXoAAAAAA==">
+            <td><a href="https://us.bebee.com/job/0c87d875e026a0a02f4edb3e6775fc57" target="_blank" rel="noopener">Merchandising Analyst, Mens Shoes</a></td>
+            <td>Louis Vuitton</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-LKSg2sXJxlZeVPXoAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-LKSg2sXJxlZeVPXoAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-1oS6qlTp3DjkUUP2AAAAAA==">
+            <td><a href="https://jobs.louisvuitton.com/en/search-page/job/merchandising-associate-men-s-shoes-united-states-new-york-LVM31359" target="_blank" rel="noopener">Merchandising Associate - Men's Shoes</a></td>
+            <td>Louis Vuitton</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-1oS6qlTp3DjkUUP2AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-1oS6qlTp3DjkUUP2AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-GHo9jzqOwqtFYoTlAAAAAA==">
+            <td><a href="https://us.fashionjobs.com/job/saks-fifth-avenue/Merchandise-operations-associate-wm-shoes,11242656.html" target="_blank" rel="noopener">Merchandise Operations Associate - wm. Shoes</a></td>
+            <td>SAKS FIFTH AVENUE</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-GHo9jzqOwqtFYoTlAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-GHo9jzqOwqtFYoTlAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_Xt0KAP7vboNvPmsAAAAAA==">
+            <td><a href="https://earnbetter.com/app/job/01KG69H1XTZKXA6R3SKJK9FSXF/" target="_blank" rel="noopener">Procurement Analyst Job Details | Edgewell Personal Care Brands, LLC</a></td>
+            <td>Edgewell Personal Care</td>
+            <td>—</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_Xt0KAP7vboNvPmsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_Xt0KAP7vboNvPmsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_SAWtSlKYzFe2OkUAAAAAA==">
+            <td><a href="https://us.bebee.com/job/e86907e19ad1a0e00fc35940d4ac6760?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Inventory Analyst</a></td>
+            <td>Church & Dwight</td>
+            <td>Ewing Township, New Jersey, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_SAWtSlKYzFe2OkUAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_SAWtSlKYzFe2OkUAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Hj4_ZyupQCD87DUSAAAAAA==">
+            <td><a href="https://us.bebee.com/job/7494cfa1075cc819feb11ec1679d522c" target="_blank" rel="noopener">Fall 2026 Co-op - Supply Chain Analyst</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Burlington, Vermont, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Hj4_ZyupQCD87DUSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Hj4_ZyupQCD87DUSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-D7jA8lWsASMLRiwOAAAAAA==">
+            <td><a href="https://us.bebee.com/job/7ac7c4de2a96de7345ecd5c5d18128ec" target="_blank" rel="noopener">Fulltime Asset Management Analyst</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Frisco, Texas, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-D7jA8lWsASMLRiwOAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-D7jA8lWsASMLRiwOAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-p9w8tCKGeiNnH2nOAAAAAA==">
+            <td><a href="https://lensa.com/job-v1/dr-pepper/frisco-tx/financial-analyst/1bb03d8d018e83d41c79713aa6030b41" target="_blank" rel="noopener">Finance Business Services Trade Analyst - Keurig Dr Pepper</a></td>
+            <td>DR PEPPER</td>
+            <td>Frisco, Texas, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-p9w8tCKGeiNnH2nOAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-p9w8tCKGeiNnH2nOAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-UmhFIM7HDgiE_L4MAAAAAA==">
+            <td><a href="https://careers.keurigdrpepper.com/en/job/frisco/edi-analyst/42849/91663312176" target="_blank" rel="noopener">EDI Analyst</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Frisco, Texas, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-UmhFIM7HDgiE_L4MAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-UmhFIM7HDgiE_L4MAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-4hfhMvOvJb9ByO11AAAAAA==">
+            <td><a href="https://careers.keurigdrpepper.com/en/job/frisco/sales-planning-and-analytics-analyst/42849/91867945696" target="_blank" rel="noopener">Sales Planning and Analytics Analyst</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Frisco, Texas, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-4hfhMvOvJb9ByO11AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-4hfhMvOvJb9ByO11AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-BXwunfnU68x1DNPFAAAAAA==">
+            <td><a href="https://www.recruit.net/job/sales-customer-analytics-jobs/86C280615C5D53BA?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Sales & Customer Analytics Intern</a></td>
+            <td>Clorox</td>
+            <td>Oakland, California, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-BXwunfnU68x1DNPFAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-BXwunfnU68x1DNPFAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-K0R3-vEnaes79-5CAAAAAA==">
+            <td><a href="https://app.joinhandshake.com/public/jobs/10756847?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Service Management Ops Analyst Intern (Summer 2026) | The Clorox Company | Handshake</a></td>
+            <td>The Clorox Company</td>
+            <td>Durham, North Carolina, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-K0R3-vEnaes79-5CAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-K0R3-vEnaes79-5CAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-rQr5Zkux4-QFLiLXAAAAAA==">
+            <td><a href="https://careers.conagrabrands.com/us/en/job/Req-036531/Information-Security-GRC-Analyst" target="_blank" rel="noopener">Information Security GRC Analyst</a></td>
+            <td>CONAGRA</td>
+            <td>Omaha, Nebraska, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-rQr5Zkux4-QFLiLXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-rQr5Zkux4-QFLiLXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-TAtxuUMZiYt3Gs1RAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Conagra-Brands/Job/Associate-Customer-Logistics-Analyst-COM/-in-Omaha,NE?jid=5d0699412f5ce52f" target="_blank" rel="noopener">Associate Customer Logistics Analyst - COM</a></td>
+            <td>Conagra Brands</td>
+            <td>Omaha, Nebraska, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-TAtxuUMZiYt3Gs1RAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-TAtxuUMZiYt3Gs1RAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-kXvuJRA01CufcFvAAAAAAA==">
+            <td><a href="https://careers.conagrabrands.com/us/en/job/Req-036050/Financial-Analyst" target="_blank" rel="noopener">Financial Analyst</a></td>
+            <td>CONAGRA</td>
+            <td>Denver, Colorado, US</td>
+            <td>2026-01-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-kXvuJRA01CufcFvAAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-kXvuJRA01CufcFvAAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mn96Pk_ZstqGA6vaAAAAAA==">
+            <td><a href="https://careers.conagrabrands.com/us/en/job/Req-036393/Process-Improvement-Analyst" target="_blank" rel="noopener">Process Improvement Analyst</a></td>
+            <td>CONAGRA</td>
+            <td>Omaha, Nebraska, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mn96Pk_ZstqGA6vaAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mn96Pk_ZstqGA6vaAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-grRRLuXzz3iivFN6AAAAAA==">
+            <td><a href="https://careers.conagrabrands.com/us/en/job/Req-036312/Systems-Analyst" target="_blank" rel="noopener">Systems Analyst</a></td>
+            <td>CONAGRA</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-grRRLuXzz3iivFN6AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-grRRLuXzz3iivFN6AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-skqamvhTPuAmKqDOAAAAAA==">
+            <td><a href="https://careers.conagrabrands.com/us/en/job/Req-035855/Business-Services-Analyst" target="_blank" rel="noopener">Business Services Analyst</a></td>
+            <td>CONAGRA</td>
+            <td>Omaha, Nebraska, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-skqamvhTPuAmKqDOAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-skqamvhTPuAmKqDOAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-vjpgLFP__RrBPQ_4AAAAAA==">
+            <td><a href="https://us.bebee.com/job/40029de805d7ca4bf18d7da19bc50f32" target="_blank" rel="noopener">Global Admin FP&A Analyst Influence Strategy</a></td>
+            <td>General Mills</td>
+            <td>Minneapolis, Minnesota, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-vjpgLFP__RrBPQ_4AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-vjpgLFP__RrBPQ_4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ysFkrqPou2HKDzWYAAAAAA==">
+            <td><a href="https://career.io/job/associate-brand-marketing-job-details-st-louis-nestle-international-2d4915e37948a7d84c35ef568000bfd8?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Associate, Brand Marketing Job Details | Nestle Operational Services Worldwide SA</a></td>
+            <td>Nestle International</td>
+            <td>St. Louis, Missouri, US</td>
+            <td>2026-02-15</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ysFkrqPou2HKDzWYAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ysFkrqPou2HKDzWYAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-AP3a7g_hAdhmPDmYAAAAAA==">
+            <td><a href="https://jobdetails.nestle.com/job/Arlington-E-Business-Analyst-Amazon-VA-22209/1366085333/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">E-Business Analyst-Amazon</a></td>
+            <td>Nestle Operational Services Worldwide SA</td>
+            <td>Arlington, Virginia, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-AP3a7g_hAdhmPDmYAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-AP3a7g_hAdhmPDmYAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch--8FjuS0YjBiuiodnAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/e-business-analyst-amazon-at-nestl%C3%A9-4375638217?refId=yIYke0OLBSkdkJH1wrDX0Q%3D%3D&trackingId=xKUr1w29oatk/FTjEV4g6Q%3D%3D&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">E-Business Analyst-Amazon</a></td>
+            <td>Nestlé</td>
+            <td>Arlington, Virginia, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch--8FjuS0YjBiuiodnAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch--8FjuS0YjBiuiodnAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-M2WngT1IV7DbOsxbAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Banfield-Pet-Hospital/Job/Global-Omnichannel-Marketing-Analyst-Mars-Veterinary-Health/-in-New-York,NY?jid=731db524e6f152f5" target="_blank" rel="noopener">Global Omnichannel Marketing Analyst - Mars Veterinary Health</a></td>
+            <td>Banfield Pet Hospital</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-05</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-M2WngT1IV7DbOsxbAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-M2WngT1IV7DbOsxbAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_uYrJiy_oH0kqffxAAAAAA==">
+            <td><a href="https://careers.mars.com/global/en/job/R144990/Tax-Controversy-Analyst" target="_blank" rel="noopener">Tax Controversy Analyst</a></td>
+            <td>Mars</td>
+            <td>Hackettstown, New Jersey, US</td>
+            <td>2026-01-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_uYrJiy_oH0kqffxAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_uYrJiy_oH0kqffxAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-rul8fQ4EtywkczcPAAAAAA==">
+            <td><a href="https://careers.mars.com/global/en/job/R145000/Tax-Analyst-Compliance-and-Reporting" target="_blank" rel="noopener">Tax Analyst- Compliance and Reporting</a></td>
+            <td>Mars</td>
+            <td>Hackettstown, New Jersey, US</td>
+            <td>2026-01-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-rul8fQ4EtywkczcPAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-rul8fQ4EtywkczcPAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-odyOfC-TitqwNIh5AAAAAA==">
+            <td><a href="https://careers.mars.com/us/en/job/R145000/Tax-Analyst-Compliance-and-Reporting" target="_blank" rel="noopener">Tax Analyst- Compliance and Reporting</a></td>
+            <td>Mars</td>
+            <td>Hackettstown, New Jersey, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-odyOfC-TitqwNIh5AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-odyOfC-TitqwNIh5AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-TfwJ7Tmc3MWlF3T_AAAAAA==">
+            <td><a href="https://www.theladders.com/job/one-demand-planning-analyst-marsinc-newark-nj_85421640?ir=1" target="_blank" rel="noopener">One Demand Planning Analyst</a></td>
+            <td>Mars, Inc.</td>
+            <td>Newark, New Jersey, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-TfwJ7Tmc3MWlF3T_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-TfwJ7Tmc3MWlF3T_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-9-ZEBC9ztJtB8IPlAAAAAA==">
+            <td><a href="https://www.glassdoor.com/job-listing/source-to-pay-s2p-plan-to-fulfill-p2f-sustainability-reporting-analytics-analyst-mars-JV_IC1126906_KO0,80_KE81,85.htm?jl=1010012696800" target="_blank" rel="noopener">Source-to-Pay (S2P), Plan-to-Fulfill (P2F), & Sustainability Reporting & Analytics Analyst</a></td>
+            <td>Mars</td>
+            <td>Newark, New Jersey, US</td>
+            <td>2026-01-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-9-ZEBC9ztJtB8IPlAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-9-ZEBC9ztJtB8IPlAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FarJPhr2lBnv-8eRAAAAAA==">
+            <td><a href="https://careers.mars.com/global/en/job/R148665/Growth-Analyst" target="_blank" rel="noopener">Growth Analyst</a></td>
+            <td>Mars</td>
+            <td>Franklin, Tennessee, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FarJPhr2lBnv-8eRAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FarJPhr2lBnv-8eRAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-h9MaXbY0Iqg4b5qlAAAAAA==">
+            <td><a href="https://www.joinrs.com/job-offers/599736/" target="_blank" rel="noopener">HR Analyst</a></td>
+            <td>Kraft Heinz</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-h9MaXbY0Iqg4b5qlAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-h9MaXbY0Iqg4b5qlAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FpFuBKKDOJS9k9hkAAAAAA==">
+            <td><a href="https://careers.kraftheinz.com/job/22984813/hr-analyst-primal-kitchen-away-from-home-chicago-il/" target="_blank" rel="noopener">HR Analyst, Primal Kitchen + Away From Home</a></td>
+            <td>Kraft-Heinz</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-02-08</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FpFuBKKDOJS9k9hkAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FpFuBKKDOJS9k9hkAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-g9kL_gxNTHLR-GZEAAAAAA==">
+            <td><a href="https://careers.kraftheinz.com/job/23000534/ecommerce-merchandising-analyst-walmart-and-club-rogers-ar/" target="_blank" rel="noopener">eCommerce Merchandising Analyst, Walmart and Club</a></td>
+            <td>Kraft-Heinz</td>
+            <td>Rogers, Arkansas, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-g9kL_gxNTHLR-GZEAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-g9kL_gxNTHLR-GZEAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-iRfBIXJW3rM-vW_tAAAAAA==">
+            <td><a href="https://recruiting.paylocity.com/recruiting/jobs/Details/3838460/Coca-Cola-Bottling-Company-High-Country/Beverage-Quality-Safety-Program-Analyst?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Beverage Quality & Safety Program Analyst</a></td>
+            <td>Coca-Cola Bottling Company High Country</td>
+            <td>Billings, Montana, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-iRfBIXJW3rM-vW_tAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-iRfBIXJW3rM-vW_tAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-gB8ZuwQb5CRvxn2qAAAAAA==">
+            <td><a href="https://jobright.ai/jobs/info/696042237ebc25398eb64825?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Solutions & Data Analyst</a></td>
+            <td>Swire Coca-Cola, USA</td>
+            <td>Draper, Utah, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-gB8ZuwQb5CRvxn2qAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-gB8ZuwQb5CRvxn2qAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5ouHBeL4tVho-Y2QAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Coca-Cola-Bottlers-Sales-and-Services/Job/Consolidated-Invoice-Services-Analyst/-in-Atlanta,GA?jid=6000773ec14342bc&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Consolidated Invoice Services Analyst</a></td>
+            <td>Coca-Cola Bottlers' Sales & Services Company, LLC</td>
+            <td>Atlanta, Georgia, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5ouHBeL4tVho-Y2QAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5ouHBeL4tVho-Y2QAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-vqtu-50FvMaecwVqAAAAAA==">
+            <td><a href="https://careers.coca-colacompany.com/job/23000831/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Supply Chain Business Analyst</a></td>
+            <td>Coca Cola Careers</td>
+            <td>Dallas, Texas, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-vqtu-50FvMaecwVqAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-vqtu-50FvMaecwVqAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-hokP6e4SFEYA0UIKAAAAAA==">
+            <td><a href="https://careers.coca-colacompany.com/job/22934361/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Analyst - ERP 4</a></td>
+            <td>Coca Cola Careers</td>
+            <td>Birmingham, Alabama, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-hokP6e4SFEYA0UIKAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-hokP6e4SFEYA0UIKAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-3Hl1-4Q6Rna7SYdCAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=fb0b146f8355c7d0&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Marketing Portfolio Strategy & Innovation Associate Analyst</a></td>
+            <td>PepsiCo</td>
+            <td>Harrison, New York, US</td>
+            <td>2026-01-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-3Hl1-4Q6Rna7SYdCAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-3Hl1-4Q6Rna7SYdCAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-xtcoAMuOVdxGDj_AAAAAAA==">
+            <td><a href="https://simplify.jobs/p/5e31041e-4eaf-45a5-a637-e8ce432568cf/Marketing-Portfolio-Strategy-and-Innovation-Associate-Analyst?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Marketing Portfolio Strategy and Innovation Associate Analyst</a></td>
+            <td>PepsiCo</td>
+            <td>White Plains, New York, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-xtcoAMuOVdxGDj_AAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-xtcoAMuOVdxGDj_AAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Kq1vIWUfGWVSxb6FAAAAAA==">
+            <td><a href="https://www.glassdoor.com/job-listing/sales-analyst-guaynabo-pepsico-JV_KO0,22_KE23,30.htm?jl=1010016090547&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Sales Analyst - Guaynabo</a></td>
+            <td>PepsiCo</td>
+            <td>US</td>
+            <td>2026-01-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Kq1vIWUfGWVSxb6FAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Kq1vIWUfGWVSxb6FAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-WpRUBYxcxVQFYFqoAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/measurement-and-insights-associate-analyst-at-pepsico-4356223931?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Measurement and Insights Associate Analyst</a></td>
+            <td>PepsiCo</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-WpRUBYxcxVQFYFqoAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-WpRUBYxcxVQFYFqoAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-b0E8l09nFiGOKofnAAAAAA==">
+            <td><a href="https://www.pepsicojobs.com/main/jobs/432895?lang=en-us&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Measurement and Insights Associate Analyst</a></td>
+            <td>PepsiCo</td>
+            <td>Harrison, New York, US</td>
+            <td>2026-02-13</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-b0E8l09nFiGOKofnAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-b0E8l09nFiGOKofnAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-bDITl4z2BG-cxbcgAAAAAA==">
+            <td><a href="https://www.pepsicojobs.com/main/jobs/435331?lang=en-us&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Marketing Portfolio Strategy & Innovation Associate Analyst</a></td>
+            <td>PepsiCo</td>
+            <td>New York, New York, US</td>
+            <td>2026-01-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-bDITl4z2BG-cxbcgAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-bDITl4z2BG-cxbcgAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-bHAXzX_TUfeT40ntAAAAAA==">
+            <td><a href="https://www.mediabistro.com/jobs/2360782961-unilever-brazil-is-hiring-influencer-and-community-brand-associate-in-hoboken" target="_blank" rel="noopener">Unilever Brazil is hiring: Influencer & Community Brand Associate in Hoboken</a></td>
+            <td>Unilever Brazil</td>
+            <td>Hoboken, New Jersey, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-bHAXzX_TUfeT40ntAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-bHAXzX_TUfeT40ntAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-LiXI8HCdMOIJADXQAAAAAA==">
+            <td><a href="https://zahradubai.com/gig/job/governance-risk-and-compliance-analyst-unilever-prestige-at-unilever-boston-ma-U0hVNXk5dTYxT2graFlZbW1sYlhlYmdXaVE9PQ==" target="_blank" rel="noopener">Governance, Risk, and Compliance Analyst - Unilever Prestige at Unilever Boston, MA</a></td>
+            <td>Unilever</td>
+            <td>Boston, Massachusetts, US</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-LiXI8HCdMOIJADXQAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-LiXI8HCdMOIJADXQAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_Y9DMzNvlSzVzl0_AAAAAA==">
+            <td><a href="https://www.talentify.io/job/home-care-performance-analyst-hayti-missouri-us-unilever-r-1174682" target="_blank" rel="noopener">Home Care Performance Analyst</a></td>
+            <td>Unilever</td>
+            <td>Hayti, Missouri, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_Y9DMzNvlSzVzl0_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_Y9DMzNvlSzVzl0_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-4-8ZuPw2f_Iy0tKFAAAAAA==">
+            <td><a href="https://us.bebee.com/job/38c2f0fe72bf2a771f410e366e6b730b" target="_blank" rel="noopener">Home Care Performance Analyst</a></td>
+            <td>Unilever</td>
+            <td>Washington, District of Columbia, US</td>
+            <td>2026-02-23</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-4-8ZuPw2f_Iy0tKFAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-4-8ZuPw2f_Iy0tKFAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-2StzgAj0Z5VaBj87AAAAAA==">
+            <td><a href="https://builtin.com/job/quality-control-laboratory-analyst/8138231?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Quality Control Laboratory Analyst</a></td>
+            <td>Procter & Gamble</td>
+            <td>Ohio, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-2StzgAj0Z5VaBj87AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-2StzgAj0Z5VaBj87AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-CKuhfRkvZ7ACYo3PAAAAAA==">
+            <td><a href="https://builtin.com/job/pki-services-level-3-analyst/8200088?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">L3 PKI Analyst/Engineer</a></td>
+            <td>Procter & Gamble</td>
+            <td>Tennessee, US</td>
+            <td>2026-02-08</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-CKuhfRkvZ7ACYo3PAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-CKuhfRkvZ7ACYo3PAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-oaXFTT43IsJVZsG6AAAAAA==">
+            <td><a href="https://builtin.com/job/laboratory-analyst/8318631?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Laboratory Analyst</a></td>
+            <td>Procter & Gamble</td>
+            <td>Tennessee, US</td>
+            <td>2026-02-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-oaXFTT43IsJVZsG6AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-oaXFTT43IsJVZsG6AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ct49f1AByQThdUPrAAAAAA==">
+            <td><a href="https://www.dataanalyst.com/job/data-analyst-plant?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Data Analyst, Plant</a></td>
+            <td>Procter & Gamble</td>
+            <td>Dover, Delaware, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ct49f1AByQThdUPrAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ct49f1AByQThdUPrAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-uMWnGOtoq-50BTBGAAAAAA==">
+            <td><a href="https://www.pgcareers.com/us/en/job/R000142211/Microbiology-Laboratory-Analyst?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Microbiology Laboratory Analyst</a></td>
+            <td>PGBPGNGLOBAL</td>
+            <td>Greensboro, North Carolina, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-uMWnGOtoq-50BTBGAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-uMWnGOtoq-50BTBGAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-NqcsDBjctz-V4CLSAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Proctor-&-Gamble/Job/Operations-Analyst,-Fayetteville/-in-Fayetteville,NC?jid=5639c2f320d5225b&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Operations Analyst, Fayetteville</a></td>
+            <td>Proctor & Gamble</td>
+            <td>Fayetteville, North Carolina, US</td>
+            <td>2026-02-06</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-NqcsDBjctz-V4CLSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-NqcsDBjctz-V4CLSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-SpCy7nyRC8jYaFnxAAAAAA==">
+            <td><a href="https://www.pgcareers.com/eu/en/job/R000138350/Quality-Control-Analytical-Laboratory-Analyst?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Quality Control Analytical Laboratory Analyst</a></td>
+            <td>PGBPGNGLOBAL</td>
+            <td>Greensboro, North Carolina, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-SpCy7nyRC8jYaFnxAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-SpCy7nyRC8jYaFnxAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-tJzKDkGPyZR60l83AAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Procter-&-Gamble-Contractor/Job/Business-AnalystRemote/-in-Cincinnati,OH?jid=bf05f8f923120261&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Business AnalystRemote</a></td>
+            <td>Procter & Gamble Contractor</td>
+            <td>Cincinnati, Ohio, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-tJzKDkGPyZR60l83AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-tJzKDkGPyZR60l83AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Z7iQMEzO9GUpkPs_AAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=94661b1a606b1c7f" target="_blank" rel="noopener">Associate Analyst - Central Business Office</a></td>
+            <td>United Airlines</td>
+            <td>—</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Z7iQMEzO9GUpkPs_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Z7iQMEzO9GUpkPs_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-C2LT5bv2VWnX_BWpAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/United-Airlines,-Inc./Job/Associate-Analyst-Central-Business-Office/-in-Chicago,IL?jid=656ebf25fd0fe1b5" target="_blank" rel="noopener">Associate Analyst - Central Business Office</a></td>
+            <td>United Airlines, Inc.</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-C2LT5bv2VWnX_BWpAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-C2LT5bv2VWnX_BWpAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-l6X-Z6JefRhG79U6AAAAAA==">
+            <td><a href="https://careers.united.com/us/en/job/HSC00001040/Analyst-Information-Technology" target="_blank" rel="noopener">Analyst - Information Technology</a></td>
+            <td>United Airlines</td>
+            <td>Houston, Texas, US</td>
+            <td>2026-02-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-l6X-Z6JefRhG79U6AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-l6X-Z6JefRhG79U6AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-K9Zwf4q5yddI3eTzAAAAAA==">
+            <td><a href="https://careers.united.com/us/en/job/ORD00003506/Analyst-Cargo-Logistics-Operations" target="_blank" rel="noopener">Analyst - Cargo Logistics Operations</a></td>
+            <td>United Airlines</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-K9Zwf4q5yddI3eTzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-K9Zwf4q5yddI3eTzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-PTOQkfT0GlcnQoQAAAAAAA==">
+            <td><a href="https://careers.united.com/us/en/job/WHQ00026110/Associate-Analyst-Central-Business-Office" target="_blank" rel="noopener">Associate Analyst - Central Business Office</a></td>
+            <td>United Airlines</td>
+            <td>—</td>
+            <td>2026-02-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-PTOQkfT0GlcnQoQAAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-PTOQkfT0GlcnQoQAAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-EkYZD7PTrc0gkd_FAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/NASCAR/Job/Data-Analyst/-in-Daytona-Beach,FL?jid=7b3c5ae40179d656" target="_blank" rel="noopener">Data Analyst</a></td>
+            <td>Nascar</td>
+            <td>Daytona Beach, Florida, US</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-EkYZD7PTrc0gkd_FAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-EkYZD7PTrc0gkd_FAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-nvRfUKgCz8B5jLYDAAAAAA==">
+            <td><a href="https://www.teamworkonline.com/motorsports-jobs/nascar/nascar-jobs-/data-analyst-behavioral-insights-2156540" target="_blank" rel="noopener">Data Analyst, Behavioral Insights</a></td>
+            <td>NASCAR</td>
+            <td>Daytona Beach, Florida, US</td>
+            <td>2026-02-08</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-nvRfUKgCz8B5jLYDAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-nvRfUKgCz8B5jLYDAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-sWwPMVCZx3HOcL6LAAAAAA==">
+            <td><a href="https://us.jobrapido.com/jobpreview/527681015573905408?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">CRM Analyst - NHL</a></td>
+            <td>Florida Panthers</td>
+            <td>Florida, New York, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-sWwPMVCZx3HOcL6LAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-sWwPMVCZx3HOcL6LAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-r_FPjC1Bu_J-fo6EAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=25490af2aeec8a7a" target="_blank" rel="noopener">Customer Success Associate</a></td>
+            <td>unlock MLS and Austin Board of Realtors</td>
+            <td>Austin, Texas, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-r_FPjC1Bu_J-fo6EAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-r_FPjC1Bu_J-fo6EAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-w24ZVoKnRl2FLS_FAAAAAA==">
+            <td><a href="https://www.teamworkonline.com/sports-technology-jobs/sports-technology-careers/momento-jobs/sports-marketing-operations-associate-new-england-revolution-mls-new-england-patriots-nfl-2155614" target="_blank" rel="noopener">Sports Marketing & Operations Associate - New England Revolution (MLS) & New England Patriots (NFL)</a></td>
+            <td>Momento</td>
+            <td>Foxborough, Massachusetts, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-w24ZVoKnRl2FLS_FAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-w24ZVoKnRl2FLS_FAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-WzjEzM7BQPF1z9SaAAAAAA==">
+            <td><a href="https://aeh.ma/list/job/billing-specialist-at-mlb-and-associates-longwood-fl-eWMxMC80U3ZBdC84bEs1cEIxYUFsek03ZGc9PQ==" target="_blank" rel="noopener">Billing Specialist at MLB & Associates Longwood, FL</a></td>
+            <td>MLB & Associates</td>
+            <td>Longwood, Florida, US</td>
+            <td>2026-02-05</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-WzjEzM7BQPF1z9SaAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-WzjEzM7BQPF1z9SaAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-o_h3VaagS5cevqDeAAAAAA==">
+            <td><a href="https://www.teamworkonline.com/baseball-jobs/miamibaseball/miami-marlins/associate-authentics-2158434" target="_blank" rel="noopener"> Associate, Authentics</a></td>
+            <td>Miami Marlins</td>
+            <td>Miami, Florida, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-o_h3VaagS5cevqDeAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-o_h3VaagS5cevqDeAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-bR3PFnlLf9UQ-FN0AAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Major-League-Baseball/Job/Associate-Software-Engineer,-Baseball-Enterprise/-in-Boulder,CO?jid=7d3d4ccd8f54d4c3" target="_blank" rel="noopener">Associate Software Engineer, Baseball Enterprise</a></td>
+            <td>Major League Baseball</td>
+            <td>Boulder, Colorado, US</td>
+            <td>2026-01-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-bR3PFnlLf9UQ-FN0AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-bR3PFnlLf9UQ-FN0AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-vG-3AW2CEAsgpVFaAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/football-analyst-at-university-of-mississippi-4371490541?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Football Analyst</a></td>
+            <td>University of Mississippi</td>
+            <td>Indiana, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-vG-3AW2CEAsgpVFaAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-vG-3AW2CEAsgpVFaAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cx-jcaFxNUaOiDC3AAAAAA==">
+            <td><a href="https://www.higheredjobs.com/admin/details.cfm?JobCode=179352771&Title=Football+Analyst&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Football Analyst</a></td>
+            <td>Troy University</td>
+            <td>Troy, Alabama, US</td>
+            <td>2026-01-31</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cx-jcaFxNUaOiDC3AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cx-jcaFxNUaOiDC3AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-rz_eRIqAqI0OtcvnAAAAAA==">
+            <td><a href="https://careers.insidehighered.com/job/3460938/football-analyst/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Football Analyst</a></td>
+            <td>Georgia State University</td>
+            <td>Atlanta, Georgia, US</td>
+            <td>2026-02-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-rz_eRIqAqI0OtcvnAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-rz_eRIqAqI0OtcvnAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-w0WssOET3B-V25arAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=3dca6ba322a6f7ff&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Football Analyst</a></td>
+            <td>The University of Mississippi</td>
+            <td>Mississippi, US</td>
+            <td>2026-01-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-w0WssOET3B-V25arAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-w0WssOET3B-V25arAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ScEKXqiaQsZvLQI1AAAAAA==">
+            <td><a href="https://www.talentify.io/job/football-analyst-columbia-south-carolina-us-university-of-south-carolina-202682?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Football Analyst</a></td>
+            <td>University of South Carolina</td>
+            <td>Columbia, South Carolina, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ScEKXqiaQsZvLQI1AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ScEKXqiaQsZvLQI1AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mxD00IVIglY8M2xNAAAAAA==">
+            <td><a href="https://www.higheredjobs.com/admin/details.cfm?JobCode=179370786&Title=Football+Analyst+R-1793&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Football Analyst R-1793</a></td>
+            <td>Louisiana Tech University</td>
+            <td>Ruston, Louisiana, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mxD00IVIglY8M2xNAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mxD00IVIglY8M2xNAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-tr_bvjqPERFYMimTAAAAAA==">
+            <td><a href="https://jobs.chronicle.com/job/37953255/football-analyst-i/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Football Analyst I</a></td>
+            <td>University of Texas at San Antonio</td>
+            <td>San Antonio, Texas, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-tr_bvjqPERFYMimTAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-tr_bvjqPERFYMimTAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-SDYkdu5hyS6pHjLaAAAAAA==">
+            <td><a href="https://www.higheredjobs.com/institution/details.cfm?JobCode=179370558&Title=Defensive%20Analyst%20-%20Football" target="_blank" rel="noopener">Defensive Analyst - Football</a></td>
+            <td>HigherEdJobs</td>
+            <td>Morgantown, West Virginia, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-SDYkdu5hyS6pHjLaAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-SDYkdu5hyS6pHjLaAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-QjRFjufOdgNkAZukAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/NBC-Universal/Job/Research-Analyst,-NBCU-Local-Chicago/-in-Chicago,IL?jid=873ec7c684a5e8c3" target="_blank" rel="noopener">Research Analyst, NBCU Local Chicago</a></td>
+            <td>NBCUniversal</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-QjRFjufOdgNkAZukAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-QjRFjufOdgNkAZukAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Ue4cDYFfLtbi0OWpAAAAAA==">
+            <td><a href="https://empresas-economiasocialysolidaria.com.mx/joblib/job/business-intelligence-analyst-at-fox-corporation-los-angeles-ca-Rk1zUklqeUoyeUU2ckxnbUZDRUE2WXRIVGc9PQ==" target="_blank" rel="noopener">Business Intelligence Analyst at Fox Corporation Los Angeles, CA</a></td>
+            <td>Fox Corporation</td>
+            <td>Los Angeles, California, US</td>
+            <td>2026-02-08</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Ue4cDYFfLtbi0OWpAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Ue4cDYFfLtbi0OWpAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-87Eru319OmwvQYOtAAAAAA==">
+            <td><a href="https://www.showbizjobs.com/jobs/fox-sports-analyst-content-operations-in-los-angeles/jid-j68mx2" target="_blank" rel="noopener">Analyst, Content Operations [Los Angeles]</a></td>
+            <td>Fox Sports</td>
+            <td>Los Angeles, California, US</td>
+            <td>2026-02-13</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-87Eru319OmwvQYOtAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-87Eru319OmwvQYOtAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-0w2JBmHGzThDpeH4AAAAAA==">
+            <td><a href="https://jobs.localjobnetwork.com/job/detail/86241725/ESPN-KidsCenter-Child-Care-Associate-Teacher?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">ESPN KidsCenter-Child Care Associate Teacher</a></td>
+            <td>Bright Horizons Children's Centers</td>
+            <td>Hartford, Connecticut, US</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-0w2JBmHGzThDpeH4AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-0w2JBmHGzThDpeH4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-01zkCfBrEEmM8IZZAAAAAA==">
+            <td><a href="https://careers.brighthorizons.com/us/en/job/JR-134602/ESPN-KidsCenter-Child-Care-Associate-Teacher?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">ESPN KidsCenter-Child Care Associate Teacher</a></td>
+            <td>Bright Horizons Family Solutions</td>
+            <td>Bristol, Connecticut, US</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-01zkCfBrEEmM8IZZAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-01zkCfBrEEmM8IZZAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-nsjarTOlqC0U98cQAAAAAA==">
+            <td><a href="https://www.mediabistro.com/jobs/1698354456-associate-editor-espn-app-job-at-sports-business-ventures-llc-in-bristol?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Associate Editor – ESPN App Job at Sports Business Ventures LLC in Bristol</a></td>
+            <td>Sports Business Ventures LLC</td>
+            <td>Bristol, Connecticut, US</td>
+            <td>2026-02-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-nsjarTOlqC0U98cQAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-nsjarTOlqC0U98cQAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-VzHzCV8bSygcz5e7AAAAAA==">
+            <td><a href="https://rivnax.com/joblib/job/salesforce-focused-biz-systems-analyst-hybrid-nyc-at-peloton-new-york-ny-WlZyQkhrL2h1dFR2RVBGb3dQRGxWcG5Z?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Salesforce-focused Biz Systems Analyst | Hybrid NYC at Peloton New York, NY</a></td>
+            <td>Peloton</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-VzHzCV8bSygcz5e7AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-VzHzCV8bSygcz5e7AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-9kfKeonbJxaU4DBaAAAAAA==">
+            <td><a href="https://us.bebee.com/job/fde26f93628a212ba7224e24c3f9684e" target="_blank" rel="noopener">Aviation Business/Sales Analyst 1</a></td>
+            <td>Garmin</td>
+            <td>Olathe, Kansas, US</td>
+            <td>2026-02-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-9kfKeonbJxaU4DBaAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-9kfKeonbJxaU4DBaAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-1wDt6DtMxb1l_xR0AAAAAA==">
+            <td><a href="https://www.mediabistro.com/jobs/2477266823-aviation-business-analyst-i-forecasting-and-sales-support" target="_blank" rel="noopener">Aviation Business Analyst I: Forecasting & Sales Support</a></td>
+            <td>Garmin Ltd.</td>
+            <td>Olathe, Kansas, US</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-1wDt6DtMxb1l_xR0AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-1wDt6DtMxb1l_xR0AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-8AIZqhD_IV9XYX2WAAAAAA==">
+            <td><a href="https://www.career.com/job/garmin/business-analyst-2-internet/j202410151043126821497" target="_blank" rel="noopener">Business Analyst 2 Internet</a></td>
+            <td>Garmin</td>
+            <td>Olathe, Kansas, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-8AIZqhD_IV9XYX2WAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-8AIZqhD_IV9XYX2WAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5s3JWsKYH0JGAWz2AAAAAA==">
+            <td><a href="https://www.talent.com/view?id=92a284afaafd" target="_blank" rel="noopener">Aviation Business / Sales Analyst 1</a></td>
+            <td>Garmin Ltd</td>
+            <td>—</td>
+            <td>2026-02-06</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5s3JWsKYH0JGAWz2AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5s3JWsKYH0JGAWz2AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-VtSU3hJaTYiSh1BUAAAAAA==">
+            <td><a href="https://devitjobs.com/jobs/Garmin-Operations-Analyst---Data-Analysis-Tools" target="_blank" rel="noopener">Operations Analyst - Data Analysis Tools Business 🏆</a></td>
+            <td>Garmin</td>
+            <td>Olathe, Kansas, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-VtSU3hJaTYiSh1BUAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-VtSU3hJaTYiSh1BUAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-YeJtHaUD5I6nUbioAAAAAA==">
+            <td><a href="https://us.bebee.com/job/ada5257d55ca0eba5a275b85df84cecf" target="_blank" rel="noopener">Aviation Business Analyst I: Forecasting</a></td>
+            <td>Garmin</td>
+            <td>Olathe, Kansas, US</td>
+            <td>2026-02-23</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-YeJtHaUD5I6nUbioAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-YeJtHaUD5I6nUbioAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Nd4P4d_1jvjGEHSZAAAAAA==">
+            <td><a href="https://www.glassdoor.com/job-listing/operations-analyst-2-garmin-JV_IC1151046_KO0,20_KE21,27.htm?jl=1009907979852" target="_blank" rel="noopener">Operations Analyst 2</a></td>
+            <td>Garmin International, Inc.</td>
+            <td>Olathe, Kansas, US</td>
+            <td>2026-02-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Nd4P4d_1jvjGEHSZAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Nd4P4d_1jvjGEHSZAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-IGGoeAFfKCgqb5qXAAAAAA==">
+            <td><a href="https://careers.garmin.com/jobs/18052?lang=en-us" target="_blank" rel="noopener">Airport Data Analyst 1 - Flight Path</a></td>
+            <td>Garmin International, Inc.</td>
+            <td>Scottsdale, Arizona, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-IGGoeAFfKCgqb5qXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-IGGoeAFfKCgqb5qXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-wfSBAGvwo62Nm8-sAAAAAA==">
+            <td><a href="https://us.fashionjobs.com/job/garmin/Quality-analyst-2,11341634.html" target="_blank" rel="noopener">Quality Analyst 2</a></td>
+            <td>GARMIN</td>
+            <td>Yarmouth, Massachusetts, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-wfSBAGvwo62Nm8-sAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-wfSBAGvwo62Nm8-sAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-0eOsZZd4OoP9S-vyAAAAAA==">
+            <td><a href="http://woodeninn.com/vacancy/job/grc-analyst-at-whoop-boston-ma-TFlTZzFGbWluWWZNdUo1UHJxTVNzOEt0NGc9PQ==?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">GRC Analyst at WHOOP Boston, MA</a></td>
+            <td>WHOOP</td>
+            <td>Boston, Massachusetts, US</td>
+            <td>2026-01-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-0eOsZZd4OoP9S-vyAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-0eOsZZd4OoP9S-vyAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-xRApmngZzDEc9704AAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/TaylorMade-Golf/Job/Marketing-Analytics-Intern/-in-Carlsbad,CA?jid=7a948d7f7c81fce8" target="_blank" rel="noopener">Marketing Analytics Intern</a></td>
+            <td>TaylorMade Golf Co.</td>
+            <td>Carlsbad, California, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-xRApmngZzDEc9704AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-xRApmngZzDEc9704AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-60wyMF-unSgl5JeCAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=9a84f3f82f495d78" target="_blank" rel="noopener">Associate Product Evaluation Analyst</a></td>
+            <td>TaylorMade Golf Company</td>
+            <td>Carlsbad, California, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-60wyMF-unSgl5JeCAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-60wyMF-unSgl5JeCAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cEcS5iTqR8pfwlaKAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=b93d2bfd3ac6b46d" target="_blank" rel="noopener">Business Analyst Systems Testing</a></td>
+            <td>TaylorMade Golf Company</td>
+            <td>Carlsbad, California, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cEcS5iTqR8pfwlaKAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cEcS5iTqR8pfwlaKAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_oCLOgsFz67axKKAAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/TaylorMade-Golf/Job/Associate-Business-Analyst-Product-Evaluation/-in-Carlsbad,CA?jid=b8b2bac20f641af3" target="_blank" rel="noopener">Associate Business Analyst Product Evaluation</a></td>
+            <td>TaylorMade Golf Co.</td>
+            <td>Carlsbad, California, US</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_oCLOgsFz67axKKAAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_oCLOgsFz67axKKAAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Od893DsUvQtSOAImAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=9f70f74dedec8bb3" target="_blank" rel="noopener">Analyst Brand Experience</a></td>
+            <td>TaylorMade Golf Company</td>
+            <td>Carlsbad, California, US</td>
+            <td>2026-02-13</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Od893DsUvQtSOAImAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Od893DsUvQtSOAImAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-4DSa5tu7OzF1MDt4AAAAAA==">
+            <td><a href="https://us.bebee.com/job/9f9774035ae7f8930deb349683385563?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Entry-Level Credit Analyst SAP</a></td>
+            <td>Callaway Golf</td>
+            <td>Carlsbad, California, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-4DSa5tu7OzF1MDt4AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-4DSa5tu7OzF1MDt4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-oZTRmlKm3hBViVEGAAAAAA==">
+            <td><a href="https://www.jobilize.com/job/us-nc-cary-associate-inventory-control-analyst-2nd-shift-callaway?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Associate Inventory Control Analyst 2nd Shift</a></td>
+            <td>Callaway Golf</td>
+            <td>Cary, North Carolina, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-oZTRmlKm3hBViVEGAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-oZTRmlKm3hBViVEGAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Liz26Tim0L4a00WGAAAAAA==">
+            <td><a href="https://www.jobleads.com/us/job/global-purchasing-analyst--carlsbad--e3e619dca3f1a6177e8663671639f8ebc?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Global Purchasing Analyst</a></td>
+            <td>Callaway Golf</td>
+            <td>Carlsbad, Texas, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Liz26Tim0L4a00WGAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Liz26Tim0L4a00WGAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-d5eWdOvXsWwUgg31AAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=7f641da1ca078d31&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Global Purchasing Analyst</a></td>
+            <td>Callaway</td>
+            <td>Carlsbad, California, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-d5eWdOvXsWwUgg31AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-d5eWdOvXsWwUgg31AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-dlNUQqp3-gXF_-XbAAAAAA==">
+            <td><a href="https://lensa.com/job-v1/callaway-golf/cary-nc/associate-inventory-control-analyst-2nd-shift/4b4650c5e791cc5abb7b63561e1c4ca1?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Associate Inventory Control Analyst (2nd Shift)</a></td>
+            <td>Callaway Golf</td>
+            <td>Cary, North Carolina, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-dlNUQqp3-gXF_-XbAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-dlNUQqp3-gXF_-XbAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-aXRul6LTnBW_EUplAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/global-purchasing-analyst-at-callaway-golf-4363170604?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Global Purchasing Analyst</a></td>
+            <td>Callaway Golf</td>
+            <td>Texas, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-aXRul6LTnBW_EUplAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-aXRul6LTnBW_EUplAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-MOtLnyN6OTpxRtGiAAAAAA==">
+            <td><a href="https://us.bebee.com/job/2dc096662a09f507b90ec27dd9e8a119?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Hybrid Credit Analyst: Risk, Collections</a></td>
+            <td>Bauer Hockey/ Cascade Maverik Lacrosse</td>
+            <td>Exeter, New Hampshire, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-MOtLnyN6OTpxRtGiAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-MOtLnyN6OTpxRtGiAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-4iQ3qoBdcCQ-wl3rAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Morgan-Stanley/Job/Wealth-Management-Marketing-Administration,-Analyst-Associate/-in-New-York,NY?jid=b1c4f6b6f573004c" target="_blank" rel="noopener">Wealth Management Marketing Administration, Analyst/Associate</a></td>
+            <td>Morgan Stanley</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-02</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-4iQ3qoBdcCQ-wl3rAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-4iQ3qoBdcCQ-wl3rAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-F9OnNcWYYo_OIioSAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Foot-Locker/Job/Lease-Compliance-Analyst/-in-Camp-Hill,PA?jid=f45c8d7954749114" target="_blank" rel="noopener">Lease Compliance - Analyst</a></td>
+            <td>Foot Locker</td>
+            <td>Camp Hill, Pennsylvania, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-F9OnNcWYYo_OIioSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-F9OnNcWYYo_OIioSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mpTc9bivu6OPz5plAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Foot-Locker/Job/Merchandise-Analyst-(Hybrid)/-in-New-York,NY?jid=dd5af46363311daf" target="_blank" rel="noopener">Merchandise Analyst (Hybrid)</a></td>
+            <td>Foot Locker</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mpTc9bivu6OPz5plAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mpTc9bivu6OPz5plAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-qOR9e4Rh9dbP-mhwAAAAAA==">
+            <td><a href="https://us.bebee.com/job/ab754773cf4644482bb75c6bbbe61cfa" target="_blank" rel="noopener">Shipping Associate</a></td>
+            <td>REI</td>
+            <td>Lebanon, Tennessee, US</td>
+            <td>2026-01-31</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-qOR9e4Rh9dbP-mhwAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-qOR9e4Rh9dbP-mhwAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mtr-97U3ZROlzyMHAAAAAA==">
+            <td><a href="https://www.rei.jobs/talent/jobs/29381?lang=en-us" target="_blank" rel="noopener">Shipping Associate - 1st Shift</a></td>
+            <td>REI (Recreational Equipment Inc.)</td>
+            <td>Lebanon, Tennessee, US</td>
+            <td>2026-01-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mtr-97U3ZROlzyMHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mtr-97U3ZROlzyMHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-G2yxr7FoftgrT0vCAAAAAA==">
+            <td><a href="https://us.fashionjobs.com/job/rei/2nd-shift-stocking-associate,11287239.html" target="_blank" rel="noopener">2nd Shift Stocking Associate</a></td>
+            <td>REI</td>
+            <td>Lebanon, Pennsylvania, US</td>
+            <td>2026-01-31</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-G2yxr7FoftgrT0vCAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-G2yxr7FoftgrT0vCAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-EP3Yqj51CJa90-hkAAAAAA==">
+            <td><a href="https://us.bebee.com/job/f4ad84f5f752ef2ca75bacfbd91f63c1" target="_blank" rel="noopener">Supply Chain Analyst II, Parcel Carrier Management</a></td>
+            <td>REI</td>
+            <td>Seattle, Washington, US</td>
+            <td>2026-01-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-EP3Yqj51CJa90-hkAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-EP3Yqj51CJa90-hkAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-d5Bbmu4lBZXXbwPjAAAAAA==">
+            <td><a href="https://us.bebee.com/job/77ab40ec66cc237cf991fedea6f9aff7?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Global Merchandising Assistant Data</a></td>
+            <td>Lululemon athletica</td>
+            <td>Shelly, Minnesota, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-d5Bbmu4lBZXXbwPjAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-d5Bbmu4lBZXXbwPjAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-60npj54MKdwPw_gSAAAAAA==">
+            <td><a href="https://career.io/job/data-analyst-intern-growth-marketing-beverly-hills-alo-yoga-eefa184b919764a6c818eb402987d681?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Data Analyst Intern</a></td>
+            <td>Alo Yoga</td>
+            <td>Beverly Hills, California, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-60npj54MKdwPw_gSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-60npj54MKdwPw_gSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-bwqkiTqJWIYvpbGzAAAAAA==">
+            <td><a href="https://us.bebee.com/job/c128ced2be3beb474beedc5ceb31b4e6" target="_blank" rel="noopener">SAP SCM Analyst</a></td>
+            <td>Wilson Sporting Goods Co.</td>
+            <td>Nashville, Tennessee, US</td>
+            <td>2026-02-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-bwqkiTqJWIYvpbGzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-bwqkiTqJWIYvpbGzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-HQasVgk7Dkte1lZ2AAAAAA==">
+            <td><a href="https://www.jobleads.com/us/job/business-analyst-technology--vancouver--e5afdc965aa2d84c36b5f234fbbbdf21d?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Business Analyst, Technology</a></td>
+            <td>Arc'teryx Equipment</td>
+            <td>Vancouver, Washington, US</td>
+            <td>2026-02-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-HQasVgk7Dkte1lZ2AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-HQasVgk7Dkte1lZ2AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5zAB5JPr5205lg5wAAAAAA==">
+            <td><a href="https://www.jobleads.com/us/job/business-analyst-corporate-services--vancouver--e745c138bb667870d9b570269048b31bc?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Business Analyst, Corporate Services</a></td>
+            <td>Arc'teryx Equipment</td>
+            <td>Vancouver, Washington, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5zAB5JPr5205lg5wAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5zAB5JPr5205lg5wAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-C4SgnK0uLP4EwUlSAAAAAA==">
+            <td><a href="https://malakye.com/job/planning-analyst-the-north-face-a-vf-company-2519991?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Planning Analyst</a></td>
+            <td>The North Face, a VF Company</td>
+            <td>Alameda, California, US</td>
+            <td>2026-02-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-C4SgnK0uLP4EwUlSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-C4SgnK0uLP4EwUlSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-N8D3uowfaLTcdSb4AAAAAA==">
+            <td><a href="https://malakye.com/job/gtm-analyst-the-north-face-a-vf-company-2519990?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">GTM Analyst</a></td>
+            <td>The North Face, a VF Company</td>
+            <td>Alameda, California, US</td>
+            <td>2026-02-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-N8D3uowfaLTcdSb4AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-N8D3uowfaLTcdSb4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-1pGS6m2MmkJeyCIZAAAAAA==">
+            <td><a href="https://us.jobrapido.com/jobpreview/1353737229574340608?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Product Testing Analyst II – Hybrid, Portland</a></td>
             <td>Deckers Brands</td>
-            <td>Portland, Oregon</td>
-            <td>Posted 3 D</td>
-            <td><span class="badge badge-workday">Career Page</span></td>
-            <td>
-                <button class="apply-btn" onclick="markApplied('workday-deckers-/job/Portland-Oregon/Associate--Global-Merchandising--Hoka-Performance-Footwear_20036', this)">✓ Applied</button>
+            <td>Oregon, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-1pGS6m2MmkJeyCIZAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-1pGS6m2MmkJeyCIZAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-zqCDeR-eSuG8mwbaAAAAAA==">
+            <td><a href="https://jobright.ai/jobs/info/68cf31badbd9fb154ede5984?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Continuous Improvement Analyst</a></td>
+            <td>Deckers Brands</td>
+            <td>Mooresville, Indiana, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-zqCDeR-eSuG8mwbaAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-zqCDeR-eSuG8mwbaAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cW4YRuEVo3twmKFlAAAAAA==">
+            <td><a href="https://us.bebee.com/job/9af92dbed701da83001528f5dc78adca?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Deckers Brands Analyst, Sustainability</a></td>
+            <td>BoF Careers</td>
+            <td>US</td>
+            <td>2026-02-07</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cW4YRuEVo3twmKFlAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cW4YRuEVo3twmKFlAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-w6M8B_GTMW3lEBg2AAAAAA==">
+            <td><a href="https://us.trabajo.org/job-2283-8d1d19433bfb0a53c9164ca893a9a998?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Remote Sustainability Data Analyst – Drive Impact</a></td>
+            <td>Deckers Brands</td>
+            <td>Oregon, Wisconsin, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-w6M8B_GTMW3lEBg2AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-w6M8B_GTMW3lEBg2AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-71BE4cClsNk5N7pXAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/corporate-insurance-analyst-at-deckers-brands-4294499576?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Corporate Insurance Analyst</a></td>
+            <td>Deckers Brands</td>
+            <td>Santa Barbara, California, US</td>
+            <td>2026-02-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-71BE4cClsNk5N7pXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-71BE4cClsNk5N7pXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-T2-oVHwa4V4wkrDBAAAAAA==">
+            <td><a href="https://us.bebee.com/job/2f7c26080ab6bc1ee3895adcc84393e9?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Analyst, Sustainability</a></td>
+            <td>Deckers Brands</td>
+            <td>Washington, District of Columbia, US</td>
+            <td>2026-02-05</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-T2-oVHwa4V4wkrDBAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-T2-oVHwa4V4wkrDBAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-D4R09-c2MYF52sPQAAAAAA==">
+            <td><a href="https://us.trabajo.org/job-2283-bf6005daba0e6a1645779bf9bf5a0f60?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Stock & Merchandising Associate - Flexible Schedule & Growth</a></td>
+            <td>Steve Madden</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-D4R09-c2MYF52sPQAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-D4R09-c2MYF52sPQAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-srUgFboCFEonYU3oAAAAAA==">
+            <td><a href="https://www.jobleads.com/us/job/stock-merchandising-associate-flexible-schedule--new-orleans--ec7026195c9e33bcd6f409ebb6e30b717?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Stock & Merchandising Associate | Flexible Schedule</a></td>
+            <td>Steve Madden</td>
+            <td>New Orleans, Louisiana, US</td>
+            <td>2026-02-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-srUgFboCFEonYU3oAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-srUgFboCFEonYU3oAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-SAsCz3CqAqgJcmolAAAAAA==">
+            <td><a href="https://us.jobrapido.com/jobpreview/521881366615293952?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Stock & Merchandising Associate - Flexible Schedule & Growth</a></td>
+            <td>Steve Madden</td>
+            <td>Clarksburg, Maryland, US</td>
+            <td>2026-02-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-SAsCz3CqAqgJcmolAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-SAsCz3CqAqgJcmolAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Aif23z1x4lnzkMD2AAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Crocs/Job/Inventory-Control-Analyst/-in-Las-Vegas,NV?jid=78a6e0e4634e9d42" target="_blank" rel="noopener">Inventory Control Analyst</a></td>
+            <td>Crocs</td>
+            <td>Las Vegas, Nevada, US</td>
+            <td>2026-01-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Aif23z1x4lnzkMD2AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Aif23z1x4lnzkMD2AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-PBcdXt_iDDKf1LtBAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=ccd3ebec34de88fc" target="_blank" rel="noopener">FP&A Analyst</a></td>
+            <td>Crocs Inc (Enterprise)</td>
+            <td>Broomfield, Colorado, US</td>
+            <td>2026-02-11</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-PBcdXt_iDDKf1LtBAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-PBcdXt_iDDKf1LtBAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-6b_lo53eYZRU-AjrAAAAAA==">
+            <td><a href="https://career.io/job/corporate-finance-strategy-analyst-hermosa-beach-skechers-usa-inc-0755e630c1a810252f8b3f5da96a4749?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Corporate Finance & Strategy Analyst</a></td>
+            <td>Skechers USA Inc.</td>
+            <td>Hermosa Beach, California, US</td>
+            <td>2026-02-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-6b_lo53eYZRU-AjrAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-6b_lo53eYZRU-AjrAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-F2ZIlewM-MLOt_lRAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Skechers/Job/Pricing-Analyst/-in-Hermosa-Beach,CA?jid=de621cbc7348f965&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Pricing Analyst</a></td>
+            <td>Skechers</td>
+            <td>Hermosa Beach, California, US</td>
+            <td>2026-01-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-F2ZIlewM-MLOt_lRAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-F2ZIlewM-MLOt_lRAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-DtW9Ko6iu7a56sCkAAAAAA==">
+            <td><a href="https://careers.skechers.com/us/en/job/JR120575/Cybersecurity-Risk-Analyst?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Cybersecurity Risk Analyst</a></td>
+            <td>Skechers</td>
+            <td>Manhattan Beach, California, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-DtW9Ko6iu7a56sCkAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-DtW9Ko6iu7a56sCkAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-BscYdvw74NwGtWdWAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=4dd4dbc2b26143c6&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Business Systems Analyst</a></td>
+            <td>Skechers USA, Inc.</td>
+            <td>Moreno Valley, California, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-BscYdvw74NwGtWdWAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-BscYdvw74NwGtWdWAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Ci8i077SMu0ETqeqAAAAAA==">
+            <td><a href="https://www.glassdoor.com/job-listing/analyst-wholesale-skechers-u-s-a-JV_IC1146794_KO0,17_KE18,32.htm?jl=1010041013929&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Analyst, Wholesale</a></td>
+            <td>Skechers USA, Inc.</td>
+            <td>Hermosa Beach, California, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Ci8i077SMu0ETqeqAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Ci8i077SMu0ETqeqAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-nGIbL8JBWgvCkZyGAAAAAA==">
+            <td><a href="https://www.businessoffashion.com/careers/job/305462/hoka-associate-global-merchandising-hoka-performance-footwear/" target="_blank" rel="noopener">Hoka Associate, Global Merchandising- Hoka Performance Footwear</a></td>
+            <td>Hoka</td>
+            <td>Arkansas, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-nGIbL8JBWgvCkZyGAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-nGIbL8JBWgvCkZyGAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mXoACnIuOhfjNCmjAAAAAA==">
+            <td><a href="https://careers.underarmour.com/job/Sparrows-Point-Inventory-Associate%2C-Weekend-Shift-MD-21219/1363796400/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Inventory Associate, Weekend Shift</a></td>
+            <td>Under Armour</td>
+            <td>—</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mXoACnIuOhfjNCmjAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mXoACnIuOhfjNCmjAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-10KeCSVJDao9nd0tAAAAAA==">
+            <td><a href="https://careers.underarmour.com/job/Baltimore-Production-Associate-Team-MD-21230/1366653400/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Production Associate - Team</a></td>
+            <td>Under Armour</td>
+            <td>Baltimore, Maryland, US</td>
+            <td>2026-02-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-10KeCSVJDao9nd0tAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-10KeCSVJDao9nd0tAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-6bA5COwXvXPW1qrVAAAAAA==">
+            <td><a href="https://careers.underarmour.com/job/Baltimore-Associate%2C-Global-Brand-Communications-MD-21230/1352343700/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Associate, Global Brand Communications</a></td>
+            <td>Under Armour</td>
+            <td>Baltimore, Maryland, US</td>
+            <td>2026-01-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-6bA5COwXvXPW1qrVAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-6bA5COwXvXPW1qrVAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-7rD2bV_TwimqQxj_AAAAAA==">
+            <td><a href="https://www.learn4good.com/jobs/somerville/massachusetts/retail/4825096652/e/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Somerville, Analyst Allocations DTC Merchandising​/Buying</a></td>
+            <td>PUMA Gruppe</td>
+            <td>Somerville, Massachusetts, US</td>
+            <td>2026-01-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-7rD2bV_TwimqQxj_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-7rD2bV_TwimqQxj_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-UTxwfHt-yegSkdBlAAAAAA==">
+            <td><a href="https://foreverbetter.com/en/jobs/analyst-foreign-trade-zone-r39467?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Analyst Foreign Trade Zone</a></td>
+            <td>PUMA</td>
+            <td>Somerville, Massachusetts, US</td>
+            <td>2026-02-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-UTxwfHt-yegSkdBlAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-UTxwfHt-yegSkdBlAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch--ouwm70T-1pYNrCmAAAAAA==">
+            <td><a href="https://about.puma.com/en/jobs/analyst-allocations-dtc-r39637?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Analyst Allocations DTC</a></td>
+            <td>PUMA</td>
+            <td>Somerville, Massachusetts, US</td>
+            <td>2026-01-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch--ouwm70T-1pYNrCmAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch--ouwm70T-1pYNrCmAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-weKMw6Ic77BdaqgWAAAAAA==">
+            <td><a href="https://us.bebee.com/job/ffa240b1266eb9ba16cb95504bf4a744" target="_blank" rel="noopener">Associate Apparel</a></td>
+            <td>Pro Shop</td>
+            <td>Washington, District of Columbia, US</td>
+            <td>2026-01-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-weKMw6Ic77BdaqgWAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-weKMw6Ic77BdaqgWAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-wsvnZAmZA2H_vx-mAAAAAA==">
+            <td><a href="https://lucaciuti.com/jobs/job/assistant-graphic-designer-at-adidas-america-inc-portland-or-WFFwejFwbEloUUJBblBkSnpkMGdZUFVHeEE9PQ==?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Assistant Graphic Designer at Adidas America, Inc. Portland, OR</a></td>
+            <td>Adidas America, Inc.</td>
+            <td>Portland, Oregon, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-wsvnZAmZA2H_vx-mAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-wsvnZAmZA2H_vx-mAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-7oFYCBYhGq0hDJCDAAAAAA==">
+            <td><a href="https://www.goinhouse.com/jobs/492384811-assistant-gc-sports-marketing-at-nike?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Assistant GC, Sports Marketing</a></td>
+            <td>NIKE</td>
+            <td>Oregon, US</td>
+            <td>2026-01-24</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-7oFYCBYhGq0hDJCDAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-7oFYCBYhGq0hDJCDAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FlrAuBDLkrwQqMEZAAAAAA==">
+            <td><a href="https://tallo.com/jobs/technology/data-data-mining-analyst/or/washington/product-information-analyst-i-127e4077e83e/" target="_blank" rel="noopener">Product Information Analyst I</a></td>
+            <td>NIKE</td>
+            <td>Oregon, US</td>
+            <td>2026-02-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FlrAuBDLkrwQqMEZAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FlrAuBDLkrwQqMEZAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Wr9CqRF6TMcFaFT4AAAAAA==">
+            <td><a href="https://us.bebee.com/job/3a0fb01e3ba395a858fe2e12bc33ad4a" target="_blank" rel="noopener">Product Information Analyst I</a></td>
+            <td>Nike</td>
+            <td>Beaverton, Oregon, US</td>
+            <td>2026-02-06</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Wr9CqRF6TMcFaFT4AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Wr9CqRF6TMcFaFT4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-B3zL3mWKLpXSc9mHAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/planner-analyst%E2%80%94nike-licensee-at-will-leather-goods-4367054070" target="_blank" rel="noopener">Planner Analyst—Nike Licensee</a></td>
+            <td>Will Leather Goods</td>
+            <td>Eugene, Oregon, US</td>
+            <td>2026-01-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-B3zL3mWKLpXSc9mHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-B3zL3mWKLpXSc9mHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-KykM71ewYQlXjA50AAAAAA==">
+            <td><a href="https://www.snagajob.com/jobs/1178875083" target="_blank" rel="noopener">Supply Chain Process Analyst II, NA - Full-time</a></td>
+            <td>Nike</td>
+            <td>Beaverton, Oregon, US</td>
+            <td>2026-02-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-KykM71ewYQlXjA50AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-KykM71ewYQlXjA50AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-X-o9rpnDqUOgJoHsAAAAAA==">
+            <td><a href="https://www.joinrs.com/job-offers/598388/" target="_blank" rel="noopener">Product Information Analyst</a></td>
+            <td>Nike</td>
+            <td>Beaverton, Oregon, US</td>
+            <td>2026-02-08</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-X-o9rpnDqUOgJoHsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-X-o9rpnDqUOgJoHsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-brfAHVrdsHzj0CGqAAAAAA==">
+            <td><a href="https://ebwh.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/job/84610?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Merchandise Assistant - Nike</a></td>
+            <td>Macy's Jobs</td>
+            <td>New York, New York, US</td>
+            <td>2026-02-02</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-brfAHVrdsHzj0CGqAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-brfAHVrdsHzj0CGqAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-CsyZRf5aw4QshQMPAAAAAA==">
+            <td><a href="https://careers.nike.com/specialist-ii-merchandising-business-integration-jordan-na/job/R-78368?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic" target="_blank" rel="noopener">Specialist II, Merchandising Business Integration - Jordan NA</a></td>
+            <td>Nike</td>
+            <td>Beaverton, Oregon, US</td>
+            <td>2026-02-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-CsyZRf5aw4QshQMPAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-CsyZRf5aw4QshQMPAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
     </tbody>
   </table>
 </div>
 
-<footer>Auto-generated by Footwear Job Tracker • Entry-level & Internships only • No retail/store roles</footer>
+<footer>Auto-updated daily • Entry-level corporate roles only • No retail or store positions</footer>
 
 <script>
-  // Load applied jobs from browser storage
-  function getApplied() {
-    try { return JSON.parse(localStorage.getItem('appliedJobs') || '[]'); }
+  // ── Storage helpers ──────────────────────────────────────────────────────
+  function getList(key) {
+    try { return JSON.parse(localStorage.getItem(key) || '[]'); }
     catch { return []; }
   }
-
-  function saveApplied(ids) {
-    localStorage.setItem('appliedJobs', JSON.stringify(ids));
+  function saveList(key, arr) {
+    localStorage.setItem(key, JSON.stringify(arr));
   }
 
+  // ── Mark Applied ─────────────────────────────────────────────────────────
   function markApplied(jobId, btn) {
-    const applied = getApplied();
+    const applied = getList('appliedJobs');
     const row = btn.closest('tr');
-
     if (applied.includes(jobId)) {
-      // Un-apply
-      const updated = applied.filter(id => id !== jobId);
-      saveApplied(updated);
+      saveList('appliedJobs', applied.filter(id => id !== jobId));
       row.classList.remove('applied-row');
-      btn.textContent = '✓ Applied';
     } else {
-      // Mark applied
-      applied.push(jobId);
-      saveApplied(applied);
+      saveList('appliedJobs', [...applied, jobId]);
       row.classList.add('applied-row');
-      btn.textContent = '✓ Applied';
     }
     updateCounts();
   }
 
-  function toggleApplied() {
-    document.body.classList.toggle('show-applied');
-    const btn = document.getElementById('toggle-btn');
-    const showing = document.body.classList.contains('show-applied');
-    btn.textContent = showing ? '🙈 Hide Applied' : '👁 Show Applied';
+  // ── Mark Dismissed (Not a Fit) ───────────────────────────────────────────
+  function markDismissed(jobId, btn) {
+    const dismissed = getList('dismissedJobs');
+    const row = btn.closest('tr');
+    if (dismissed.includes(jobId)) {
+      // Un-dismiss
+      saveList('dismissedJobs', dismissed.filter(id => id !== jobId));
+      row.classList.remove('dismissed-row');
+    } else {
+      // Dismiss — also remove from applied if it was there
+      const applied = getList('appliedJobs');
+      saveList('appliedJobs', applied.filter(id => id !== jobId));
+      row.classList.remove('applied-row');
+      saveList('dismissedJobs', [...dismissed, jobId]);
+      row.classList.add('dismissed-row');
+    }
     updateCounts();
   }
 
-  function updateCounts() {
-    const applied = getApplied();
-    document.getElementById('applied-count').textContent = applied.length;
-
-    const rows = document.querySelectorAll('#table-body tr');
-    let visible = 0;
-    rows.forEach(row => {
-      if (row.style.display !== 'none' && !row.classList.contains('applied-row')) visible++;
-      // Also count if show-applied is on
-      if (document.body.classList.contains('show-applied') && row.style.display !== 'none') visible++;
-    });
-    document.getElementById('filtered-count').textContent =
-      document.querySelectorAll('#table-body tr:not([style*="none"])').length;
+  // ── Toggles ──────────────────────────────────────────────────────────────
+  function toggleApplied() {
+    document.body.classList.toggle('show-applied');
+    const btn = document.getElementById('toggle-applied-btn');
+    btn.classList.toggle('active');
+    btn.textContent = document.body.classList.contains('show-applied') ? '🙈 Hide Applied' : '👁 Show Applied';
+    updateCounts();
   }
 
+  function toggleDismissed() {
+    document.body.classList.toggle('show-dismissed');
+    const btn = document.getElementById('toggle-dismissed-btn');
+    btn.classList.toggle('active');
+    btn.textContent = document.body.classList.contains('show-dismissed') ? '🙈 Hide Dismissed' : '👁 Show Dismissed';
+    updateCounts();
+  }
+
+  // ── Filter ───────────────────────────────────────────────────────────────
   function filterTable() {
     const search = document.getElementById('search').value.toLowerCase();
     const company = document.getElementById('company-filter').value.toLowerCase();
     const source = document.getElementById('source-filter').value.toLowerCase();
-    const rows = document.querySelectorAll('#table-body tr');
-    rows.forEach(row => {
+    document.querySelectorAll('#table-body tr').forEach(row => {
+      if (row.classList.contains('applied-row') || row.classList.contains('dismissed-row')) return;
       const text = row.textContent.toLowerCase();
-      const matchSearch = !search || text.includes(search);
-      const matchCompany = !company || text.includes(company);
-      const matchSource = !source || text.includes(source);
-      row.style.display = (matchSearch && matchCompany && matchSource) ? '' : 'none';
+      const show = (!search || text.includes(search)) &&
+                   (!company || text.includes(company)) &&
+                   (!source || text.includes(source));
+      row.style.display = show ? '' : 'none';
     });
     updateCounts();
   }
 
-  // On page load: restore applied state
+  // ── Count visible rows ───────────────────────────────────────────────────
+  function updateCounts() {
+    const rows = document.querySelectorAll('#table-body tr');
+    let visible = 0;
+    rows.forEach(r => {
+      if (!r.classList.contains('applied-row') &&
+          !r.classList.contains('dismissed-row') &&
+          r.style.display !== 'none') visible++;
+    });
+    document.getElementById('visible-count').textContent = visible;
+    document.getElementById('applied-count').textContent = getList('appliedJobs').length;
+    document.getElementById('dismissed-count').textContent = getList('dismissedJobs').length;
+  }
+
+  // ── Restore state on load ────────────────────────────────────────────────
   window.addEventListener('DOMContentLoaded', () => {
-    const applied = getApplied();
-    applied.forEach(id => {
+    getList('appliedJobs').forEach(id => {
       const row = document.querySelector(`tr[data-id="${id}"]`);
-      if (row) {
-        row.classList.add('applied-row');
-        const btn = row.querySelector('.apply-btn');
-        if (btn) btn.textContent = '✓ Applied';
-      }
+      if (row) row.classList.add('applied-row');
+    });
+    getList('dismissedJobs').forEach(id => {
+      const row = document.querySelector(`tr[data-id="${id}"]`);
+      if (row) row.classList.add('dismissed-row');
     });
     updateCounts();
   });
 </script>
-
 </body>
 </html>
