@@ -38,7 +38,7 @@ def generate(jobs: list[dict]):
             source_class = "badge-teamwork"
         else:
             source_class = "badge-workday"
-        posted = job.get("posted_on", "")[:10] or "—"
+        posted = (job.get("posted_on") or "")[:10] or "—"
         job_id = job["id"].replace("'", "\\'").replace('"', '&quot;')
         rows += f"""
         <tr data-id="{job['id']}">
