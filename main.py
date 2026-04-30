@@ -9,7 +9,7 @@ from pathlib import Path
 from scraper import scrape_all_companies
 from api_fetcher import fetch_all_api_jobs
 from db import init_db, is_new_job, mark_job_seen
-from notifier import notify
+from notifier import send_jobs_to_slack
 from generate_dashboard import load_jobs, generate
 
 logging.basicConfig(
@@ -71,7 +71,7 @@ def run():
     logger.info("Phase 4: Sending notifications...")
     if new_jobs:
         logger.info("Found %d new job(s).", len(new_jobs))
-        notify(new_jobs)
+        send_jobs_to_slack(new_jobs)
     else:
         logger.info("No new jobs this run.")
 
