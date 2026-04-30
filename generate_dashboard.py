@@ -131,6 +131,8 @@ def generate(jobs: list[dict]):
   .badge-teamwork {{ background: #f3eafd; color: #7c3aed; }}
 
   .empty {{ text-align: center; padding: 60px; color: #6e6e73; }}
+  .cleared-row {{ display: none !important; }}
+  body.show-cleared .cleared-row {{ display: table-row !important; opacity: 0.2; }}
   footer {{ text-align: center; padding: 20px; font-size: 12px; color: #a1a1a6; }}
 </style>
 </head>
@@ -174,6 +176,7 @@ def generate(jobs: list[dict]):
   </select>
   <button class="toggle-btn" id="toggle-applied-btn" onclick="toggleApplied()">👁 Show Applied</button>
   <button class="toggle-btn" id="toggle-dismissed-btn" onclick="toggleDismissed()">👁 Show Dismissed</button>
+  <button class="toggle-btn" style="border-color:#ff6b35;color:#ff6b35;" onclick="clearAll()" title="Hide all current jobs — new ones will appear at the top">🧹 Clear All Seen</button>
 </div>
 
 <div class="table-wrap">
@@ -279,11 +282,27 @@ def generate(jobs: list[dict]):
     rows.forEach(r => {{
       if (!r.classList.contains('applied-row') &&
           !r.classList.contains('dismissed-row') &&
+          !r.classList.contains('cleared-row') &&
           r.style.display !== 'none') visible++;
     }});
     document.getElementById('visible-count').textContent = visible;
     document.getElementById('applied-count').textContent = getList('appliedJobs').length;
     document.getElementById('dismissed-count').textContent = getList('dismissedJobs').length;
+  }}
+
+  // ── Clear All (hide everything seen so far) ──────────────────────────────
+  function clearAll() {{
+    if (!confirm('Hide all current jobs? New jobs will appear at the top when the tracker runs tomorrow. You can undo this by refreshing with Shift+Refresh.')) return;
+    const cleared = [];
+    document.querySelectorAll('#table-body tr').forEach(row => {{
+      const id = row.getAttribute('data-id');
+      if (id && !row.classList.contains('applied-row')) {{
+        row.classList.add('cleared-row');
+        cleared.push(id);
+      }}
+    }});
+    saveList('clearedJobs', [...getList('clearedJobs'), ...cleared]);
+    updateCounts();
   }}
 
   // ── Restore state on load ────────────────────────────────────────────────
@@ -295,6 +314,10 @@ def generate(jobs: list[dict]):
     getList('dismissedJobs').forEach(id => {{
       const row = document.querySelector(`tr[data-id="${{id}}"]`);
       if (row) row.classList.add('dismissed-row');
+    }});
+    getList('clearedJobs').forEach(id => {{
+      const row = document.querySelector(`tr[data-id="${{id}}"]`);
+      if (row) row.classList.add('cleared-row');
     }});
     updateCounts();
   }});
