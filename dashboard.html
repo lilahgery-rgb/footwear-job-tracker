@@ -74,6 +74,8 @@
   .badge-teamwork { background: #f3eafd; color: #7c3aed; }
 
   .empty { text-align: center; padding: 60px; color: #6e6e73; }
+  .cleared-row { display: none !important; }
+  body.show-cleared .cleared-row { display: table-row !important; opacity: 0.2; }
   footer { text-align: center; padding: 20px; font-size: 12px; color: #a1a1a6; }
 </style>
 </head>
@@ -81,16 +83,16 @@
 
 <header>
   <h1>👟 Footwear & Sports Job Tracker</h1>
-  <p>Entry-level corporate roles • Updated April 30, 2026 at 01:49 AM UTC</p>
+  <p>Entry-level corporate roles • Updated April 30, 2026 at 03:31 PM UTC</p>
 </header>
 
 <div class="stats">
   <div class="stat">
-    <div class="stat-value">514</div>
+    <div class="stat-value">621</div>
     <div class="stat-label">Total Found</div>
   </div>
   <div class="stat">
-    <div class="stat-value" id="visible-count">514</div>
+    <div class="stat-value" id="visible-count">621</div>
     <div class="stat-label">Showing</div>
   </div>
   <div class="stat">
@@ -107,7 +109,7 @@
   <input type="text" id="search" placeholder="Search title, company, location…" oninput="filterTable()">
   <select id="company-filter" onchange="filterTable()">
     <option value="">All Companies</option>
-    <option value="(USTA) United States Tennis Association">(USTA) United States Tennis Association</option><option value="180 Fabletics LLC">180 Fabletics LLC</option><option value="182 Fabletics International LLC">182 Fabletics International LLC</option><option value="901 PGA TOUR Enterprises, LLC">901 PGA TOUR Enterprises, LLC</option><option value="Acushnet Company">Acushnet Company</option><option value="Acushnet Company- Titleist/Foot Joy">Acushnet Company- Titleist/Foot Joy</option><option value="Acushnet Holdings Corp">Acushnet Holdings Corp</option><option value="Adina Eden">Adina Eden</option><option value="Agoda">Agoda</option><option value="Alexander Steele Recruitment">Alexander Steele Recruitment</option><option value="Allexo Search">Allexo Search</option><option value="American Marketing Association - Charlotte Chapter">American Marketing Association - Charlotte Chapter</option><option value="Anthropologie">Anthropologie</option><option value="Athleta">Athleta</option><option value="Atlassian Williams F1 Team">Atlassian Williams F1 Team</option><option value="BURTON">BURTON</option><option value="Bauer Hockey">Bauer Hockey</option><option value="Bauer Hockey/ Cascade Maverik Lacrosse">Bauer Hockey/ Cascade Maverik Lacrosse</option><option value="Bebee, Kellanova">Bebee, Kellanova</option><option value="BoF Careers">BoF Careers</option><option value="Boardriders">Boardriders</option><option value="Burton Company Inc">Burton Company Inc</option><option value="Burton Snowboards">Burton Snowboards</option><option value="CADILLAC FORMULA 1® TEAM">CADILLAC FORMULA 1® TEAM</option><option value="CONAGRA">CONAGRA</option><option value="Cadillac F1 Team">Cadillac F1 Team</option><option value="Cadillac Formula 1® Team">Cadillac Formula 1® Team</option><option value="Callaway Golf">Callaway Golf</option><option value="Callaway Golf Ball Operations, Inc.">Callaway Golf Ball Operations, Inc.</option><option value="Capital One">Capital One</option><option value="CarMax">CarMax</option><option value="Church & Dwight Careers">Church & Dwight Careers</option><option value="Church & Dwight Co., Inc.">Church & Dwight Co., Inc.</option><option value="Circana">Circana</option><option value="Citizens Bank, N.A.">Citizens Bank, N.A.</option><option value="Clorox CO">Clorox CO</option><option value="Coca-Cola">Coca-Cola</option><option value="Coca-Cola Company">Coca-Cola Company</option><option value="Colgate-Palmolive">Colgate-Palmolive</option><option value="Colgate-Palmolive Company">Colgate-Palmolive Company</option><option value="Colorado Rapids">Colorado Rapids</option><option value="Confidential">Confidential</option><option value="Cummins Inc.">Cummins Inc.</option><option value="District of Columbia International School">District of Columbia International School</option><option value="Dynatrace">Dynatrace</option><option value="Earn Haus">Earn Haus</option><option value="Embassy London Footwear">Embassy London Footwear</option><option value="Enchante Accessories">Enchante Accessories</option><option value="Energizer">Energizer</option><option value="Energizer Holdings">Energizer Holdings</option><option value="Energizer Holdings, Inc.">Energizer Holdings, Inc.</option><option value="Expert Executive Recruiters (EER Global)">Expert Executive Recruiters (EER Global)</option><option value="FASHION PERSONNEL">FASHION PERSONNEL</option><option value="Fabletics">Fabletics</option><option value="Fairfax County Public Schools">Fairfax County Public Schools</option><option value="First Quality Consumer Products, LLC">First Quality Consumer Products, LLC</option><option value="Florida Panthers">Florida Panthers</option><option value="Formula 1 Las Vegas Grand Prix">Formula 1 Las Vegas Grand Prix</option><option value="Fox Corporation">Fox Corporation</option><option value="Fox Sports">Fox Sports</option><option value="Gap Inc.">Gap Inc.</option><option value="Garmin">Garmin</option><option value="Garmin International, Inc.">Garmin International, Inc.</option><option value="General Mills">General Mills</option><option value="George Mason University">George Mason University</option><option value="Georgetown University">Georgetown University</option><option value="Gymshark">Gymshark</option><option value="Helen of Troy">Helen of Troy</option><option value="Henkel">Henkel</option><option value="Henkel AG & Co. KGaA">Henkel AG & Co. KGaA</option><option value="Henkel group">Henkel group</option><option value="Hood College">Hood College</option><option value="John Lewis Partnership">John Lewis Partnership</option><option value="Johns Hopkins University">Johns Hopkins University</option><option value="Kellanova">Kellanova</option><option value="Kellanova Co.">Kellanova Co.</option><option value="Keurig Dr Pepper">Keurig Dr Pepper</option><option value="Kraft Heinz">Kraft Heinz</option><option value="Kraft Heinz Company">Kraft Heinz Company</option><option value="Kraft Heinz Food Company">Kraft Heinz Food Company</option><option value="LEGACY MOTOR CLUB">LEGACY MOTOR CLUB</option><option value="Legends Sales & Marketing, LLC">Legends Sales & Marketing, LLC</option><option value="Li & Fung">Li & Fung</option><option value="Loudoun Country Day School">Loudoun Country Day School</option><option value="MLB - Baltimore Orioles">MLB - Baltimore Orioles</option><option value="MLB Advanced Media">MLB Advanced Media</option><option value="MLBPAA">MLBPAA</option><option value="MLS League Office">MLS League Office</option><option value="Major League Baseball">Major League Baseball</option><option value="Major League Baseball (MLB)">Major League Baseball (MLB)</option><option value="Major League Soccer">Major League Soccer</option><option value="Mondelez International">Mondelez International</option><option value="Mondelēz International">Mondelēz International</option><option value="NASCAR">NASCAR</option><option value="NASCAR Enterprises, LLC">NASCAR Enterprises, LLC</option><option value="NBA NBA">NBA NBA</option><option value="NBC Sports">NBC Sports</option><option value="NBCUniversal">NBCUniversal</option><option value="NBP NBA Properties Inc">NBP NBA Properties Inc</option><option value="NFL">NFL</option><option value="NFL Players Association">NFL Players Association</option><option value="NHL Team Jobs">NHL Team Jobs</option><option value="NSC NBA Services Corp">NSC NBA Services Corp</option><option value="Naked Wolfe">Naked Wolfe</option><option value="National Basketball Association (NBA)">National Basketball Association (NBA)</option><option value="National Football League">National Football League</option><option value="National Football League (NFL)">National Football League (NFL)</option><option value="Nestle">Nestle</option><option value="Nestle Operational Services Worldwide SA">Nestle Operational Services Worldwide SA</option><option value="Nestlé">Nestlé</option><option value="Nestlé USA">Nestlé USA</option><option value="Netflix">Netflix</option><option value="Nfl Players Association">Nfl Players Association</option><option value="OPR Ltd">OPR Ltd</option><option value="OV9 Studios">OV9 Studios</option><option value="Office Shoes">Office Shoes</option><option value="Oracle">Oracle</option><option value="Oura">Oura</option><option value="Ouraring Inc">Ouraring Inc</option><option value="Owala Commercial Casting Call">Owala Commercial Casting Call</option><option value="PGA TOUR">PGA TOUR</option><option value="Peloton Interactive, Inc">Peloton Interactive, Inc</option><option value="PepsiCo">PepsiCo</option><option value="Pepsico">Pepsico</option><option value="Philadelphia Union">Philadelphia Union</option><option value="Philip Morris International U.S.">Philip Morris International U.S.</option><option value="REI">REI</option><option value="REI (Recreational Equipment Inc.)">REI (Recreational Equipment Inc.)</option><option value="RFK Racing">RFK Racing</option><option value="Rawlings Sporting Goods">Rawlings Sporting Goods</option><option value="Rawlings Sporting Goods Company">Rawlings Sporting Goods Company</option><option value="Rawlings Sporting Goods Company , Inc.">Rawlings Sporting Goods Company , Inc.</option><option value="Rawlings Sporting Goods Company Inc">Rawlings Sporting Goods Company Inc</option><option value="Red Bull Gruppe">Red Bull Gruppe</option><option value="Red Bull New York">Red Bull New York</option><option value="S. C. Johnson & Son, Inc.">S. C. Johnson & Son, Inc.</option><option value="S.C. Johnson & Son, Inc.">S.C. Johnson & Son, Inc.</option><option value="SC Johnson">SC Johnson</option><option value="Saint Peter's University">Saint Peter's University</option><option value="San Jose Sharks">San Jose Sharks</option><option value="Silverdrum">Silverdrum</option><option value="Sirius XM">Sirius XM</option><option value="Speedo">Speedo</option><option value="Sportvision">Sportvision</option><option value="Staffing">Staffing</option><option value="State of Maryland - MD School for Deaf - Frederick - Educational Svc.">State of Maryland - MD School for Deaf - Frederick - Educational Svc.</option><option value="SwagUp">SwagUp</option><option value="Tampa Bay Lightning">Tampa Bay Lightning</option><option value="Taylor Made Golf Company, Inc.">Taylor Made Golf Company, Inc.</option><option value="TaylorMade Golf">TaylorMade Golf</option><option value="TaylorMade Golf Company">TaylorMade Golf Company</option><option value="The Clorox Company">The Clorox Company</option><option value="The Kraft Heinz Company">The Kraft Heinz Company</option><option value="The National Football League">The National Football League</option><option value="Towson University">Towson University</option><option value="Transcend Solutions">Transcend Solutions</option><option value="Trove Brands">Trove Brands</option><option value="Turner & Townsend">Turner & Townsend</option><option value="Turner Construction">Turner Construction</option><option value="Turner Construction Co.">Turner Construction Co.</option><option value="Turner Construction Company">Turner Construction Company</option><option value="Turner; Turner Construction">Turner; Turner Construction</option><option value="U.S. Soccer Federation">U.S. Soccer Federation</option><option value="U.S. Tennis (USTA)">U.S. Tennis (USTA)</option><option value="UNILEVER">UNILEVER</option><option value="UNITED STATES SOCCER FEDERATION 1">UNITED STATES SOCCER FEDERATION 1</option><option value="US Open Tennis Championships">US Open Tennis Championships</option><option value="US30 Clorox Manufacturing Co.">US30 Clorox Manufacturing Co.</option><option value="USTA National Headquarters">USTA National Headquarters</option><option value="USTA National Tennis Center Inc.">USTA National Tennis Center Inc.</option><option value="Unilever">Unilever</option><option value="Unilever PLC">Unilever PLC</option><option value="United Airlines">United Airlines</option><option value="United States Tennis Association (USTA)">United States Tennis Association (USTA)</option><option value="Vanguard">Vanguard</option><option value="Vegas Golden Knights">Vegas Golden Knights</option><option value="VirtualVocations">VirtualVocations</option><option value="WHOOP">WHOOP</option><option value="Walk In Solutions">Walk In Solutions</option><option value="Warner Bros. Discovery">Warner Bros. Discovery</option><option value="Washington Nationals">Washington Nationals</option><option value="WebstaurantStore">WebstaurantStore</option><option value="Whoop">Whoop</option><option value="Wilson">Wilson</option><option value="Wilson Sporting Goods">Wilson Sporting Goods</option><option value="Wilson Sporting Goods Co.">Wilson Sporting Goods Co.</option><option value="YETI">YETI</option><option value="YETI Coolers, LLC">YETI Coolers, LLC</option><option value="ŌURA">ŌURA</option><option value="Ōura">Ōura</option>
+    <option value="(USTA) United States Tennis Association">(USTA) United States Tennis Association</option><option value="180 Fabletics LLC">180 Fabletics LLC</option><option value="182 Fabletics International LLC">182 Fabletics International LLC</option><option value="901 PGA TOUR Enterprises, LLC">901 PGA TOUR Enterprises, LLC</option><option value="Acushnet Company">Acushnet Company</option><option value="Acushnet Company- Titleist/Foot Joy">Acushnet Company- Titleist/Foot Joy</option><option value="Acushnet Holdings Corp">Acushnet Holdings Corp</option><option value="Adina Eden">Adina Eden</option><option value="Agoda">Agoda</option><option value="Alexander Steele Recruitment">Alexander Steele Recruitment</option><option value="Allexo Search">Allexo Search</option><option value="American Marketing Association - Charlotte Chapter">American Marketing Association - Charlotte Chapter</option><option value="Anthropologie">Anthropologie</option><option value="Athleta">Athleta</option><option value="Atlassian Williams F1 Team">Atlassian Williams F1 Team</option><option value="BURTON">BURTON</option><option value="Bauer Hockey">Bauer Hockey</option><option value="Bauer Hockey/ Cascade Maverik Lacrosse">Bauer Hockey/ Cascade Maverik Lacrosse</option><option value="Bebee, Kellanova">Bebee, Kellanova</option><option value="Blinds To Go">Blinds To Go</option><option value="BoF Careers">BoF Careers</option><option value="Boardriders">Boardriders</option><option value="Burton Company Inc">Burton Company Inc</option><option value="Burton Snowboards">Burton Snowboards</option><option value="CADILLAC FORMULA 1® TEAM">CADILLAC FORMULA 1® TEAM</option><option value="CONAGRA">CONAGRA</option><option value="Cadillac F1 Team">Cadillac F1 Team</option><option value="Cadillac Formula 1® Team">Cadillac Formula 1® Team</option><option value="Callaway Golf">Callaway Golf</option><option value="Callaway Golf Ball Operations, Inc.">Callaway Golf Ball Operations, Inc.</option><option value="Capital One">Capital One</option><option value="Capitalone">Capitalone</option><option value="CarMax">CarMax</option><option value="Church & Dwight Careers">Church & Dwight Careers</option><option value="Church & Dwight Co., Inc.">Church & Dwight Co., Inc.</option><option value="Circana">Circana</option><option value="Clorox CO">Clorox CO</option><option value="Coca Cola Careers">Coca Cola Careers</option><option value="Coca-Cola">Coca-Cola</option><option value="Coca-Cola Company">Coca-Cola Company</option><option value="Colgate-Palmolive">Colgate-Palmolive</option><option value="Colgate-Palmolive Company">Colgate-Palmolive Company</option><option value="Colorado Rapids">Colorado Rapids</option><option value="Confidential">Confidential</option><option value="Cummins Inc.">Cummins Inc.</option><option value="District of Columbia International School">District of Columbia International School</option><option value="Dynatrace">Dynatrace</option><option value="E-Impact Marketing">E-Impact Marketing</option><option value="END">END</option><option value="ETS">ETS</option><option value="Earn Haus">Earn Haus</option><option value="Edgewell Personal Care">Edgewell Personal Care</option><option value="Edgewell Personal Care Brands, LLC">Edgewell Personal Care Brands, LLC</option><option value="Embassy London Footwear">Embassy London Footwear</option><option value="Enchante Accessories">Enchante Accessories</option><option value="Energizer">Energizer</option><option value="Energizer Holdings">Energizer Holdings</option><option value="Energizer Holdings, Inc.">Energizer Holdings, Inc.</option><option value="Expert Executive Recruiters (EER Global)">Expert Executive Recruiters (EER Global)</option><option value="FASHION PERSONNEL">FASHION PERSONNEL</option><option value="FCORPS FOX Corporate Services">FCORPS FOX Corporate Services</option><option value="Fabletics">Fabletics</option><option value="Fairfax County Public Schools">Fairfax County Public Schools</option><option value="First Quality Consumer Products, LLC">First Quality Consumer Products, LLC</option><option value="Florida Panthers">Florida Panthers</option><option value="Formula 1 Las Vegas Grand Prix">Formula 1 Las Vegas Grand Prix</option><option value="Fox Corporation">Fox Corporation</option><option value="Fox Sports">Fox Sports</option><option value="Gap Inc.">Gap Inc.</option><option value="Garmin">Garmin</option><option value="Garmin International, Inc.">Garmin International, Inc.</option><option value="General Mills">General Mills</option><option value="George Mason University">George Mason University</option><option value="Georgetown University">Georgetown University</option><option value="Gymshark">Gymshark</option><option value="Haemonetics Corp.">Haemonetics Corp.</option><option value="Helen of Troy">Helen of Troy</option><option value="Henkel">Henkel</option><option value="Henkel AG & Co. KGaA">Henkel AG & Co. KGaA</option><option value="Henkel group">Henkel group</option><option value="Hood College">Hood College</option><option value="John Lewis Partnership">John Lewis Partnership</option><option value="Johns Hopkins University">Johns Hopkins University</option><option value="Kellanova">Kellanova</option><option value="Kellanova Co.">Kellanova Co.</option><option value="Keurig Dr Pepper">Keurig Dr Pepper</option><option value="Kinective">Kinective</option><option value="Kraft Heinz">Kraft Heinz</option><option value="Kraft Heinz Company">Kraft Heinz Company</option><option value="Kraft Heinz Food Company">Kraft Heinz Food Company</option><option value="LEGACY MOTOR CLUB">LEGACY MOTOR CLUB</option><option value="Legends Sales & Marketing, LLC">Legends Sales & Marketing, LLC</option><option value="Li & Fung">Li & Fung</option><option value="Los Angeles Football Club">Los Angeles Football Club</option><option value="Loudoun Country Day School">Loudoun Country Day School</option><option value="MLB - Baltimore Orioles">MLB - Baltimore Orioles</option><option value="MLB Advanced Media">MLB Advanced Media</option><option value="MLBPAA">MLBPAA</option><option value="MLS League Office">MLS League Office</option><option value="Major League Baseball">Major League Baseball</option><option value="Major League Baseball (MLB)">Major League Baseball (MLB)</option><option value="Major League Soccer">Major League Soccer</option><option value="Mars">Mars</option><option value="Mars Incorporated">Mars Incorporated</option><option value="Milwaukee Bucks, LLC.">Milwaukee Bucks, LLC.</option><option value="Mondelez International">Mondelez International</option><option value="Mondelēz International">Mondelēz International</option><option value="Motorsports Charities, Inc.">Motorsports Charities, Inc.</option><option value="NASCAR">NASCAR</option><option value="NASCAR Enterprises, LLC">NASCAR Enterprises, LLC</option><option value="NASCAR Media Ventures, LLC">NASCAR Media Ventures, LLC</option><option value="NBA NBA">NBA NBA</option><option value="NBC Sports">NBC Sports</option><option value="NBCUniversal">NBCUniversal</option><option value="NBP NBA Properties Inc">NBP NBA Properties Inc</option><option value="NFL">NFL</option><option value="NFL Players Association">NFL Players Association</option><option value="NHL Team Jobs">NHL Team Jobs</option><option value="NSC NBA Services Corp">NSC NBA Services Corp</option><option value="Naked Wolfe">Naked Wolfe</option><option value="National Basketball Association (NBA)">National Basketball Association (NBA)</option><option value="National Football League">National Football League</option><option value="National Football League (NFL)">National Football League (NFL)</option><option value="Nestle">Nestle</option><option value="Nestle Operational Services Worldwide SA">Nestle Operational Services Worldwide SA</option><option value="Nestlé">Nestlé</option><option value="Nestlé USA">Nestlé USA</option><option value="Netflix">Netflix</option><option value="Nfl Players Association">Nfl Players Association</option><option value="OPR Ltd">OPR Ltd</option><option value="OV9 Studios">OV9 Studios</option><option value="Office Shoes">Office Shoes</option><option value="Oracle">Oracle</option><option value="Oura">Oura</option><option value="Ouraring Inc">Ouraring Inc</option><option value="Owala Commercial Casting Call">Owala Commercial Casting Call</option><option value="PGA TOUR">PGA TOUR</option><option value="PGBPGNGLOBAL">PGBPGNGLOBAL</option><option value="Peloton Interactive, Inc">Peloton Interactive, Inc</option><option value="PepsiCo">PepsiCo</option><option value="Pepsico">Pepsico</option><option value="Philadelphia Union">Philadelphia Union</option><option value="Philip Morris International U.S.">Philip Morris International U.S.</option><option value="Procter & Gamble">Procter & Gamble</option><option value="REI">REI</option><option value="REI (Recreational Equipment Inc.)">REI (Recreational Equipment Inc.)</option><option value="RFK Racing">RFK Racing</option><option value="Rawlings Sporting Goods">Rawlings Sporting Goods</option><option value="Rawlings Sporting Goods Company">Rawlings Sporting Goods Company</option><option value="Rawlings Sporting Goods Company Inc">Rawlings Sporting Goods Company Inc</option><option value="Red Bull Gruppe">Red Bull Gruppe</option><option value="Red Bull New York">Red Bull New York</option><option value="Reeve and Associates">Reeve and Associates</option><option value="S. C. Johnson & Son, Inc.">S. C. Johnson & Son, Inc.</option><option value="S.C. Johnson & Son, Inc.">S.C. Johnson & Son, Inc.</option><option value="SC Johnson">SC Johnson</option><option value="Saint Peter's University">Saint Peter's University</option><option value="San Jose Sharks">San Jose Sharks</option><option value="Sidwell Friends School">Sidwell Friends School</option><option value="Silverdrum">Silverdrum</option><option value="Sirius XM">Sirius XM</option><option value="Speedo">Speedo</option><option value="Sportvision">Sportvision</option><option value="Staffing">Staffing</option><option value="State of Maryland - MD School for Deaf - Frederick - Educational Svc.">State of Maryland - MD School for Deaf - Frederick - Educational Svc.</option><option value="SwagUp">SwagUp</option><option value="Tampa Bay Lightning">Tampa Bay Lightning</option><option value="Tapestry Inc">Tapestry Inc</option><option value="Taylor Made Golf Company, Inc.">Taylor Made Golf Company, Inc.</option><option value="TaylorMade Golf">TaylorMade Golf</option><option value="TaylorMade Golf Company">TaylorMade Golf Company</option><option value="The Clorox Company">The Clorox Company</option><option value="The Kraft Heinz Company">The Kraft Heinz Company</option><option value="The National Football League">The National Football League</option><option value="TikTok">TikTok</option><option value="Towson University">Towson University</option><option value="Transcend Solutions">Transcend Solutions</option><option value="Trove Brands">Trove Brands</option><option value="Turner & Townsend">Turner & Townsend</option><option value="Turner Construction">Turner Construction</option><option value="Turner Construction Co.">Turner Construction Co.</option><option value="Turner Construction Company">Turner Construction Company</option><option value="Turner; Turner Construction">Turner; Turner Construction</option><option value="U.S. Soccer Federation">U.S. Soccer Federation</option><option value="U.S. Tennis (USTA)">U.S. Tennis (USTA)</option><option value="UNILEVER">UNILEVER</option><option value="UNITED STATES SOCCER FEDERATION 1">UNITED STATES SOCCER FEDERATION 1</option><option value="US Open Tennis Championships">US Open Tennis Championships</option><option value="US30 Clorox Manufacturing Co.">US30 Clorox Manufacturing Co.</option><option value="USTA National Headquarters">USTA National Headquarters</option><option value="USTA National Tennis Center Inc.">USTA National Tennis Center Inc.</option><option value="Unilever">Unilever</option><option value="Unilever PLC">Unilever PLC</option><option value="United Airlines">United Airlines</option><option value="United States Tennis Association (USTA)">United States Tennis Association (USTA)</option><option value="Vanguard">Vanguard</option><option value="Vegas Golden Knights">Vegas Golden Knights</option><option value="VirtualVocations">VirtualVocations</option><option value="WHOOP">WHOOP</option><option value="Walk In Solutions">Walk In Solutions</option><option value="Warner Bros. Discovery">Warner Bros. Discovery</option><option value="Washington Nationals">Washington Nationals</option><option value="WebstaurantStore">WebstaurantStore</option><option value="Whoop">Whoop</option><option value="Wilson">Wilson</option><option value="Wilson Sporting Goods">Wilson Sporting Goods</option><option value="Wilson Sporting Goods Co.">Wilson Sporting Goods Co.</option><option value="YETI">YETI</option><option value="YETI Coolers, LLC">YETI Coolers, LLC</option><option value="ŌURA">ŌURA</option><option value="Ōura">Ōura</option>
   </select>
   <select id="source-filter" onchange="filterTable()">
     <option value="">All Sources</option>
@@ -117,6 +119,7 @@
   </select>
   <button class="toggle-btn" id="toggle-applied-btn" onclick="toggleApplied()">👁 Show Applied</button>
   <button class="toggle-btn" id="toggle-dismissed-btn" onclick="toggleDismissed()">👁 Show Dismissed</button>
+  <button class="toggle-btn" style="border-color:#ff6b35;color:#ff6b35;" onclick="clearAll()" title="Hide all current jobs — new ones will appear at the top">🧹 Clear All Seen</button>
 </div>
 
 <div class="table-wrap">
@@ -133,6 +136,1337 @@
     </thead>
     <tbody id="table-body">
       
+        <tr data-id="jsearch-GUSvqcTOwfOR_NyFAAAAAA==">
+            <td><a href="https://jobs.aaf.org/job/ecommerce-and-digital-marketing-manager-paramus-nj-bad14dadf30a5e0ca47c96410880b9c1b" target="_blank" rel="noopener">Ecommerce and Digital Marketing Manager</a></td>
+            <td>Blinds To Go</td>
+            <td>Paramus, New Jersey, US</td>
+            <td>2026-04-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-GUSvqcTOwfOR_NyFAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-GUSvqcTOwfOR_NyFAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ZgLUphbHvPD3RZT3AAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/lead-product-manager-ecommerce-data-platforms-ets-princeton--whatjobs-4881_3958129" target="_blank" rel="noopener">Lead Product Manager — E‑Commerce & Data Platforms</a></td>
+            <td>ETS</td>
+            <td>Princeton, New Jersey, US</td>
+            <td>2026-04-23</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ZgLUphbHvPD3RZT3AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ZgLUphbHvPD3RZT3AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Mz2TyWY0PA51o1DhAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=574356731037554658" target="_blank" rel="noopener">eCommerce Analyst</a></td>
+            <td>VirtualVocations</td>
+            <td>Virginia, US</td>
+            <td>2026-04-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Mz2TyWY0PA51o1DhAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Mz2TyWY0PA51o1DhAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-hv8ayXhmg0LJocPhAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=b85995fa463bf9a3" target="_blank" rel="noopener">Manager, eCommerce Analytics</a></td>
+            <td>Tapestry Inc</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-hv8ayXhmg0LJocPhAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-hv8ayXhmg0LJocPhAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-VRA5CutwG5v0t7ioAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=574356743763072994" target="_blank" rel="noopener">eCommerce Analyst</a></td>
+            <td>VirtualVocations</td>
+            <td>Newark, Delaware, US</td>
+            <td>2026-04-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-VRA5CutwG5v0t7ioAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-VRA5CutwG5v0t7ioAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-H42BvmB-aGRe1WeDAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=574356740409792482" target="_blank" rel="noopener">eCommerce Analyst</a></td>
+            <td>VirtualVocations</td>
+            <td>Richmond, Virginia, US</td>
+            <td>2026-04-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-H42BvmB-aGRe1WeDAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-H42BvmB-aGRe1WeDAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-OAXc_oFamWUd0UM_AAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Church-&-Dwight/Job/Ecommerce-Analyst/-in-Trenton,NJ?jid=de1574ef1a2e435f" target="_blank" rel="noopener">eCommerce Analyst</a></td>
+            <td>Church & Dwight Co., Inc.</td>
+            <td>Ewing Township, New Jersey, US</td>
+            <td>2026-04-23</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-OAXc_oFamWUd0UM_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-OAXc_oFamWUd0UM_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-04Pcg4f5cj8Q0ue8AAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/ecommerce-specialist-at-e-impact-marketing-4407044294" target="_blank" rel="noopener">Ecommerce Specialist</a></td>
+            <td>E-Impact Marketing</td>
+            <td>Lancaster, Pennsylvania, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-04Pcg4f5cj8Q0ue8AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-04Pcg4f5cj8Q0ue8AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-gKgdz6nhBO8kJir7AAAAAA==">
+            <td><a href="https://www.reevejobs.com/jobs.php?jid=RA2277&Head%20of%20Marketing,%20Software" target="_blank" rel="noopener">Head of Marketing, Software</a></td>
+            <td>Reeve and Associates</td>
+            <td>Illinois, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-gKgdz6nhBO8kJir7AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-gKgdz6nhBO8kJir7AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-QHzeW3Mrm0-0mL5FAAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/product-strategy-analyst-kinective-gilbert-az--theirstack-670047651" target="_blank" rel="noopener">Product Strategy Analyst</a></td>
+            <td>Kinective</td>
+            <td>Gilbert, Arizona, US</td>
+            <td>2026-04-23</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-QHzeW3Mrm0-0mL5FAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-QHzeW3Mrm0-0mL5FAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-HBFTb2jXQ1djULjIAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=616336075040563128" target="_blank" rel="noopener">Consumer Insights Analyst</a></td>
+            <td>Earn Haus</td>
+            <td>Flint Hill, Virginia, US</td>
+            <td>2026-04-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-HBFTb2jXQ1djULjIAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-HBFTb2jXQ1djULjIAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-F4w9Dy76gCwvrgeSAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=616743587070876627" target="_blank" rel="noopener">Consumer Insights Analyst</a></td>
+            <td>Earn Haus</td>
+            <td>Gore, Virginia, US</td>
+            <td>2026-04-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-F4w9Dy76gCwvrgeSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-F4w9Dy76gCwvrgeSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-TM47--LUPiwrLcecAAAAAA==">
+            <td><a href="https://www.whatjobs.com/jobs/consumer-insights-analyst/hollywood-maryland?id=2667465301" target="_blank" rel="noopener">Consumer Insights Analyst</a></td>
+            <td>Earn Haus</td>
+            <td>Hollywood, Maryland, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-TM47--LUPiwrLcecAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-TM47--LUPiwrLcecAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mlvDNCrsold_oag6AAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Capital-One/Job/Data-Analysis-Manager-Enterprise-Consumer-Products/-in-Richmond,VA?jid=c1d480fadc8d2e8e" target="_blank" rel="noopener">Data Analysis Manager - Enterprise Consumer Products</a></td>
+            <td>Capitalone</td>
+            <td>Richmond, Virginia, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mlvDNCrsold_oag6AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mlvDNCrsold_oag6AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-8zHLxmuIviHIHfD-AAAAAA==">
+            <td><a href="https://bebee.com/gb/jobs/senior-marketing-executive-consumer-brand-haemonetics-corp-london--theirstack-660361181" target="_blank" rel="noopener">Senior Marketing Executive - Consumer Brand</a></td>
+            <td>Haemonetics Corp.</td>
+            <td>London, GB</td>
+            <td>2026-04-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-8zHLxmuIviHIHfD-AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-8zHLxmuIviHIHfD-AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-CuSaAHJ9nUzFGcfxAAAAAA==">
+            <td><a href="https://www.jobilize.com/job/gb-remote-london-consumer-goods-commerce-project-intern-data-delivery" target="_blank" rel="noopener">Consumer Goods & Commerce Project Intern: Data & Delivery</a></td>
+            <td>TikTok</td>
+            <td>London, GB</td>
+            <td>2026-04-24</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-CuSaAHJ9nUzFGcfxAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-CuSaAHJ9nUzFGcfxAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-98HGZm4Eb1nqNu_TAAAAAA==">
+            <td><a href="https://uk.jooble.org/rjdp/-967261201959327602" target="_blank" rel="noopener">Store Service Advisor (Full-Time)</a></td>
+            <td>END</td>
+            <td>London, GB</td>
+            <td>2026-03-31</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-98HGZm4Eb1nqNu_TAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-98HGZm4Eb1nqNu_TAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-o7Nn1Nwtodl1s7IeAAAAAA==">
+            <td><a href="https://jooble.org/rjdp/986673179535260914" target="_blank" rel="noopener">HR Generalist - Recruiting & Planning</a></td>
+            <td>Speedo</td>
+            <td>Cerritos, California, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-o7Nn1Nwtodl1s7IeAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-o7Nn1Nwtodl1s7IeAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-7FEWAXwhVniCvXCwAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=79aa6dee99708998" target="_blank" rel="noopener">Production Assistant</a></td>
+            <td>Fabletics</td>
+            <td>El Segundo, California, US</td>
+            <td>2026-03-31</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-7FEWAXwhVniCvXCwAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-7FEWAXwhVniCvXCwAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-NgDjc1k0N-pNdlZEAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=8d940b10db13d6ab" target="_blank" rel="noopener">Product Engineer (OXO, Osprey, Hydro Flask)</a></td>
+            <td>Helen of Troy</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-15</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-NgDjc1k0N-pNdlZEAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-NgDjc1k0N-pNdlZEAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Y5uwSszbo65IGlEhAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=c68f4a2f1dc02fe3" target="_blank" rel="noopener">Vendor Management Coordinator</a></td>
+            <td>Trove Brands</td>
+            <td>Lehi, Utah, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Y5uwSszbo65IGlEhAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Y5uwSszbo65IGlEhAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-IkJ5onYIw4pfSaLXAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=f8e85d0fcc814ac0" target="_blank" rel="noopener">Director, National Account Sales - Sport & Wellness</a></td>
+            <td>YETI</td>
+            <td>Austin, Texas, US</td>
+            <td>2026-04-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-IkJ5onYIw4pfSaLXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-IkJ5onYIw4pfSaLXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-rsJ20PVQvr5QMrJ8AAAAAA==">
+            <td><a href="https://us.jobrapido.com/jobpreview/4375803500395757568" target="_blank" rel="noopener">Associate Skates Category Manager: Strategy & Insights</a></td>
+            <td>Bauer Hockey</td>
+            <td>Exeter, New Hampshire, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-rsJ20PVQvr5QMrJ8AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-rsJ20PVQvr5QMrJ8AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-wpwVUmHhRKwB0_SJAAAAAA==">
+            <td><a href="https://www.workinsports.com/jobs/view/518322505" target="_blank" rel="noopener">Graphic Designer, Team Sports</a></td>
+            <td>Wilson Sporting Goods Co.</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-04-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-wpwVUmHhRKwB0_SJAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-wpwVUmHhRKwB0_SJAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ii_M-CABmeOGyvfeAAAAAA==">
+            <td><a href="https://www.tealhq.com/job/people-culture-generalist_7ea1abada195aaa70711b3c9b002d9ed440cf" target="_blank" rel="noopener">People & Culture Generalist - DeMarini Factory</a></td>
+            <td>Wilson Sporting Goods Co.</td>
+            <td>—</td>
+            <td>2026-04-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ii_M-CABmeOGyvfeAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ii_M-CABmeOGyvfeAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-fWFwLcQVLvRKuJ-fAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Wilson/Job/Compensation-&-Benefits-Manager-US,-Canada,-Mexico-(Remote)/-in-Remote,OR?jid=94145bc59f677881" target="_blank" rel="noopener">Compensation & Benefits Manager - US, Canada, Mexico (Remote)</a></td>
+            <td>Wilson</td>
+            <td>Remote, Oregon, US</td>
+            <td>2026-04-21</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-fWFwLcQVLvRKuJ-fAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-fWFwLcQVLvRKuJ-fAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cznpOqsWmXVnQUGZAAAAAA==">
+            <td><a href="https://careers.united.com/us/en/job/FA2026-LQ-ITA-2/Flight-Attendant-Italian-Speakers-Only" target="_blank" rel="noopener">Flight Attendant (Italian Speakers Only)</a></td>
+            <td>United Airlines</td>
+            <td>—</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cznpOqsWmXVnQUGZAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cznpOqsWmXVnQUGZAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-y96SDd-W-m11pvKuAAAAAA==">
+            <td><a href="https://www.tealhq.com/job/senior-cmf-designer_7ea1a954a39cd20d726371b509af613a69d9a" target="_blank" rel="noopener">Senior CMF Designer</a></td>
+            <td>Ōura</td>
+            <td>—</td>
+            <td>2026-04-03</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-y96SDd-W-m11pvKuAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-y96SDd-W-m11pvKuAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-glbEdOPSHQLUwUIHAAAAAA==">
+            <td><a href="https://www.glassdoor.com/job-listing/senior-ios-engineer-connectivity-oura-JV_KO0,32_KE33,37.htm?jl=1010108352098" target="_blank" rel="noopener">Senior iOS Engineer, Connectivity</a></td>
+            <td>Oura</td>
+            <td>US</td>
+            <td>2026-04-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-glbEdOPSHQLUwUIHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-glbEdOPSHQLUwUIHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-3CZjjzsqwZglJobXAAAAAA==">
+            <td><a href="https://careers.onepeloton.com/en/all-jobs/7568872/copywriter-ii/" target="_blank" rel="noopener">Copywriter II</a></td>
+            <td>Peloton Interactive, Inc</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-24</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-3CZjjzsqwZglJobXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-3CZjjzsqwZglJobXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-wR4fRrmGaL36YTz4AAAAAA==">
+            <td><a href="https://careers.garmin.com/jobs/18564?lang=en-us" target="_blank" rel="noopener">Engineering Applications Administrator 1</a></td>
+            <td>Garmin International, Inc.</td>
+            <td>Olathe, Kansas, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-wR4fRrmGaL36YTz4AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-wR4fRrmGaL36YTz4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch--50Bv4e1E9FREpNRAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Sidwell-Friends-School/Job/Head-Varsity-Boys-Lacrosse-Coach/-in-Washington,DC?jid=63e4c0c20e37b855" target="_blank" rel="noopener">Head Varsity Boys Lacrosse Coach</a></td>
+            <td>Sidwell Friends School</td>
+            <td>Washington, District of Columbia, US</td>
+            <td>2026-04-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch--50Bv4e1E9FREpNRAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch--50Bv4e1E9FREpNRAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-8iwZH9bM-r8RH9eoAAAAAA==">
+            <td><a href="https://us.jobrapido.com/jobpreview/8317314950942949376" target="_blank" rel="noopener">Traveling MEP Manager for Sports Projects</a></td>
+            <td>Turner Construction Company</td>
+            <td>Cleveland, Ohio, US</td>
+            <td>2026-04-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-8iwZH9bM-r8RH9eoAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-8iwZH9bM-r8RH9eoAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-V0SoW5s5IekRW098AAAAAA==">
+            <td><a href="https://www.talent.com/view?id=617246372984656768" target="_blank" rel="noopener">Remote MEP Estimator for Sports Projects</a></td>
+            <td>Turner Construction Company</td>
+            <td>—</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-V0SoW5s5IekRW098AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-V0SoW5s5IekRW098AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-aS_BP6PrKGegEzrIAAAAAA==">
+            <td><a href="https://jobs.smartrecruiters.com/NBCUniversal3/744000122760870-financial-analyst-sports-studio-production-facilities" target="_blank" rel="noopener">Financial Analyst - Sports Studio Production & Facilities</a></td>
+            <td>NBCUniversal</td>
+            <td>Stamford, Connecticut, US</td>
+            <td>2026-04-24</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-aS_BP6PrKGegEzrIAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-aS_BP6PrKGegEzrIAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mvyEW6q6Sh7p3iS_AAAAAA==">
+            <td><a href="https://www.showbizjobs.com/jobs/nbc-sports-manager-accounting-in-stamford/jid-o133q6" target="_blank" rel="noopener">Manager, Accounting [Stamford]</a></td>
+            <td>NBC Sports</td>
+            <td>Stamford, Connecticut, US</td>
+            <td>2026-04-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mvyEW6q6Sh7p3iS_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mvyEW6q6Sh7p3iS_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-hUH7YO5__rzcXzazAAAAAA==">
+            <td><a href="https://jobs.smartrecruiters.com/NBCUniversal3/744000123914242-manager-accounting-nbc-sports" target="_blank" rel="noopener">Manager, Accounting - NBC Sports</a></td>
+            <td>NBCUniversal</td>
+            <td>Stamford, Connecticut, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-hUH7YO5__rzcXzazAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-hUH7YO5__rzcXzazAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Jk6vqdQ816vP-udPAAAAAA==">
+            <td><a href="https://www.foxcareers.com/Search/JobDetail/R50032431/producer-ai-marketing-fox-entertainment" target="_blank" rel="noopener">Producer, AI Marketing</a></td>
+            <td>Fox Corporation</td>
+            <td>Los Angeles, California, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Jk6vqdQ816vP-udPAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Jk6vqdQ816vP-udPAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-OUxqGAE01NWE-uErAAAAAA==">
+            <td><a href="https://fox.wd1.myworkdayjobs.com/en-US/Domestic/job/Director--FOX-Sports-Ad-Sales---Central-Region_R50032281" target="_blank" rel="noopener">Director, FOX Sports Ad Sales - Central Region</a></td>
+            <td>FCORPS FOX Corporate Services</td>
+            <td>—</td>
+            <td>2026-04-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-OUxqGAE01NWE-uErAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-OUxqGAE01NWE-uErAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-f3Id0P2dBJhJ0xWvAAAAAA==">
+            <td><a href="https://www.foxcareers.com/Search/JobDetail/R50032424/manager-ad-sales-engagement-events-fox-corporation" target="_blank" rel="noopener">Manager, Ad Sales Engagement & Events</a></td>
+            <td>Fox Corporation</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-f3Id0P2dBJhJ0xWvAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-f3Id0P2dBJhJ0xWvAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-yBiNThvURNVOGLFTAAAAAA==">
+            <td><a href="https://nascar.wd1.myworkdayjobs.com/en-US/NASCAR/job/Coordinator--Programs_JR14118" target="_blank" rel="noopener">Coordinator, Programs</a></td>
+            <td>Motorsports Charities, Inc.</td>
+            <td>US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-yBiNThvURNVOGLFTAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-yBiNThvURNVOGLFTAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-nywAyLfUETfE6DDtAAAAAA==">
+            <td><a href="https://www.teamworkonline.com/motorsports-jobs/nascar/nascar-jobs-/partnership-services-associate-2169057" target="_blank" rel="noopener">Partnership Services Associate</a></td>
+            <td>NASCAR</td>
+            <td>Daytona Beach, Florida, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-nywAyLfUETfE6DDtAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-nywAyLfUETfE6DDtAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cr2hlaeHsWbB_hZcAAAAAA==">
+            <td><a href="https://nascar.wd1.myworkdayjobs.com/en-US/NASCAR/job/Library-Coordinator_JR14116" target="_blank" rel="noopener">Library Coordinator - NASCAR Content Academy</a></td>
+            <td>NASCAR Media Ventures, LLC</td>
+            <td>US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cr2hlaeHsWbB_hZcAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cr2hlaeHsWbB_hZcAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-alfZvYruDRm_mqOsAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/director-player-id-development-at-usta-united-states-tennis-association-4406548301" target="_blank" rel="noopener">Director, Player ID & Development</a></td>
+            <td>(USTA) United States Tennis Association</td>
+            <td>Orlando, Florida, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-alfZvYruDRm_mqOsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-alfZvYruDRm_mqOsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-vqP4webRXxpR3uQkAAAAAA==">
+            <td><a href="https://www.teamworkonline.com/golf-tennis-jobs/pgatour/pga-tour-/senior-director-fleet-operations-2168615" target="_blank" rel="noopener">Senior Director Fleet Operations</a></td>
+            <td>PGA TOUR</td>
+            <td>Ponte Vedra Beach, Florida, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-vqP4webRXxpR3uQkAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-vqP4webRXxpR3uQkAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-QubNeDgqBPvhTp3TAAAAAA==">
+            <td><a href="https://www.teamworkonline.com/golf-tennis-jobs/pgatour/pga-tour-/senior-financial-analyst-2169003" target="_blank" rel="noopener">Senior Financial Analyst</a></td>
+            <td>PGA TOUR</td>
+            <td>Ponte Vedra Beach, Florida, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-QubNeDgqBPvhTp3TAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-QubNeDgqBPvhTp3TAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FTZczlzHU6ElBrUsAAAAAA==">
+            <td><a href="https://www.sportsjobs.online/jobs/12178-head-video-analyst-mls" target="_blank" rel="noopener">Head Video Analyst - MLS</a></td>
+            <td>Los Angeles Football Club</td>
+            <td>Los Angeles, California, US</td>
+            <td>2026-04-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FTZczlzHU6ElBrUsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FTZczlzHU6ElBrUsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-fyM7qtaj4phmC--JAAAAAA==">
+            <td><a href="https://simplify.jobs/p/bdb80729-91aa-4411-ac4d-d13da2b880d5/International-Social-Analytics-and-Listening-Associate" target="_blank" rel="noopener">International Social Analytics and Listening Associate</a></td>
+            <td>The National Football League</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-07</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-fyM7qtaj4phmC--JAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-fyM7qtaj4phmC--JAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-9BdUI7WqwMpdHagNAAAAAA==">
+            <td><a href="https://sportstechjobs.com/manager-health-and-safety-data-scientist-national-football-league-(nfl)/69e0c3160a3fdd6fb31b5055" target="_blank" rel="noopener">Manager, Health & Safety Data Scientist</a></td>
+            <td>National Football League (NFL)</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-9BdUI7WqwMpdHagNAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-9BdUI7WqwMpdHagNAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-iQ-ConnEdc1cQCqYAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=4c8b786118cadace" target="_blank" rel="noopener">Executive Assistant to Pres/Office Manager</a></td>
+            <td>Milwaukee Bucks, LLC.</td>
+            <td>Milwaukee, Wisconsin, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-iQ-ConnEdc1cQCqYAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-iQ-ConnEdc1cQCqYAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-sTrR098rtDae4C5HAAAAAA==">
+            <td><a href="https://www.adzuna.com/details/5714042807" target="_blank" rel="noopener">Technical Operator</a></td>
+            <td>Energizer Holdings</td>
+            <td>Nelson, Ohio, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-sTrR098rtDae4C5HAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-sTrR098rtDae4C5HAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-gVtvE1-PDH9CbDTDAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=a21ccd6c0d050f6e" target="_blank" rel="noopener">Assistant Account Manager, Creative Design</a></td>
+            <td>Energizer Holdings</td>
+            <td>—</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-gVtvE1-PDH9CbDTDAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-gVtvE1-PDH9CbDTDAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-AwyXfcP-Q8vMleswAAAAAA==">
+            <td><a href="https://careers.edgewell.com/job/Sidney-Manufacturing-Engineer-OH-45365/1372428200/" target="_blank" rel="noopener">Manufacturing Engineer</a></td>
+            <td>Edgewell Personal Care Brands, LLC</td>
+            <td>Sidney, Ohio, US</td>
+            <td>2026-04-09</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-AwyXfcP-Q8vMleswAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-AwyXfcP-Q8vMleswAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-n1wIlH7sWK7N9RKsAAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/warehouse-team-leader-3rd-shift-edgewell-personal-care-dover--lensa-2365_090320a2ec1625556638ad18db07f389f9a2cb02a77ec48c52a9682acfeda7af" target="_blank" rel="noopener">Warehouse Team Leader-3rd shift</a></td>
+            <td>Edgewell Personal Care</td>
+            <td>US</td>
+            <td>2026-04-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-n1wIlH7sWK7N9RKsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-n1wIlH7sWK7N9RKsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-QOGgj92aQFG6A4ZdAAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/prod-tech-i-7pm-7am-sat-mon-edgewell-personal-care-dover--lensa-19327_34a727a4bd32e1c53c92bd60e6f7a5c1503c10781b357d8ce20b78b93040f932" target="_blank" rel="noopener">Prod Tech I-7PM-7AM Sat/Sun/Mon</a></td>
+            <td>Edgewell Personal Care</td>
+            <td>US</td>
+            <td>2026-04-23</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-QOGgj92aQFG6A4ZdAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-QOGgj92aQFG6A4ZdAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-tufw7UBywZtdEHxDAAAAAA==">
+            <td><a href="https://careers.edgewell.com/job/Shelton-Senior-Manager%2C-Digital-Insights-&-Analytics-CT-06484/1354963800/" target="_blank" rel="noopener">Senior Manager, Digital Insights & Analytics</a></td>
+            <td>Edgewell Personal Care Brands, LLC</td>
+            <td>Shelton, Connecticut, US</td>
+            <td>2026-04-07</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-tufw7UBywZtdEHxDAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-tufw7UBywZtdEHxDAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-Sdy0XYmfDv5zAO3CAAAAAA==">
+            <td><a href="https://careers.edgewell.com/job/Shelton-Project-Lead%2C-Production-Services-CT-06484/1365944200/" target="_blank" rel="noopener">Project Lead, Production Services</a></td>
+            <td>Edgewell Personal Care Brands, LLC</td>
+            <td>Shelton, Connecticut, US</td>
+            <td>2026-04-17</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-Sdy0XYmfDv5zAO3CAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-Sdy0XYmfDv5zAO3CAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-7ieiY93btT05inSXAAAAAA==">
+            <td><a href="https://careers.edgewell.com/job/Shelton-Engineer%2C-Packaging-Liquid-%28Hybrid-or-Remote%29-CT-06484/1375497600/" target="_blank" rel="noopener">Engineer, Packaging - Liquid (Hybrid or Remote)</a></td>
+            <td>Edgewell Personal Care Brands, LLC</td>
+            <td>Shelton, Connecticut, US</td>
+            <td>2026-04-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-7ieiY93btT05inSXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-7ieiY93btT05inSXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-CbRmxNHsLCnRo9mSAAAAAA==">
+            <td><a href="https://careers.edgewell.com/job/Dover-Warehouse-Team-Leader-3rd-shift-DE-19901/1334787100/" target="_blank" rel="noopener">Warehouse Team Leader-3rd shift</a></td>
+            <td>Edgewell Personal Care Brands, LLC</td>
+            <td>Dover, Delaware, US</td>
+            <td>2026-04-07</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-CbRmxNHsLCnRo9mSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-CbRmxNHsLCnRo9mSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_EpSolYHmj29pzuVAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/senior-marketing-copywriter-billie-at-edgewell-personal-care-4408503763" target="_blank" rel="noopener">Senior Marketing Copywriter (Billie)</a></td>
+            <td>Edgewell Personal Care</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_EpSolYHmj29pzuVAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_EpSolYHmj29pzuVAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-RY_yIkZE6AXizrriAAAAAA==">
+            <td><a href="https://careers.edgewell.com/job/Dover-Prod-Tech-I-ESP-%28B-Crew-7AM-7PM%29-DE-19901/1341218600/" target="_blank" rel="noopener">Prod Tech I-ESP (B Crew 7AM-7PM)</a></td>
+            <td>Edgewell Personal Care Brands, LLC</td>
+            <td>Dover, Delaware, US</td>
+            <td>2026-04-01</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-RY_yIkZE6AXizrriAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-RY_yIkZE6AXizrriAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-m5cpFJ_8TKx5gZlsAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/packaging-line-lead-3rd-shift-%2427-21-hr-at-edgewell-personal-care-4408506605" target="_blank" rel="noopener">Packaging Line Lead-3rd shift $27.21/hr</a></td>
+            <td>Edgewell Personal Care</td>
+            <td>Sidney, Ohio, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-m5cpFJ_8TKx5gZlsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-m5cpFJ_8TKx5gZlsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cSipI1LAxkNiFkoQAAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/chemical-packager-henkel-group--ss-us-rlzf40" target="_blank" rel="noopener">Chemical Packager</a></td>
+            <td>Henkel group</td>
+            <td>US</td>
+            <td>2026-04-12</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cSipI1LAxkNiFkoQAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cSipI1LAxkNiFkoQAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-HGL5XomsNnJlFV4xAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/lead-application-engineer-at-henkel-4408710822" target="_blank" rel="noopener">Lead Application Engineer</a></td>
+            <td>Henkel</td>
+            <td>Elkhart, Indiana, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-HGL5XomsNnJlFV4xAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-HGL5XomsNnJlFV4xAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-l-Cpj0a4iW3_nAnzAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Henkel-AG-&-Co.-KGaA/Job/US-Medical-Business-Development-Manager/-in-Remote,OR?jid=c70b7a9c54fe9006" target="_blank" rel="noopener">US Medical Business Development Manager</a></td>
+            <td>Henkel AG & Co. KGaA</td>
+            <td>Remote, Oregon, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-l-Cpj0a4iW3_nAnzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-l-Cpj0a4iW3_nAnzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-cbKToijEb5gqqFmnAAAAAA==">
+            <td><a href="https://henkel.csod.com/ux/ats/careersite/1/home/requisition/82541?c=henkel" target="_blank" rel="noopener">US Medical Business Development Manager</a></td>
+            <td>Henkel group</td>
+            <td>Washington, District of Columbia, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-cbKToijEb5gqqFmnAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-cbKToijEb5gqqFmnAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-oF7vC7r8CjpNjGepAAAAAA==">
+            <td><a href="https://www.henkel.com/careers/find-your-job-apply/2155212-2155212" target="_blank" rel="noopener">Demand Planner</a></td>
+            <td>Henkel</td>
+            <td>Culver City, California, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-oF7vC7r8CjpNjGepAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-oF7vC7r8CjpNjGepAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-a7B0ntdKWKJlz47dAAAAAA==">
+            <td><a href="https://www.henkel.com/careers/find-your-job-apply/2155222-2155222" target="_blank" rel="noopener">Lead Application Engineer</a></td>
+            <td>Henkel</td>
+            <td>Rocky Hill, Connecticut, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-a7B0ntdKWKJlz47dAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-a7B0ntdKWKJlz47dAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FVAnzBHgCBXxVmL5AAAAAA==">
+            <td><a href="https://www.henkel.com/careers/find-your-job-apply/2155180-2155180" target="_blank" rel="noopener">CPFR Analyst</a></td>
+            <td>Henkel</td>
+            <td>Nashville, Tennessee, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FVAnzBHgCBXxVmL5AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FVAnzBHgCBXxVmL5AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-1MAfDhZ7daGZI-InAAAAAA==">
+            <td><a href="https://www.henkel.com/careers/find-your-job-apply/2155210-2155210" target="_blank" rel="noopener">Technical Operator 2nd Shift</a></td>
+            <td>Henkel</td>
+            <td>West Hazleton, Pennsylvania, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-1MAfDhZ7daGZI-InAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-1MAfDhZ7daGZI-InAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FmqHb3nG7AkZHPgxAAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/associate-manager-category-shopper-leadership-sc-johnson-tennessee--theirstack-660621982" target="_blank" rel="noopener">Associate Manager, Category & Shopper Leadership</a></td>
+            <td>SC Johnson</td>
+            <td>US</td>
+            <td>2026-04-10</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FmqHb3nG7AkZHPgxAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FmqHb3nG7AkZHPgxAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-q_Chv2wQxfW7IquKAAAAAA==">
+            <td><a href="https://builtin.com/job/associate-manager-infrastructure-operations-regional-operations-management/9196802" target="_blank" rel="noopener">Associate Manager, Infrastructure & Operations, Regional Operations Management</a></td>
+            <td>SC Johnson</td>
+            <td>Racine, Wisconsin, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-q_Chv2wQxfW7IquKAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-q_Chv2wQxfW7IquKAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5N4dkzrhculoiCmWAAAAAA==">
+            <td><a href="https://builtin.com/job/research-and-development-design-and-development-engineer/9201852" target="_blank" rel="noopener">Research and Development Design and Development Engineer</a></td>
+            <td>SC Johnson</td>
+            <td>Bay City, Michigan, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5N4dkzrhculoiCmWAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5N4dkzrhculoiCmWAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-3ip8SwtHC2iakE1gAAAAAA==">
+            <td><a href="https://careers.keurigdrpepper.com/en/job/ottumwa/production-technician/42849/94531813616" target="_blank" rel="noopener">Production Technician</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Ottumwa, Iowa, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-3ip8SwtHC2iakE1gAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-3ip8SwtHC2iakE1gAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-yfzsl9cpshmiopjmAAAAAA==">
+            <td><a href="https://careers.keurigdrpepper.com/en/job/elmsford/warehouse-picker-order-selector/42849/94523569152" target="_blank" rel="noopener">Warehouse Picker Order Selector</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Elmsford, New York, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-yfzsl9cpshmiopjmAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-yfzsl9cpshmiopjmAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-m6KlMRuH-rM4JWmxAAAAAA==">
+            <td><a href="https://careers.keurigdrpepper.com/en/job/burlington/associate-commercialization-manager/42849/94549713472" target="_blank" rel="noopener">Associate Commercialization Manager</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Burlington, Massachusetts, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-m6KlMRuH-rM4JWmxAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-m6KlMRuH-rM4JWmxAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-H23JuE5qPskZCjgCAAAAAA==">
+            <td><a href="https://careers.keurigdrpepper.com/en/job/allentown/transport-driver/42849/94527274464" target="_blank" rel="noopener">Transport Driver</a></td>
+            <td>Keurig Dr Pepper</td>
+            <td>Allentown, Pennsylvania, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-H23JuE5qPskZCjgCAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-H23JuE5qPskZCjgCAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-1Lp2vHCJy0Xo4q4pAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/production-associate-rotating-shifts-at-the-clorox-company-4408564386" target="_blank" rel="noopener">Production Associate (Rotating Shifts)</a></td>
+            <td>The Clorox Company</td>
+            <td>Burnside, Kentucky, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-1Lp2vHCJy0Xo4q4pAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-1Lp2vHCJy0Xo4q4pAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-hqQ-8X1itRwqLbzHAAAAAA==">
+            <td><a href="https://us.trabajo.org/job-4111-f53d122307f4d6237fa05e1a1afe2212" target="_blank" rel="noopener">Process Operator- Rotating Shifts</a></td>
+            <td>The Clorox Company</td>
+            <td>Aberdeen, Maryland, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-hqQ-8X1itRwqLbzHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-hqQ-8X1itRwqLbzHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-FqR0QhKVUXpV9MrrAAAAAA==">
+            <td><a href="https://careers.conagrabrands.com/us/en/job/Req-037921/Maintenance-Technician-2nd-Shift" target="_blank" rel="noopener">Maintenance Technician - 2nd Shift.</a></td>
+            <td>CONAGRA</td>
+            <td>Kent, Washington, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-FqR0QhKVUXpV9MrrAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-FqR0QhKVUXpV9MrrAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-h-cnQ1OwUH3ybS1FAAAAAA==">
+            <td><a href="https://careers.conagrabrands.com/us/en/job/Req-037883/Production-Associate" target="_blank" rel="noopener">Production Associate</a></td>
+            <td>CONAGRA</td>
+            <td>Humboldt, Tennessee, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-h-cnQ1OwUH3ybS1FAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-h-cnQ1OwUH3ybS1FAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-rRiAlKhuFooGhO4wAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=373c6c37a3a373c6" target="_blank" rel="noopener">Machine Operator</a></td>
+            <td>Kellanova</td>
+            <td>Wyoming, Michigan, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-rRiAlKhuFooGhO4wAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-rRiAlKhuFooGhO4wAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-rmuwznJ28lft4X5gAAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/wastewater-treatment-technician-kellanova-blue-anchor-nj--theirstack-672813987" target="_blank" rel="noopener">Wastewater Treatment Technician</a></td>
+            <td>Kellanova</td>
+            <td>Sni-A-Bar Township, Missouri, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-rmuwznJ28lft4X5gAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-rmuwznJ28lft4X5gAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-JySKdUP5Ca3Rk3dHAAAAAA==">
+            <td><a href="https://jobdetails.nestle.com/job/Solon-Finance-Analyst-Co-Pilot-OH-44139/1388891533/" target="_blank" rel="noopener">Finance Analyst Co-Pilot</a></td>
+            <td>Nestle Operational Services Worldwide SA</td>
+            <td>Solon, Ohio, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-JySKdUP5Ca3Rk3dHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-JySKdUP5Ca3Rk3dHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-TF5lnnq3Q_DUaHw_AAAAAA==">
+            <td><a href="https://jobdetails.nestle.com/job/Seattle-Inside-Sales-Representative-Supervisor-WA-98104/1388978333/" target="_blank" rel="noopener">Inside Sales Representative Supervisor</a></td>
+            <td>Nestle Operational Services Worldwide SA</td>
+            <td>Seattle, Washington, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-TF5lnnq3Q_DUaHw_AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-TF5lnnq3Q_DUaHw_AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-6YP595lVzP9CI7vfAAAAAA==">
+            <td><a href="https://www.indeed.com/viewjob?jk=303236981d3aed3d" target="_blank" rel="noopener">Additive Manufacturing Technician</a></td>
+            <td>Nestlé USA</td>
+            <td>Gaffney, South Carolina, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-6YP595lVzP9CI7vfAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-6YP595lVzP9CI7vfAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-JchAuGRUsC7wI9lMAAAAAA==">
+            <td><a href="https://jobdetails.nestle.com/job/Arlington-Customer-Account-Manager-Foodservice-%28HospitalityLodging%29-REMOTE-VA-22209/1385139833/" target="_blank" rel="noopener">Customer Account Manager - Foodservice (Hospitality/Lodging) - REMOTE</a></td>
+            <td>Nestle Operational Services Worldwide SA</td>
+            <td>Arlington, Virginia, US</td>
+            <td>2026-04-16</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-JchAuGRUsC7wI9lMAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-JchAuGRUsC7wI9lMAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-fDKyGsuwtbi_zdi7AAAAAA==">
+            <td><a href="https://lensa.com/job-v1/mars-incorporated/topeka-ks/compounder/0f93eb5ea32b58ab397b038b6d570400" target="_blank" rel="noopener">Processing - Chocolate Plant (Lighthiser)</a></td>
+            <td>Mars Incorporated</td>
+            <td>Topeka, Kansas, US</td>
+            <td>2026-04-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-fDKyGsuwtbi_zdi7AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-fDKyGsuwtbi_zdi7AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-pXbkISx5yeU9qM1HAAAAAA==">
+            <td><a href="https://careers.mars.com/global/en/job/R153443/Processing-Operator-LifeSaver-Mints-Day-Shift" target="_blank" rel="noopener">Processing Operator-LifeSaver Mints - Day Shift</a></td>
+            <td>Mars</td>
+            <td>Chattanooga, Tennessee, US</td>
+            <td>2026-04-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-pXbkISx5yeU9qM1HAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-pXbkISx5yeU9qM1HAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-RRztqoXs6a4SfSIaAAAAAA==">
+            <td><a href="https://careers.mars.com/global/en/job/R154393/Quality-Conformance-Coordinator-fixed-night-shift" target="_blank" rel="noopener">Quality Conformance Coordinator-fixed night shift</a></td>
+            <td>Mars</td>
+            <td>Chattanooga, Tennessee, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-RRztqoXs6a4SfSIaAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-RRztqoXs6a4SfSIaAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-kPHkbM-XEbt0btaTAAAAAA==">
+            <td><a href="https://careers.mars.com/us/en/job/R154226/Production-Coordinator-Packaging-2-500-Sign-on-Bonus" target="_blank" rel="noopener">Production Coordinator (Packaging) - $2,500 Sign on Bonus</a></td>
+            <td>Mars</td>
+            <td>Lewisburg, Ohio, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-kPHkbM-XEbt0btaTAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-kPHkbM-XEbt0btaTAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_WqBXqhku9hsa15lAAAAAA==">
+            <td><a href="https://careers.mars.com/us/en/job/R153109/Processing-Operator-LifeSaver-Mints-Night-Shift" target="_blank" rel="noopener">Processing Operator - LifeSaver Mints - Night Shift</a></td>
+            <td>Mars</td>
+            <td>Chattanooga, Tennessee, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_WqBXqhku9hsa15lAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_WqBXqhku9hsa15lAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-_5LXr4Dx0x2Q1XFiAAAAAA==">
+            <td><a href="https://builtin.com/job/executive-administration/9196331" target="_blank" rel="noopener">Executive Administration</a></td>
+            <td>Mars</td>
+            <td>Franklin, Tennessee, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-_5LXr4Dx0x2Q1XFiAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-_5LXr4Dx0x2Q1XFiAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-z0UhPIRZJ29KzIr8AAAAAA==">
+            <td><a href="https://careers.mars.com/us/en/job/R154058/Process-Operator-Shipping" target="_blank" rel="noopener">Process Operator - Shipping</a></td>
+            <td>Mars</td>
+            <td>Elizabethtown, Pennsylvania, US</td>
+            <td>2026-04-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-z0UhPIRZJ29KzIr8AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-z0UhPIRZJ29KzIr8AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-EZQmjYL9RhjLHSV4AAAAAA==">
+            <td><a href="https://careers.mars.com/global/en/job/R143418/IT-Infrastructure-Broadcast-Operations-Technical-Lead" target="_blank" rel="noopener">IT Infrastructure & Broadcast Operations Technical Lead</a></td>
+            <td>Mars</td>
+            <td>McLean, Virginia, US</td>
+            <td>2026-04-18</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-EZQmjYL9RhjLHSV4AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-EZQmjYL9RhjLHSV4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-x0E0jaMGe9K-8jH3AAAAAA==">
+            <td><a href="https://careers.mars.com/global/en/job/R152845/Counsel-Corporate" target="_blank" rel="noopener">Counsel, Corporate</a></td>
+            <td>Mars</td>
+            <td>McLean, Virginia, US</td>
+            <td>2026-04-15</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-x0E0jaMGe9K-8jH3AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-x0E0jaMGe9K-8jH3AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-DmT6PE1fsWaTLMYwAAAAAA==">
+            <td><a href="https://dejobs.org/jacksonville-nc/full-time-nabisco-merchandiserorder-writer/C61035DB157D47C291F4594776CF34F2/job/" target="_blank" rel="noopener">Full-time Nabisco Merchandiser/Order Writer</a></td>
+            <td>Mondelez International</td>
+            <td>Jacksonville, North Carolina, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-DmT6PE1fsWaTLMYwAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-DmT6PE1fsWaTLMYwAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-KDUrzV6wk3dhVnO2AAAAAA==">
+            <td><a href="https://hourlyjobs-us.mondelezinternational.com/driver-cdl-warehouse-associate/job/R-140823" target="_blank" rel="noopener">Driver CDL/ Warehouse Associate</a></td>
+            <td>Mondelēz International</td>
+            <td>Ohio, US</td>
+            <td>2026-04-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-KDUrzV6wk3dhVnO2AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-KDUrzV6wk3dhVnO2AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ipNiKPP5STmwJbSmAAAAAA==">
+            <td><a href="https://hourlyjobs-us.mondelezinternational.com/driver-cdl-warehouse-associate/job/R-159337" target="_blank" rel="noopener">Driver CDL/Warehouse Associate</a></td>
+            <td>Mondelēz International</td>
+            <td>New York, New York, US</td>
+            <td>2026-04-06</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ipNiKPP5STmwJbSmAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ipNiKPP5STmwJbSmAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch--jBpB34jSjytuEMJAAAAAA==">
+            <td><a href="https://lensa.com/job-v1/mondelez-international/gloucester-va/merchandiser-full-time/011590dd1110d2a2486cd10e015de93d" target="_blank" rel="noopener">Full-time Nabisco Merchandiser/Order Writer</a></td>
+            <td>Mondelez International</td>
+            <td>Gloucester, Virginia, US</td>
+            <td>2026-04-25</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch--jBpB34jSjytuEMJAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch--jBpB34jSjytuEMJAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-vWJcncsaxV1DOtjeAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/full-time-nabisco-merchandiser-order-writer-grovetown-ga-at-mondel%C4%93z-international-4408706881" target="_blank" rel="noopener">Full Time Nabisco Merchandiser/Order Writer - Grovetown, GA</a></td>
+            <td>Mondelēz International</td>
+            <td>Evans, Georgia, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-vWJcncsaxV1DOtjeAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-vWJcncsaxV1DOtjeAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-TOjG42DFkaBNwVtzAAAAAA==">
+            <td><a href="https://www.tealhq.com/job/senior-financial-analyst-manufacturing_7ea1a4f0ab2b51fb50e639198c729b33693f8" target="_blank" rel="noopener">Senior Financial Analyst, Manufacturing - Dover Plant</a></td>
+            <td>The Kraft Heinz Company</td>
+            <td>Dover, Delaware, US</td>
+            <td>2026-04-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-TOjG42DFkaBNwVtzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-TOjG42DFkaBNwVtzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-sXQc1AOh4rJflYylAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Kraft-Heinz/Job/Director,-Consumer-Insights-Portfolio/-in-Chicago,IL?jid=69befc5865874a64" target="_blank" rel="noopener">Director, Consumer Insights - Portfolio</a></td>
+            <td>Kraft Heinz Company</td>
+            <td>Chicago, Illinois, US</td>
+            <td>2026-04-20</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-sXQc1AOh4rJflYylAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-sXQc1AOh4rJflYylAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-EUeYVVVk7jFNLWlzAAAAAA==">
+            <td><a href="https://www.tealhq.com/job/line-utility-slicer-stacker_7ea1a1f6c4278c88fe826ed3a5801583557b7" target="_blank" rel="noopener">Line Utility/Slicer/Stacker</a></td>
+            <td>The Kraft Heinz Company</td>
+            <td>Holland, Michigan, US</td>
+            <td>2026-04-26</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-EUeYVVVk7jFNLWlzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-EUeYVVVk7jFNLWlzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-dR8WpowiOmE7rtJkAAAAAA==">
+            <td><a href="https://app.joinhandshake.com/public/jobs/10979816" target="_blank" rel="noopener">Maintenance Supervisor | The Kraft Heinz Company | Handshake</a></td>
+            <td>The Kraft Heinz Company</td>
+            <td>Fremont, Ohio, US</td>
+            <td>2026-04-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-dR8WpowiOmE7rtJkAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-dR8WpowiOmE7rtJkAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-wrn4KMf4y1AZEPsVAAAAAA==">
+            <td><a href="https://www.talent.com/view?id=617174793841874546" target="_blank" rel="noopener">Area Distributor Manager - New York</a></td>
+            <td>Kraft Heinz</td>
+            <td>Washington, District of Columbia, US</td>
+            <td>2026-04-28</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-wrn4KMf4y1AZEPsVAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-wrn4KMf4y1AZEPsVAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-6sVNWDKxSlNa3LRsAAAAAA==">
+            <td><a href="https://careers.coca-colacompany.com/job/23304173/" target="_blank" rel="noopener">Marketing Associate</a></td>
+            <td>Coca Cola Careers</td>
+            <td>Richmond, Virginia, US</td>
+            <td>2026-04-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-6sVNWDKxSlNa3LRsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-6sVNWDKxSlNa3LRsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-5hRR2YTJ3NwB6G4MAAAAAA==">
+            <td><a href="https://leadingjobs.findworksdaily.com/joblistings/xfrs02yspaat-2b84-43fd474a-2031a0c6654b6-1b3f45e" target="_blank" rel="noopener">Design Associate Manager</a></td>
+            <td>PepsiCo</td>
+            <td>Tuckahoe, New York, US</td>
+            <td>2026-04-12</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-5hRR2YTJ3NwB6G4MAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-5hRR2YTJ3NwB6G4MAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-ROZitPD87s3ITgWHAAAAAA==">
+            <td><a href="https://leadingjobs.findworksdaily.com/joblistings/voa8n03r9bd4-72ab5282ca0a38ec2-8f2a-fa5948-4434c" target="_blank" rel="noopener">Design Associate Manager</a></td>
+            <td>PepsiCo</td>
+            <td>New Hyde Park, New York, US</td>
+            <td>2026-04-12</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-ROZitPD87s3ITgWHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-ROZitPD87s3ITgWHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-k0jC0qAPUfydHnPPAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Unilever/Job/Maintenance-Technician-(Ben-&-Jerrys)/-in-Waterbury,VT?jid=558155969eb59907" target="_blank" rel="noopener">Maintenance Technician (Ben & Jerry's)</a></td>
+            <td>Unilever</td>
+            <td>Waterbury, Vermont, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-k0jC0qAPUfydHnPPAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-k0jC0qAPUfydHnPPAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-et1Mip_yddre_w6zAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Unilever/Job/Ice-Cream-Brand-Public-Relations-Associate-Manager/-in-Englewood-Cliffs,NJ?jid=dcb5be0f00827785" target="_blank" rel="noopener">Ice Cream Brand Public Relations Associate Manager</a></td>
+            <td>Unilever</td>
+            <td>Englewood Cliffs, New Jersey, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-et1Mip_yddre_w6zAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-et1Mip_yddre_w6zAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-t6RHrlFP09Gz8e-RAAAAAA==">
+            <td><a href="https://www.pgcareers.com/eu/en/job/R000145960/Senior-Controls-Automation-Engineer-Tabler-Station-Plant" target="_blank" rel="noopener">Senior Controls & Automation Engineer, Tabler Station Plant</a></td>
+            <td>PGBPGNGLOBAL</td>
+            <td>Inwood, West Virginia, US</td>
+            <td>2026-04-27</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-t6RHrlFP09Gz8e-RAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-t6RHrlFP09Gz8e-RAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-XN6Aqch40rnmZLKJAAAAAA==">
+            <td><a href="https://www.linkedin.com/jobs/view/supply-chain-manager-at-procter-gamble-4406432128" target="_blank" rel="noopener">Supply Chain Manager</a></td>
+            <td>Procter & Gamble</td>
+            <td>Shippensburg, Pennsylvania, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-XN6Aqch40rnmZLKJAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-XN6Aqch40rnmZLKJAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-VltlLQKoF6jucL5kAAAAAA==">
+            <td><a href="https://www.pgcareers.com/us/en/job/R000150217/Field-Service-Technician-Entry-Level-Shreveport-LA" target="_blank" rel="noopener">Field Service Technician (Entry Level) - Shreveport, LA</a></td>
+            <td>PGBPGNGLOBAL</td>
+            <td>Shreveport, Louisiana, US</td>
+            <td>2026-04-30</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-VltlLQKoF6jucL5kAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-VltlLQKoF6jucL5kAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-mD-2m-WvDEokHrKsAAAAAA==">
+            <td><a href="https://bebee.com/us/jobs/forklift-driver-12-hour-rotating-shifts-auburn-maine-procter-gamble-auburn--fj-2108143948" target="_blank" rel="noopener">Forklift Driver | 12 Hour Rotating Shifts | Auburn, Maine</a></td>
+            <td>Procter & Gamble</td>
+            <td>Washington, District of Columbia, US</td>
+            <td>2026-04-14</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-mD-2m-WvDEokHrKsAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-mD-2m-WvDEokHrKsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-TAJRGjA4J7TrMfHyAAAAAA==">
+            <td><a href="https://www.snagajob.com/jobs/1132603291" target="_blank" rel="noopener">Plant Technician - Full-time</a></td>
+            <td>Procter & Gamble</td>
+            <td>Dover, Delaware, US</td>
+            <td>2026-04-29</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-TAJRGjA4J7TrMfHyAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-TAJRGjA4J7TrMfHyAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-GVjdO6VLEu85cVxwAAAAAA==">
+            <td><a href="https://www.pgcareers.com/eu/en/job/R000134697/Plant-Technician" target="_blank" rel="noopener">Plant Technician</a></td>
+            <td>PGBPGNGLOBAL</td>
+            <td>Dover, Delaware, US</td>
+            <td>2026-04-13</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-GVjdO6VLEu85cVxwAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-GVjdO6VLEu85cVxwAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-bYzOMwLYUj8IoWrMAAAAAA==">
+            <td><a href="https://www.glassdoor.com/job-listing/plant-technician-procter-gamble-JV_IC1143898_KO0,16_KE17,31.htm?jl=1009849441519" target="_blank" rel="noopener">Plant Technician</a></td>
+            <td>Procter & Gamble</td>
+            <td>Inwood, West Virginia, US</td>
+            <td>2026-04-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-bYzOMwLYUj8IoWrMAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-bYzOMwLYUj8IoWrMAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-y5Cto30xU5UtnsHHAAAAAA==">
+            <td><a href="https://builtin.com/job/alex-senior-ica-manager/7900348" target="_blank" rel="noopener">Senior Power Control and Information Systems (PC&IS) Engineering Manager</a></td>
+            <td>Procter & Gamble</td>
+            <td>Alexandria, Virginia, US</td>
+            <td>2026-04-22</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-y5Cto30xU5UtnsHHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-y5Cto30xU5UtnsHHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-CqfJ-V712O8NCoUXAAAAAA==">
+            <td><a href="https://www.ziprecruiter.com/c/Procter-&-Gamble/Job/Machine-and-Production-OperatorOn-Site/-in-Inwood,WV?jid=698b0ffaaea5bd37" target="_blank" rel="noopener">Machine and Production OperatorOn-Site</a></td>
+            <td>Procter & Gamble</td>
+            <td>Inwood, West Virginia, US</td>
+            <td>2026-04-04</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-CqfJ-V712O8NCoUXAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-CqfJ-V712O8NCoUXAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
+        <tr data-id="jsearch-uYBz1fVFjFJ-sXDzAAAAAA==">
+            <td><a href="https://www.pgcareers.com/eu/en/job/R000134332/Plant-Technician-Manufacturing" target="_blank" rel="noopener">Plant Technician-Manufacturing</a></td>
+            <td>PGBPGNGLOBAL</td>
+            <td>Inwood, West Virginia, US</td>
+            <td>2026-04-19</td>
+            <td><span class="badge badge-api">Job Board</span></td>
+            <td class="action-cell">
+                <button class="apply-btn" onclick="markApplied('jsearch-uYBz1fVFjFJ-sXDzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
+                <button class="dismiss-btn" onclick="markDismissed('jsearch-uYBz1fVFjFJ-sXDzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
+            </td>
+        </tr>
         <tr data-id="jsearch-kNgJvH3jMY3Keq2NAAAAAA==">
             <td><a href="https://www.linkedin.com/jobs/view/associate-data-analyst-new-graduate-thai-speaking-marketing-analytics-bangkok-based-at-agoda-4299772364" target="_blank" rel="noopener">Associate Data Analyst (New Graduate, Thai Speaking) (Marketing Analytics, Bangkok Based)</a></td>
             <td>Agoda</td>
@@ -406,17 +1740,6 @@
             <td class="action-cell">
                 <button class="apply-btn" onclick="markApplied('jsearch-pNTTA8-tgtAnatPcAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-pNTTA8-tgtAnatPcAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
-        <tr data-id="jsearch-ZzSqMeAPSMswxIQ5AAAAAA==">
-            <td><a href="https://jobs.citizensbank.com/job/westwood/digital-content-manager-for-consumer-products/288/93919889376" target="_blank" rel="noopener">Digital Content Manager for Consumer Products</a></td>
-            <td>Citizens Bank, N.A.</td>
-            <td>—</td>
-            <td>2026-04-13</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-ZzSqMeAPSMswxIQ5AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-ZzSqMeAPSMswxIQ5AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
         <tr data-id="jsearch-5j4hwfNatBmNirUNAAAAAA==">
@@ -1275,17 +2598,6 @@
             <td class="action-cell">
                 <button class="apply-btn" onclick="markApplied('jsearch-YpFKUID0_sBt3xcjAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-YpFKUID0_sBt3xcjAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
-        <tr data-id="jsearch-Hux0PDCgyexDe0hFAAAAAA==">
-            <td><a href="https://lensa.com/job-v1/rawlings-sporting-goods-company-inc/tullahoma-tn/floor-tech/1a3bdbdf22e20eadb5cc3b415c76404b" target="_blank" rel="noopener">Wet Floor Worker -Tennessee Tanning</a></td>
-            <td>Rawlings Sporting Goods Company , Inc.</td>
-            <td>Tullahoma, Tennessee, US</td>
-            <td>2026-04-13</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-Hux0PDCgyexDe0hFAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-Hux0PDCgyexDe0hFAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
         <tr data-id="jsearch-DjvFQ8t-nbJ5c4HOAAAAAA==">
@@ -2597,17 +3909,6 @@
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-m14aRTZb0GwIU24kAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="jsearch-kR0mFeR-0i7zrkaJAAAAAA==">
-            <td><a href="https://us.jobrapido.com/jobpreview/6207186832539516928" target="_blank" rel="noopener">Traveling Sports Project Executive - Construction Leader</a></td>
-            <td>Turner Construction Company</td>
-            <td>Phoenix, Arizona, US</td>
-            <td>2026-04-19</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-kR0mFeR-0i7zrkaJAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-kR0mFeR-0i7zrkaJAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
         <tr data-id="jsearch-S2skh951xDnfx5YBAAAAAA==">
             <td><a href="https://www.jobleads.com/us/job/traveling-mep-manager-for-sports-projects--las-vegas--e5419ece1abeef5047cfbb4ada6ef92fa" target="_blank" rel="noopener">Traveling MEP Manager for Sports Projects</a></td>
             <td>Turner Construction Company</td>
@@ -2628,17 +3929,6 @@
             <td class="action-cell">
                 <button class="apply-btn" onclick="markApplied('jsearch-4CCNiCpYRhcKL7tzAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-4CCNiCpYRhcKL7tzAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
-        <tr data-id="jsearch-A2A0syrD8GHakcu0AAAAAA==">
-            <td><a href="https://us.jobrapido.com/jobpreview/700547724046499840" target="_blank" rel="noopener">Traveling Sports Construction Leader</a></td>
-            <td>Turner Construction Company</td>
-            <td>Las Vegas, Nevada, US</td>
-            <td>2026-04-14</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-A2A0syrD8GHakcu0AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-A2A0syrD8GHakcu0AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
         <tr data-id="jsearch-8_5CXdVRZyQmg4a0AAAAAA==">
@@ -3951,17 +5241,6 @@ Atlanta, Georgia, United States</a></td>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-ZxqIDu7QW3zXogC4AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="jsearch-N7WXqrYJaI1VBQAuAAAAAA==">
-            <td><a href="https://us.jobrapido.com/jobpreview/7436945920547094528" target="_blank" rel="noopener">Night Technical Operator — Machines & Quality Control</a></td>
-            <td>Energizer Holdings</td>
-            <td>Garrettsville, Ohio, US</td>
-            <td>2026-04-26</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-N7WXqrYJaI1VBQAuAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-N7WXqrYJaI1VBQAuAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
         <tr data-id="jsearch-FssNi6zoPkl4dUp2AAAAAA==">
             <td><a href="https://careers.energizerholdings.com/jobs/6925?lang=en-us" target="_blank" rel="noopener">Industrial Plant Electrician IV</a></td>
             <td>Energizer Holdings</td>
@@ -4215,17 +5494,6 @@ Atlanta, Georgia, United States</a></td>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-doKXxYvVv0SEGctRAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="jsearch-Vtt587hf60_8Rx3RAAAAAA==">
-            <td><a href="https://us.jobrapido.com/jobpreview/7552090076742680576" target="_blank" rel="noopener">Remote AP Specialist: Streamline Invoices & Payments</a></td>
-            <td>S.C. Johnson & Son, Inc.</td>
-            <td>Racine, Wisconsin, US</td>
-            <td>2026-04-24</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-Vtt587hf60_8Rx3RAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-Vtt587hf60_8Rx3RAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
         <tr data-id="jsearch-pRvWXbBuXwbsnqQ0AAAAAA==">
             <td><a href="https://jobgether.com/offer/69dc1d07c646310ee38cb69f-associate-manager-global-molds-engineering" target="_blank" rel="noopener">Associate Manager, Global Molds Engineering</a></td>
             <td>SC Johnson</td>
@@ -4380,17 +5648,6 @@ Atlanta, Georgia, United States</a></td>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-Yg8KKmUqTOFevvPsAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="jsearch-awLThKsZ0XvJgLuHAAAAAA==">
-            <td><a href="https://careers.churchdwight.com/jobs/job/r2026-15041-sr-manager-creative-operations-touchland/" target="_blank" rel="noopener">Sr. Manager, Creative Operations - touchland</a></td>
-            <td>Church & Dwight Careers</td>
-            <td>New York, New York, US</td>
-            <td>2026-04-24</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-awLThKsZ0XvJgLuHAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-awLThKsZ0XvJgLuHAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
         <tr data-id="jsearch-TGuJU2by89iplt-UAAAAAA==">
             <td><a href="https://careers.churchdwight.com/jobs/job/r2026-15064-manager-sales-strategy-enablement-hero/" target="_blank" rel="noopener">Manager, Sales Strategy & Enablement - Hero</a></td>
             <td>Church & Dwight Careers</td>
@@ -4444,17 +5701,6 @@ Atlanta, Georgia, United States</a></td>
             <td class="action-cell">
                 <button class="apply-btn" onclick="markApplied('jsearch-ueWVJnTgb_5idhQSAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-ueWVJnTgb_5idhQSAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
-        <tr data-id="jsearch-Nbx0qdsDfUvRsYpYAAAAAA==">
-            <td><a href="https://careers.churchdwight.com/jobs/job/r2026-15059-ecommerce-analyst/" target="_blank" rel="noopener">eCommerce Analyst</a></td>
-            <td>Church & Dwight Careers</td>
-            <td>US</td>
-            <td>2026-04-24</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-Nbx0qdsDfUvRsYpYAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-Nbx0qdsDfUvRsYpYAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
         <tr data-id="jsearch-QbAq0WqriTFoqQ6yAAAAAA==">
@@ -4543,17 +5789,6 @@ Atlanta, Georgia, United States</a></td>
             <td class="action-cell">
                 <button class="apply-btn" onclick="markApplied('jsearch-eWQ5cN2CzlL-J_ifAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-eWQ5cN2CzlL-J_ifAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
-        <tr data-id="jsearch-UYXx9PhUjcwgmMWyAAAAAA==">
-            <td><a href="https://careers.keurigdrpepper.com/en/job/harrisburg/warehouse-worker/42849/94335817792" target="_blank" rel="noopener">Warehouse Worker</a></td>
-            <td>Keurig Dr Pepper</td>
-            <td>Harrisburg, Pennsylvania, US</td>
-            <td>2026-04-24</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-UYXx9PhUjcwgmMWyAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-UYXx9PhUjcwgmMWyAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
         <tr data-id="jsearch-9QjNSGugD3rOidTsAAAAAA==">
@@ -5205,17 +6440,6 @@ Atlanta, Georgia, United States</a></td>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-FOmUG4jAx-iglhpxAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="jsearch-lHri1_0VdN4z2qEtAAAAAA==">
-            <td><a href="https://hourlyjobs-us.mondelezinternational.com/full-time-nabisco-merchandiser-order-writer/job/R-165710" target="_blank" rel="noopener">Full-time Nabisco Merchandiser Order Writer</a></td>
-            <td>Mondelēz International</td>
-            <td>Winter Park, Florida, US</td>
-            <td>2026-04-23</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-lHri1_0VdN4z2qEtAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-lHri1_0VdN4z2qEtAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
         <tr data-id="jsearch-En3fDh_jhBy-K0xZAAAAAA==">
             <td><a href="https://www.breakroom.cc/en-us/jobs/listing/35975856-mondelez-international-warehouse-associate-manassas-virginia" target="_blank" rel="noopener">Warehouse Associate</a></td>
             <td>Mondelez International</td>
@@ -5535,17 +6759,6 @@ Atlanta, Georgia, United States</a></td>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-A6tv6xDnZB9EO1PbAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="jsearch-DjWebYrJS9PovAPFAAAAAA==">
-            <td><a href="https://www.pepsicojobs.com/main/jobs/445192?lang=en-us" target="_blank" rel="noopener">Category Management Associate Manager, PepsiCo Foods, Target</a></td>
-            <td>PepsiCo</td>
-            <td>St Louis Park, Minnesota, US</td>
-            <td>2026-04-03</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-DjWebYrJS9PovAPFAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-DjWebYrJS9PovAPFAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
         <tr data-id="jsearch-UngkJU9D9kvMBoteAAAAAA==">
             <td><a href="https://www.linkedin.com/jobs/view/associate-manager-communications-external-visibility-strategy-transformation-latam-at-pepsico-4405125663" target="_blank" rel="noopener">Associate Manager, Communications & External Visibility (Strategy & Transformation & LATAM)</a></td>
             <td>PepsiCo</td>
@@ -5577,17 +6790,6 @@ Atlanta, Georgia, United States</a></td>
             <td class="action-cell">
                 <button class="apply-btn" onclick="markApplied('jsearch-ntOfW9Rpg6u9T1cRAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-ntOfW9Rpg6u9T1cRAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
-        <tr data-id="jsearch-iRnhMGFCdv9JIyOgAAAAAA==">
-            <td><a href="https://www.pepsicojobs.com/main/jobs/5001188894206?lang=en-us" target="_blank" rel="noopener">Warehouse Person (Utility Technician) - PES</a></td>
-            <td>Pepsico</td>
-            <td>Williamsport, Maryland, US</td>
-            <td>2026-04-03</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-iRnhMGFCdv9JIyOgAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-iRnhMGFCdv9JIyOgAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
         <tr data-id="jsearch-zHyKRUk2D3x9VxfUAAAAAA==">
@@ -5689,17 +6891,6 @@ Atlanta, Georgia, United States</a></td>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-S3NX2G9ZTa0g2i6fAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
-        <tr data-id="jsearch-C_kezvpqGW7I6lJ5AAAAAA==">
-            <td><a href="https://careers.unilever.com/en/job/hoboken/senior-manager-inventory-and-waste-na/34155/93159786304" target="_blank" rel="noopener">Senior Manager, Inventory & Waste NA</a></td>
-            <td>UNILEVER</td>
-            <td>Hoboken, New Jersey, US</td>
-            <td>2026-04-10</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-C_kezvpqGW7I6lJ5AAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-C_kezvpqGW7I6lJ5AAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
         <tr data-id="jsearch-kQBSigYYGH0s3qRYAAAAAA==">
             <td><a href="https://careers.unilever.com/en/job/hoboken/associate-director-technology/34155/93206872384" target="_blank" rel="noopener">Associate Director, Technology</a></td>
             <td>UNILEVER</td>
@@ -5709,17 +6900,6 @@ Atlanta, Georgia, United States</a></td>
             <td class="action-cell">
                 <button class="apply-btn" onclick="markApplied('jsearch-kQBSigYYGH0s3qRYAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
                 <button class="dismiss-btn" onclick="markDismissed('jsearch-kQBSigYYGH0s3qRYAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
-            </td>
-        </tr>
-        <tr data-id="jsearch-bDtMjeKjieG1o_KWAAAAAA==">
-            <td><a href="https://careers.unilever.com/en/job/hoboken/associate-customer-strategy-manager-value/34155/93996540288" target="_blank" rel="noopener">Associate Customer Strategy Manager, Value</a></td>
-            <td>UNILEVER</td>
-            <td>Hoboken, New Jersey, US</td>
-            <td>2026-04-15</td>
-            <td><span class="badge badge-api">Job Board</span></td>
-            <td class="action-cell">
-                <button class="apply-btn" onclick="markApplied('jsearch-bDtMjeKjieG1o_KWAAAAAA==', this)" title="Mark as applied">✓ Applied</button>
-                <button class="dismiss-btn" onclick="markDismissed('jsearch-bDtMjeKjieG1o_KWAAAAAA==', this)" title="Not a good fit">✕ Not a Fit</button>
             </td>
         </tr>
         <tr data-id="jsearch-v3igLYzggsNO7EwkAAAAAA==">
@@ -5877,11 +7057,27 @@ Atlanta, Georgia, United States</a></td>
     rows.forEach(r => {
       if (!r.classList.contains('applied-row') &&
           !r.classList.contains('dismissed-row') &&
+          !r.classList.contains('cleared-row') &&
           r.style.display !== 'none') visible++;
     });
     document.getElementById('visible-count').textContent = visible;
     document.getElementById('applied-count').textContent = getList('appliedJobs').length;
     document.getElementById('dismissed-count').textContent = getList('dismissedJobs').length;
+  }
+
+  // ── Clear All (hide everything seen so far) ──────────────────────────────
+  function clearAll() {
+    if (!confirm('Hide all current jobs? New jobs will appear at the top when the tracker runs tomorrow. You can undo this by refreshing with Shift+Refresh.')) return;
+    const cleared = [];
+    document.querySelectorAll('#table-body tr').forEach(row => {
+      const id = row.getAttribute('data-id');
+      if (id && !row.classList.contains('applied-row')) {
+        row.classList.add('cleared-row');
+        cleared.push(id);
+      }
+    });
+    saveList('clearedJobs', [...getList('clearedJobs'), ...cleared]);
+    updateCounts();
   }
 
   // ── Restore state on load ────────────────────────────────────────────────
@@ -5893,6 +7089,10 @@ Atlanta, Georgia, United States</a></td>
     getList('dismissedJobs').forEach(id => {
       const row = document.querySelector(`tr[data-id="${id}"]`);
       if (row) row.classList.add('dismissed-row');
+    });
+    getList('clearedJobs').forEach(id => {
+      const row = document.querySelector(`tr[data-id="${id}"]`);
+      if (row) row.classList.add('cleared-row');
     });
     updateCounts();
   });
