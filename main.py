@@ -4,12 +4,11 @@ main.py -- Footwear Job Tracker
 
 import json
 import logging
-import os
 from pathlib import Path
 
-from api_fetcher import fetch_all_api_jobs
 from scraper import scrape_all_companies
-from db import JobDatabase
+from api_fetcher import fetch_all_api_jobs
+from db import init_db, is_new_job, mark_job_seen
 from notifier import notify
 from generate_dashboard import load_jobs, generate
 
@@ -35,7 +34,32 @@ def save_jobs(jobs):
         json.dump(jobs, f, indent=2)
 
 
-def log_jobs_to_file(new_jobs):
+def run():
+    logger.info("=" * 60)
+    logger.info("Footwear Job Tracker - starting run")
+    logger.info("=" * 60)
+
+    init_db()
+    new_jobs = []
+
+    # Phase 1: Scraper (TeamWork Online)
+    logger.info("Phase 1: Scraping career pages...")
+    for job in scrape_all_companies():
+        if is_new_job(job["id"]):
+            mark_job_seen(job)
+            new_jobs.append(job)
+            logger.info("  NEW  [%s] %s @ %s", job["source"], job["title"], job["company"])
+
+    # Phase 2: JSearch API
+    logger.info("Phase 2: Fetching from JSearch API...")
+    for job in fetch_all_api_jobs():
+        if is_new_job(job["id"]):
+            mark_job_seen(job)
+            new_jobs.append(job)
+            logger.info("  NEW  [%s] %s @ %s", job["source"], job["title"], job["company"])
+
+    # Phase 3: Update dashboard
+    logger.info("Phase 3: Updating job log and dashboard...")
     all_jobs = load_existing_jobs()
     all_jobs.extend(new_jobs)
     save_jobs(all_jobs)
@@ -43,39 +67,10 @@ def log_jobs_to_file(new_jobs):
     generate(load_jobs())
     logger.info("Dashboard regenerated.")
 
-
-def run():
-    logger.info("=" * 60)
-    logger.info("Footwear Job Tracker - starting run")
-    logger.info("=" * 60)
-
-    db = JobDatabase()
-    new_jobs = []
-
-    # Phase 1: Scraper (TeamWork Online)
-    logger.info("Phase 1: Scraping career pages...")
-    for job in scrape_all_companies():
-        if db.is_new(job["id"]):
-            db.mark_seen(job["id"])
-            new_jobs.append(job)
-            logger.info("  NEW  [%s] %s @ %s", job["source"], job["title"], job["company"])
-
-    # Phase 2: JSearch API
-    logger.info("Phase 2: Fetching from JSearch API...")
-    for job in fetch_all_api_jobs():
-        if db.is_new(job["id"]):
-            db.mark_seen(job["id"])
-            new_jobs.append(job)
-            logger.info("  NEW  [%s] %s @ %s", job["source"], job["title"], job["company"])
-
-    # Phase 3: Update dashboard
-    logger.info("Phase 3: Updating job log and dashboard...")
-    log_jobs_to_file(new_jobs)
-
     # Phase 4: Notify
     logger.info("Phase 4: Sending notifications...")
     if new_jobs:
-        logger.info("Found %d new job(s) out of %d checked.", len(new_jobs), len(new_jobs))
+        logger.info("Found %d new job(s).", len(new_jobs))
         notify(new_jobs)
     else:
         logger.info("No new jobs this run.")
