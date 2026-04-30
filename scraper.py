@@ -1,25 +1,18 @@
 """
-scraper.py — TeamWork Online scraper for sports industry jobs.
+scraper.py
 
-Workday API is blocked so all company scraping is handled by JSearch
-in api_fetcher.py. This module scrapes TeamWork Online which is the
-dedicated job board for sports business roles — leagues, teams, agencies.
-It's free, no API key needed, and covers roles that don't show on LinkedIn.
+TeamWork Online scraper for sports industry jobs.
+All top footwear/apparel brands are now handled by brand_scrapers.py.
+This module covers sports leagues, teams, and agencies that only post
+on TeamWork Online and not on LinkedIn/Indeed.
 """
 
 import logging
+import re
 from typing import Generator
 
 import requests
 from bs4 import BeautifulSoup
-
-from config import (
-    ENTRY_LEVEL_TITLE_KEYWORDS,
-    EXCLUDE_TITLE_KEYWORDS,
-    EXCLUDE_RETAIL_KEYWORDS,
-    KEYWORDS,
-    WORKDAY_COMPANIES,
-)
 
 logger = logging.getLogger(__name__)
 
@@ -31,26 +24,19 @@ HEADERS = {
     ),
 }
 
+RETAIL_EXCLUDE = [
+    "retail", "store manager", "sales associate", "store associate",
+    "stock associate", "cashier", "warehouse", "shipping",
+]
 
-def _passes_filters(title: str) -> bool:
+
+def _is_retail(title: str) -> bool:
     t = title.lower()
-    if not any(kw in t for kw in ENTRY_LEVEL_TITLE_KEYWORDS):
-        return False
-    if any(kw in t for kw in EXCLUDE_TITLE_KEYWORDS):
-        return False
-    if any(kw in t for kw in EXCLUDE_RETAIL_KEYWORDS):
-        return False
-    if KEYWORDS:
-        return any(kw.lower() in t for kw in KEYWORDS)
-    return True
+    return any(kw in t for kw in RETAIL_EXCLUDE)
 
 
 def scrape_teamwork_online(max_pages: int = 5) -> list[dict]:
-    """
-    Scrape TeamWork Online for entry-level sports business jobs.
-    Covers leagues, teams, agencies, and sports media companies.
-    URL: https://www.teamworkonline.com/jobs-in-sports
-    """
+    """Scrape TeamWork Online for sports industry jobs."""
     jobs = []
     seen_ids = set()
 
@@ -62,6 +48,72 @@ def scrape_teamwork_online(max_pages: int = 5) -> list[dict]:
         except requests.RequestException as exc:
             logger.warning("TeamWork Online page %d failed: %s", page, exc)
             break
+
+        soup = BeautifulSoup(resp.text, "html.parser")
+        job_cards = (
+            soup.find_all("li", class_=lambda c: c and "job" in c.lower())
+            or soup.find_all("article")
+            or soup.select(".job-post")
+        )
+
+        if not job_cards:
+            logger.info("TeamWork Online page %d - no cards found, stopping", page)
+            break
+
+        for card in job_cards:
+            title_el = card.find(["h2", "h3", "h4", "a"])
+            if not title_el:
+                continue
+            title = title_el.get_text(strip=True)
+            if not title or _is_retail(title):
+                continue
+
+            link_el = card.find("a", href=True)
+            job_url = ""
+            if link_el:
+                href = link_el["href"]
+                job_url = (
+                    href if href.startswith("http")
+                    else f"https://www.teamworkonline.com{href}"
+                )
+
+            company_el = card.find(
+                class_=lambda c: c and "company" in str(c).lower()
+            )
+            company = (
+                company_el.get_text(strip=True)
+                if company_el else "Sports Organization"
+            )
+
+            loc_el = card.find(
+                class_=lambda c: c and "location" in str(c).lower()
+            )
+            location = loc_el.get_text(strip=True) if loc_el else ""
+
+            job_id = f"teamwork-{abs(hash(job_url))}"
+            if job_id in seen_ids:
+                continue
+            seen_ids.add(job_id)
+
+            jobs.append({
+                "id": job_id,
+                "title": title,
+                "company": company,
+                "location": location,
+                "url": job_url,
+                "source": "teamwork_online",
+                "posted_on": "",
+            })
+
+    logger.info("TeamWork Online: %d jobs found", len(jobs))
+    return jobs
+
+
+def fetch_all_scraper_jobs() -> Generator[dict, None, None]:
+    """Run all supplementary scrapers."""
+    logger.info("Scraping TeamWork Online (sports industry)...")
+    for job in scrape_teamwork_online():
+        yield job            break
 
         soup = BeautifulSoup(resp.text, "html.parser")
 
